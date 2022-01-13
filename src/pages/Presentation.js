@@ -6,7 +6,7 @@ import SignIn from '../components/SignIn';
 
 const Presentation = () => {
     return (
-        <div>
+        <div className='presentation'>
             <Header />
             <Description />
             <SignIn />
