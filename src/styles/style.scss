@@ -6,6 +6,7 @@
 @import './signIn';
 @import './about';
 @import './feedback';
+@import './joinGratibum';
 
 * {
     margin: 0;
@@ -36,7 +37,6 @@
         font-weight: bold;
     }
 }
-
 
 // Helper Classes
 .underline {
