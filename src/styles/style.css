@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+.header {
+  color: #2c242b;
+  font-style: italic;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 30px;
+}
+
+.description-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  width: 305px;
+  height: 380px;
+  background-color: #FFEACF;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px #FFEACF);
+}
+.description-card .mini-images {
+  display: grid;
+  grid-template-columns: 95px 95px;
+  grid-template-rows: 105px 105px;
+  grid-column-gap: 15px;
+  grid-row-gap: 10px;
+}
+.description-card .mini-images img {
+  width: 95px;
+  height: 105px;
+  border-radius: 10px;
+}
+.description-card p {
+  text-align: center;
+  font-size: small;
+  width: 75%;
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20%;
+  height: 85px;
+}
+.sign-in button {
+  width: 131px;
+  height: 33px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: #50434F;
+  border-radius: 20px;
+  background: #FFEACF;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(180deg, #CEA281 40%, #CEA281 80%);
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+.App .scroll-to-learn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  font-size: small;
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}/*# sourceMappingURL=style.css.map */
