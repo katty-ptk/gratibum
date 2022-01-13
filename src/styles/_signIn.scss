@@ -1,0 +1,27 @@
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20%;
+    height: 85px;
+
+    button {
+        width: 131px;
+        height: 33px;
+
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        color: $lightPurple;
+        border-radius: 20px;
+
+        background: $secondary;
+
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+}
