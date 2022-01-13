@@ -1,6 +1,7 @@
 import React from 'react'
 import About from './About'
 import Feedback from './Feedback'
+import JoinGratibum from './JoinGratibum'
 import Presentation from './Presentation'
 
 const LandingPage = () => {
@@ -9,6 +10,7 @@ const LandingPage = () => {
             <Presentation />
             <About />
             <Feedback />
+            <JoinGratibum />
         </div>
     )
 }
