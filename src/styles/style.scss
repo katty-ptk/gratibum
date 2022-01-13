@@ -4,33 +4,46 @@
 @import './header';
 @import './description';
 @import './signIn';
+@import './about';
 
 * {
     margin: 0;
     padding: 0;
 }
 
-body {
+.presentation {
     height: 100vh;
     width: 100vw;
-    background-image: linear-gradient(180deg, $primary 40%, $primary 80%);
+    background-image: linear-gradient(180deg, $lt_primary, $dk_primary);
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
+    // border-bottom: 2px solid black;
 }
 
 .App {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Roboto', sans-serif;
+
 
     .scroll-to-learn {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        bottom: 30px;
+        bottom: 50px;
 
         font-size: small;
         font-weight: bold;
     }
 }
 
+
+// Helper Classes
 .underline {
     text-decoration: underline;
+}
+
+.scroll-to-top {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
 }

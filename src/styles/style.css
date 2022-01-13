@@ -67,28 +67,92 @@
   cursor: pointer;
 }
 
+.about {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-image: linear-gradient(180deg, rgba(137, 115, 99, 0.8), #897363);
+}
+.about h1 {
+  color: #fff;
+  font-style: italic;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100px;
+}
+.about .abouts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  top: 200px;
+}
+.about .abouts div {
+  width: 295px;
+  height: 45px;
+  position: relative;
+  border: 1px solid #FFEACF;
+}
+.about .abouts div:not(:last-child) {
+  margin-bottom: 70px;
+}
+.about .abouts div p {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: #fff;
+  font-weight: 100;
+}
+.about .abouts .align-left {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.about .abouts .align-right {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
-body {
+.presentation {
   height: 100vh;
   width: 100vw;
-  background-image: linear-gradient(180deg, #CEA281 40%, #CEA281 80%);
+  background-image: linear-gradient(180deg, rgba(206, 162, 129, 0.4), rgba(206, 162, 129, 0.8));
   font-family: "Roboto", sans-serif;
-  overflow: hidden;
 }
 
+.App {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Roboto", sans-serif;
+}
 .App .scroll-to-learn {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 30px;
+  bottom: 50px;
   font-size: small;
   font-weight: bold;
 }
 
 .underline {
   text-decoration: underline;
+}
+
+.scroll-to-top {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
 }/*# sourceMappingURL=style.css.map */
