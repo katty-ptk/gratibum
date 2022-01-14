@@ -1,0 +1,110 @@
+.sign-in-page {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    
+    .sign-in-header {
+        height: 30%;
+        background-color: #E4D3D3;
+        color: $lightPurple;
+        position: relative;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+
+        svg {
+            position: absolute;
+            top: 30px;
+            left: 20px;
+        }
+
+        h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .sign-in-next {
+        position: absolute;
+        height: 50px;
+        width: 100%;
+        background: $primary;
+        bottom: 0;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+    }
+}
+
+.sign-up-page {
+    position: relative;
+
+    .sign-up-section {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translateX(-50%);
+        
+        .profile-pic {
+            width: 230px;
+
+            svg {
+                display: inline;
+                cursor: pointer;
+            }
+
+            p {
+                display: inline;
+                font-size: 12px;
+                font-weight: 400;
+                text-align: center;
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                width: 150px;
+                margin-left: 30px;
+            }
+        }
+
+        form {
+            position: absolute;  
+            margin-top: 15px; 
+
+            label {
+                display: block;
+                font-weight: 400;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+
+            input {
+                outline: none;
+                border: none;
+                background-color: $lightPurple;
+                color: #fff;
+
+                width: 222px;
+                height: 15px;
+                padding: 10px;
+                border-radius: 5px;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.5);
+                }
+            }
+        }
+    }
+}
