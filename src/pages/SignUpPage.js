@@ -1,6 +1,7 @@
 import React from 'react';
 import Back from '../components/Back';
 import Next from '../components/Next';
+import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
@@ -79,6 +80,11 @@ const SignUpPage = () => {
                     </div>
                 </form>
             </section>
+
+            <div className="already-account">
+                <p>Already have an account?</p>
+                <Link to='/login'>Login</Link>
+            </div>
 
             <div className="sign-in-next">
                 <Next />

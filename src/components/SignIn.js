@@ -9,9 +9,12 @@ const SignIn = () => {
                     SIGN UP
                 </button>
             </Link>
-            <button className="login">
-                LOGIN
-            </button>
+
+            <Link to='/login'>
+                <button className="login">
+                    LOGIN
+                </button>
+            </Link>
         </div>
     )
 }
