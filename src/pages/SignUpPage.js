@@ -2,9 +2,17 @@ import React from 'react';
 import Back from '../components/Back';
 import Next from '../components/Next';
 
+import { motion } from 'framer-motion';
+
 const SignUpPage = () => {
+    window.scrollTo( { top: 0 } );
+
     return (
-        <div className="sign-up-page sign-in-page">
+        <motion.div className="sign-up-page sign-in-page"
+            initial={{ x: '100vw' }}
+            animate={{ x: 0 }}
+            transition={{ type: 'tween' }}
+        >
             <div className="sign-in-header">
                 <Back />
                 <h2>
@@ -75,7 +83,7 @@ const SignUpPage = () => {
             <div className="sign-in-next">
                 <Next />
             </div>
-        </div>
+        </motion.div>
     )
 }
 
