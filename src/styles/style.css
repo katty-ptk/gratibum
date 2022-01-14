@@ -238,7 +238,6 @@
   height: 100%;
   width: 100%;
   position: relative;
-  overflow: hidden;
 }
 .sign-in-page .sign-in-header {
   height: 30%;
@@ -400,7 +399,6 @@
   width: 100vw;
   background-image: linear-gradient(180deg, rgba(206, 162, 129, 0.4), rgba(206, 162, 129, 0.8));
   font-family: "Roboto", sans-serif;
-  overflow-x: hidden;
 }
 
 .App {
