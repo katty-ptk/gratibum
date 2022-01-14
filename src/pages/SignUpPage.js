@@ -5,14 +5,25 @@ import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
 
+const signUpVariants = {
+    initial: {
+        x: '-100vw'
+    },
+
+    animate: {
+        x: 0,
+        transition: { type: 'tween' }
+    }
+}
+
 const SignUpPage = () => {
     window.scrollTo( { top: 0 } );
 
     return (
         <motion.div className="sign-up-page sign-in-page"
-            initial={{ x: '100vw' }}
-            animate={{ x: 0 }}
-            transition={{ type: 'tween' }}
+            variants={ signUpVariants }
+            initial="initial"
+            animate="animate"
         >
             <div className="sign-in-header">
                 <Back />
