@@ -1,4 +1,5 @@
 import LandingPage from './pages/LandingPage';
+import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import './styles/style.css';
@@ -15,11 +16,15 @@ function App() {
             component={ LandingPage }
           ></Route>
           <Route
-            path='/sign-up' exact
+            exact path='/sign-in'
+            component={ SignInPage }
+          ></Route>
+          <Route
+            exact path='/sign-up'
             component={ SignUpPage }
           ></Route>
           <Route
-            path='/login' exact
+            exact path='/login'
             component={ LoginPage }
           ></Route>
         </Switch>

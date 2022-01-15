@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 const SignIn = () => {
     return (
         <div className='sign-in'>
-            <Link to='/sign-up'>
-                <button className="sign-up">
-                    SIGN UP
+            <Link to='/sign-in'>
+                <button>
+                    SIGN IN
                 </button>
             </Link>
 
-            <Link to='/login'>
+            {/* <Link to='/login'>
                 <button className="login">
                     LOGIN
                 </button>
-            </Link>
+            </Link> */}
         </div>
     )
 }
