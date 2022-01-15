@@ -70,9 +70,6 @@
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 20%;
   height: 85px;
 }
 .sign-in button {
@@ -80,12 +77,33 @@
   height: 33px;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
-  color: #50434F;
+  background: #50434F;
+  color: #fff;
   border-radius: 20px;
-  background: #FFEACF;
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+.sign-in-small-pres {
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sign-in-small-pres button {
+  background: #FFEACF;
+  color: #2c242b;
+}
+
+.sign-in-small-join {
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sign-in-large-pres {
+  top: 90px;
+  right: 80px;
 }
 
 .about {
@@ -229,7 +247,7 @@
   font-style: italic;
   color: #50434F;
 }
-.join-us .landing-questions {
+.join-us .join-us-small .landing-questions {
   position: absolute;
   top: 45%;
   left: 50%;
@@ -237,15 +255,15 @@
   width: 295px;
   height: 205px;
 }
-.join-us .landing-questions p {
+.join-us .join-us-small .landing-questions p {
   font-size: 17px;
   font-weight: 400;
   line-height: 19.92px;
 }
-.join-us .landing-questions p:not(:last-child) {
+.join-us .join-us-small .landing-questions p:not(:last-child) {
   margin-bottom: 20px;
 }
-.join-us h3 {
+.join-us .join-us-small h3 {
   position: absolute;
   bottom: 33%;
   left: 50%;
@@ -534,6 +552,100 @@
 @media (min-height: 800px), (max-height: 850px) {
   .sign-up-page .already-account {
     top: 87%;
+  }
+}
+@media (min-width: 1000px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .presentation .header {
+    top: 80px;
+  }
+
+  .description-card {
+    flex-direction: row;
+    background: none;
+    width: 100%;
+    justify-content: center;
+    top: 45%;
+  }
+  .description-card .mini-images {
+    background-color: #FFEACF;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 4px #FFEACF);
+    height: 360px;
+    width: 305px;
+    grid-column-gap: 20px;
+    grid-row-gap: 15px;
+  }
+  .description-card .mini-images > * {
+    margin-top: 60px;
+    margin-left: 45px;
+  }
+  .description-card .mini-images img {
+    width: 100px;
+    height: 110px;
+  }
+  .description-card p {
+    width: 280px;
+    margin-left: 100px;
+    font-size: 14px;
+  }
+
+  .about .abouts {
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .about .abouts div {
+    width: 455px;
+  }
+
+  .feedback .cards {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .feedback .cards .card {
+    width: 230px;
+    height: 250px;
+  }
+  .feedback .cards .card img {
+    width: 80px;
+    height: 80px;
+  }
+  .feedback .cards .card h3 {
+    font-size: 14px;
+  }
+  .feedback .cards .card div p {
+    font-size: 12px;
+  }
+
+  .join-us-large {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .join-us-large .landing-questions {
+    width: 300px;
+    margin-right: 150px;
+  }
+  .join-us-large .landing-questions p {
+    font-size: 17px;
+  }
+  .join-us-large .landing-questions p:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  .join-us-large .join-sign-in {
+    margin-top: 50px;
+  }
+  .join-us-large .join-sign-in h3 {
+    margin-bottom: 10px;
   }
 }
 * {
