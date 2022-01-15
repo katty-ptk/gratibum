@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Router onUpdate={() => window.scrollTo( {top: 0} )}>
+    <Router>
       <div className="App">
         <Switch>
           <Route

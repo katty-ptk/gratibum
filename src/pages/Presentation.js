@@ -9,7 +9,9 @@ const Presentation = () => {
         <div className='presentation'>
             <Header />
             <Description />
-            <SignIn />
+            <SignIn 
+                buttonAlign={ window.innerWidth <= 1000 ? "sign-in-small-pres" : "sign-in-large-pres" }
+            />
             <div className="scroll-to-learn">
                 <p className="underline">
                     Scroll down to learn more.
