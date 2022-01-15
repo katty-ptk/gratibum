@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
 
 @import './colors';
+@import './presentation';
 @import './header';
 @import './description';
 @import './signIn';
@@ -8,36 +9,11 @@
 @import './feedback';
 @import './joinGratibum';
 @import './sign-in-pages';
+@import './mediaQueries';
 
 * {
     margin: 0;
     padding: 0;
-}
-
-.presentation {
-    height: 100vh;
-    width: 100vw;
-    background-image: linear-gradient(180deg, $lt_primary, $dk_primary);
-    font-family: 'Roboto', sans-serif;
-    // overflow-x: hidden;
-    // border-bottom: 2px solid black;
-}
-
-.App {
-    height: 100vh;
-    width: 100vw;
-    font-family: 'Roboto', sans-serif;
-
-
-    .scroll-to-learn {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 50px;
-
-        font-size: small;
-        font-weight: bold;
-    }
 }
 
 svg {
