@@ -17,7 +17,7 @@ const loginVariants = {
 }
 
 const LoginPage = () => {
-    window.scrollTo( { top: 0 } );
+    // window.scrollTo( { top: 0 } );
 
     return (
         <motion.div className="sign-in-page login-page"
