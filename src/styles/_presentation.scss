@@ -1,0 +1,23 @@
+.presentation {
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(180deg, $lt_primary, $dk_primary);
+    font-family: 'Roboto', sans-serif;
+}
+
+.App {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Roboto', sans-serif;
+
+
+    .scroll-to-learn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 50px;
+
+        font-size: small;
+        font-weight: bold;
+    }
+}
