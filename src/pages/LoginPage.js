@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import Back from '../components/Back';
 import Next from '../components/Next';
+import AuthService from '../services/auth.service';
 
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { addScaleCorrector, motion } from 'framer-motion';
 
 const loginVariants = {
     initial: {
@@ -18,6 +19,24 @@ const loginVariants = {
 
 const LoginPage = () => {
     window.scrollTo( { top: 0 } );
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const emailTextChanged  = event => {
+        let email = event.target.value
+        console.log("new email: "+email);
+        setEmail(email);
+      };
+    const passwordTextChanged  = event => {
+        let pass = event.target.value
+        console.log("new pass: "+pass);
+        setPassword(pass);
+      };
+
+    function login() {
+        var authService = new AuthService();
+        authService.doLogin(email, password);
+    }
 
     return (
         <motion.div className="sign-in-page login-page"
@@ -43,6 +62,7 @@ const LoginPage = () => {
                                 type="text"
                                 placeholder='alicesmith@email.com'    
                                 autoComplete='off'
+                                onChange = {emailTextChanged} 
                             />
                         </div>
                         <div>                        
@@ -54,6 +74,7 @@ const LoginPage = () => {
                                 type="password"
                                 placeholder='********'    
                                 autoComplete='off'
+                                onChange = {passwordTextChanged} 
                             />
                         </div>
                 </form>
@@ -65,7 +86,7 @@ const LoginPage = () => {
                 </div>
             </section>
 
-            <div className="sign-in-next">
+            <div className="sign-in-next" onClick={login}>
                 <Next />
             </div>
         </motion.div>
