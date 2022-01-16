@@ -18,7 +18,6 @@ const loginVariants = {
 }
 
 const LoginPage = () => {
-<<<<<<< HEAD
     window.scrollTo( { top: 0 } );
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -38,10 +37,7 @@ const LoginPage = () => {
         var authService = new AuthService();
         authService.doLogin(email, password);
     }
-=======
-    // window.scrollTo( { top: 0 } );
->>>>>>> 8a85f782b8b6f0bcadb730865361b7265507254e
-
+    
     return (
         <motion.div className="sign-in-page login-page"
             variants={ loginVariants }
