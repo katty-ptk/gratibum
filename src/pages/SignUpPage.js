@@ -17,10 +17,9 @@ const signUpVariants = {
 }
 
 const SignUpPage = () => {
-    // window.scrollTo( { top: 0 } );
 
     return (
-        <motion.div className="sign-up-page sign-in-page"
+        <motion.div className={ window.innerWidth < 1000 ? "sign-up-page sign-up-page-small sign-in-page sign-in-page-small" : "sign-up-page sign-up-page-large sign-in-page sign-in-page-large" }
             variants={ signUpVariants }
             initial="initial"
             animate="animate"

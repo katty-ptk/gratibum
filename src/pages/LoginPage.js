@@ -4,7 +4,7 @@ import Next from '../components/Next';
 import AuthService from '../services/auth.service';
 
 import { Link } from 'react-router-dom';
-import { addScaleCorrector, motion } from 'framer-motion';
+import {  motion } from 'framer-motion';
 
 const loginVariants = {
     initial: {
@@ -18,17 +18,16 @@ const loginVariants = {
 }
 
 const LoginPage = () => {
-    window.scrollTo( { top: 0 } );
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const emailTextChanged  = event => {
-        let email = event.target.value
+        let email = event.target.value;
         console.log("new email: "+email);
         setEmail(email);
       };
     const passwordTextChanged  = event => {
-        let pass = event.target.value
+        let pass = event.target.value;
         console.log("new pass: "+pass);
         setPassword(pass);
       };
@@ -39,7 +38,7 @@ const LoginPage = () => {
     }
     
     return (
-        <motion.div className="sign-in-page login-page"
+        <motion.div className={ window.innerWidth < 1000 ? 'login-page login-page-small sign-in-page sign-in-page-small' : 'login-page login-page-large sign-in-page sign-in-page-large'}
             variants={ loginVariants }
             initial="initial"
             animate="animate"

@@ -17,7 +17,7 @@ const signInVariants = {
 
 const SignInPage = () => {
     return (
-        <motion.div className='sign-in-page'
+        <motion.div className={ window.innerWidth < 1000 ? 'sign-in-page sign-in-page-small' : 'sign-in-page sign-in-page-large'}
             variants={ signInVariants }
             initial="initial"
             animate="animate"

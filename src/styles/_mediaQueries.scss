@@ -148,17 +148,17 @@ $lg: 1000px;
     }
 }
 
-@media ( min-height: 800px), ( max-height: 850px ) {
-    .sign-up-page {
-        .already-account {
-            top: 87%;
-        }
-    }
-}
+// @media ( min-height: 800px), ( max-height: 850px ) {
+//     .sign-up-page {
+//         .already-account {
+//             top: 87%;
+//         }
+//     }
+// }
 
 
 // large screens
-@media ( min-width: $lg ) {
+@media ( min-width: $md ) {
     body {
         overflow-x: hidden;
     }
@@ -250,13 +250,16 @@ $lg: 1000px;
 
     .join-us-large {
         display: flex;
+        justify-content: center;
 
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
 
-        // background: coral;
+        width: 100%;
+        
+        // border: 1px solid coral;
 
         .landing-questions {
             width: 300px;
@@ -276,6 +279,7 @@ $lg: 1000px;
 
             h3 {
                 margin-bottom: 10px;
+                text-align: center;
             }
         }
     }
