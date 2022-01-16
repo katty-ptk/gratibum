@@ -17,7 +17,7 @@ const signUpVariants = {
 }
 
 const SignUpPage = () => {
-    window.scrollTo( { top: 0 } );
+    // window.scrollTo( { top: 0 } );
 
     return (
         <motion.div className="sign-up-page sign-in-page"

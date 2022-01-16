@@ -30,6 +30,41 @@
         }
     }
 
+    .sign-in-buttons {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        height: 250px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        // background-color: lightblue;
+
+        button {
+            width: 250px;
+            height: 40px;
+            border: none;
+            background-color: $purple;
+            color: #fff;
+            border-radius: 20px;
+            font-weight: 400;
+            font-size: 15px;
+
+            &:last-child {
+                position: relative;
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 20px;
+                }
+            }
+        }
+    }
+
     .sign-in-next {
         position: absolute;
         height: 50px;

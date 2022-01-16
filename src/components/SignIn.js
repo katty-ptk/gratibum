@@ -1,18 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SignIn = () => {
+const SignIn = ( { buttonAlign } ) => {
     return (
-        <div className='sign-in'>
-            <Link to='/sign-up'>
-                <button className="sign-up">
-                    SIGN UP
-                </button>
-            </Link>
-
-            <Link to='/login'>
-                <button className="login">
-                    LOGIN
+        <div className={`sign-in ${ buttonAlign }`}>
+            <Link to='/sign-in'>
+                <button>
+                    SIGN IN
                 </button>
             </Link>
         </div>

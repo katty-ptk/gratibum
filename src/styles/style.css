@@ -1,4 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+.presentation {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(180deg, rgba(206, 162, 129, 0.4), rgba(206, 162, 129, 0.8));
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Roboto", sans-serif;
+}
+.App .scroll-to-learn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
+  font-size: small;
+  font-weight: bold;
+}
+
 .header {
   color: #2c242b;
   font-style: italic;
@@ -8,7 +29,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 30px;
+  top: 50px;
 }
 
 .description-card {
@@ -17,9 +38,9 @@
   justify-content: space-around;
   align-items: center;
   position: absolute;
-  top: 35%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -35%);
+  transform: translate(-50%, -40%);
   width: 305px;
   height: 380px;
   background-color: #FFEACF;
@@ -49,9 +70,6 @@
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 20%;
   height: 85px;
 }
 .sign-in button {
@@ -59,12 +77,33 @@
   height: 33px;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
-  color: #50434F;
+  background: #50434F;
+  color: #fff;
   border-radius: 20px;
-  background: #FFEACF;
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+.sign-in-small-pres {
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sign-in-small-pres button {
+  background: #FFEACF;
+  color: #2c242b;
+}
+
+.sign-in-small-join {
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sign-in-large-pres {
+  top: 90px;
+  right: 80px;
 }
 
 .about {
@@ -208,7 +247,7 @@
   font-style: italic;
   color: #50434F;
 }
-.join-us .landing-questions {
+.join-us .join-us-small .landing-questions {
   position: absolute;
   top: 45%;
   left: 50%;
@@ -216,15 +255,15 @@
   width: 295px;
   height: 205px;
 }
-.join-us .landing-questions p {
+.join-us .join-us-small .landing-questions p {
   font-size: 17px;
   font-weight: 400;
   line-height: 19.92px;
 }
-.join-us .landing-questions p:not(:last-child) {
+.join-us .join-us-small .landing-questions p:not(:last-child) {
   margin-bottom: 20px;
 }
-.join-us h3 {
+.join-us .join-us-small h3 {
   position: absolute;
   bottom: 33%;
   left: 50%;
@@ -259,6 +298,35 @@
   transform: translate(-50%, -50%);
   width: 100%;
   text-align: center;
+}
+.sign-in-page .sign-in-buttons {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sign-in-page .sign-in-buttons button {
+  width: 250px;
+  height: 40px;
+  border: none;
+  background-color: #2c242b;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 400;
+  font-size: 15px;
+}
+.sign-in-page .sign-in-buttons button:last-child {
+  position: relative;
+}
+.sign-in-page .sign-in-buttons button:last-child svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
 }
 .sign-in-page .sign-in-next {
   position: absolute;
@@ -389,30 +457,200 @@
   color: #2c242b;
 }
 
+@media (max-width: 480px) {
+  .presentation .header {
+    font-size: 1rem;
+    top: 20px;
+  }
+  .presentation .description-card {
+    height: 350px;
+  }
+  .presentation .description-card img {
+    width: 90px;
+    height: 100px;
+  }
+  .presentation .sign-in {
+    top: calc( 40% + 250px );
+  }
+
+  .sign-up-page .sign-up-section sform label {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .sign-up-page .sign-up-section sform input {
+    height: 10px;
+  }
+  .sign-up-page .already-account {
+    top: 82%;
+  }
+
+  .login-page .login-section {
+    top: 35%;
+  }
+  .login-page .login-section .no-account {
+    margin-top: 50px;
+  }
+}
+@media (max-height: 750px) {
+  .about h1 {
+    font-size: 1rem;
+  }
+  .about .abouts div {
+    width: 280px;
+    height: 35px;
+  }
+  .about .abouts div:not(:last-child) {
+    margin-bottom: 40px;
+  }
+  .about .abouts div p {
+    font-size: 14px;
+  }
+
+  .feedback h1 {
+    font-size: 1rem;
+  }
+  .feedback .cards .card:not(:first-child) {
+    display: none;
+  }
+
+  .join-us h1 {
+    font-size: 1rem;
+    width: 100%;
+  }
+  .join-us .landing-questions p {
+    font-size: 14px;
+  }
+  .join-us h3 {
+    margin-bottom: 10px;
+  }
+
+  .sign-in-page .sign-in-header {
+    height: 20%;
+  }
+
+  .sign-up-page .sign-up-section {
+    top: 23%;
+  }
+  .sign-up-page .sign-up-section form label {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .sign-up-page .sign-up-section form input {
+    height: 10px;
+  }
+  .sign-up-page .already-account {
+    top: 82%;
+  }
+
+  .login-page .login-section {
+    top: 35%;
+  }
+  .login-page .login-section .no-account {
+    margin-top: 50px;
+  }
+}
+@media (min-height: 800px), (max-height: 850px) {
+  .sign-up-page .already-account {
+    top: 87%;
+  }
+}
+@media (min-width: 1000px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .presentation .header {
+    top: 80px;
+  }
+
+  .description-card {
+    flex-direction: row;
+    background: none;
+    width: 100%;
+    justify-content: center;
+    top: 45%;
+  }
+  .description-card .mini-images {
+    background-color: #FFEACF;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 4px #FFEACF);
+    height: 360px;
+    width: 305px;
+    grid-column-gap: 20px;
+    grid-row-gap: 15px;
+  }
+  .description-card .mini-images > * {
+    margin-top: 60px;
+    margin-left: 45px;
+  }
+  .description-card .mini-images img {
+    width: 100px;
+    height: 110px;
+  }
+  .description-card p {
+    width: 280px;
+    margin-left: 100px;
+    font-size: 14px;
+  }
+
+  .about .abouts {
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .about .abouts div {
+    width: 455px;
+  }
+
+  .feedback .cards {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .feedback .cards .card {
+    width: 230px;
+    height: 250px;
+  }
+  .feedback .cards .card img {
+    width: 80px;
+    height: 80px;
+  }
+  .feedback .cards .card h3 {
+    font-size: 14px;
+  }
+  .feedback .cards .card div p {
+    font-size: 12px;
+  }
+
+  .join-us-large {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .join-us-large .landing-questions {
+    width: 300px;
+    margin-right: 150px;
+  }
+  .join-us-large .landing-questions p {
+    font-size: 17px;
+  }
+  .join-us-large .landing-questions p:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  .join-us-large .join-sign-in {
+    margin-top: 50px;
+  }
+  .join-us-large .join-sign-in h3 {
+    margin-bottom: 10px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
-}
-
-.presentation {
-  height: 100vh;
-  width: 100vw;
-  background-image: linear-gradient(180deg, rgba(206, 162, 129, 0.4), rgba(206, 162, 129, 0.8));
-  font-family: "Roboto", sans-serif;
-}
-
-.App {
-  height: 100vh;
-  width: 100vw;
-  font-family: "Roboto", sans-serif;
-}
-.App .scroll-to-learn {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 50px;
-  font-size: small;
-  font-weight: bold;
 }
 
 svg {

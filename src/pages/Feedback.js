@@ -6,8 +6,6 @@ import img_roland from '../images/feedback/roland.jpg';
 import Quote from '../components/Quote';
 import ScrollToTop from '../components/ScrollToTop';
 
-
-
 const Feedback = () => {
     return (
         <section className='feedback'>
