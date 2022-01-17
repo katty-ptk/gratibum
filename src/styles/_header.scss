@@ -1,0 +1,14 @@
+.header {
+    color: $purple;
+    font-style: italic;
+    font-size: 1.2rem;
+    text-align: center;
+
+    // background: lightblue;
+
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+}

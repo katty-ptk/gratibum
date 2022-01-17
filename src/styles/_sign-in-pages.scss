@@ -1,0 +1,362 @@
+.sign-in-page {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    // overflow: hidden;
+    
+    // background-color: lightblue;
+    
+    .sign-in-header {
+        background-color: #E4D3D3;
+        color: $lightPurple;
+
+        svg {
+            position: absolute;
+            top: 30px;
+            left: 20px;
+        }
+
+        h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .sign-in-buttons {
+        position: absolute;
+        top: 50%;
+        // left: 50%;
+        transform: translateY(-50%);
+        height: 250px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+
+        // background-color: lightblue;
+
+        button {
+            width: 250px;
+            height: 40px;
+            border: none;
+            background-color: $purple;
+            color: #fff;
+            border-radius: 20px;
+            font-weight: 400;
+            font-size: 15px;
+            cursor: pointer;
+
+            &:last-child {
+                position: relative;
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 20px;
+                }
+            }
+        }
+    }
+
+    .sign-in-next {
+        position: absolute;
+        height: 50px;
+        background: $primary;
+        bottom: 0;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+    }
+}
+
+.sign-in-page-small {
+    .sign-in-header {
+        height: 30%;
+        position: relative;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;    
+    }
+
+    .sign-in-buttons {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.sign-in-page-large {
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
+
+    .sign-in-header {
+        width: 45%;
+        height: 100%;
+        position: absolute;
+        border-top-right-radius: 15px;
+        // border-bottom-right-radius: 15px;
+        // float: left;
+    }
+
+    .sign-in-buttons {
+        width: 55%;
+        height: 30%;
+
+        right: 0;
+        // border: 1px solid black;
+
+        justify-content: space-around;
+        align-items: center;
+
+        button {
+            border-radius: 15px;
+        }
+    }
+}
+
+
+// SIGN UP PAGES
+.sign-up-page {
+    position: relative;
+
+    .sign-up-section {
+        position: absolute;
+        
+        .profile-pic {
+            width: 230px;
+
+            svg {
+                display: inline;
+                cursor: pointer;
+            }
+
+            p {
+                display: inline;
+                font-size: 12px;
+                font-weight: 400;
+                text-align: center;
+
+
+                width: 150px;
+                margin-left: 30px;
+            }
+        }
+
+        form {
+            position: absolute;  
+            margin-top: 15px; 
+
+            label {
+                display: block;
+                font-weight: 400;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+
+            input {
+                outline: none;
+                border: none;
+                background-color: $lightPurple;
+                color: #fff;
+
+                width: 222px;
+                height: 15px;
+                padding: 10px;
+                border-radius: 5px;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.5);
+                }
+            }
+        }
+    }
+
+    .already-account {
+        text-align: center;
+        position: absolute;
+        font-size: 12px;
+
+        a {
+            color: $purple;
+        }
+    }
+}
+
+.sign-up-page-small {
+    .sign-up-section {
+        top: 35%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .profile-pic {
+            p {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    .already-account {
+        top: 85%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .sign-in-next {
+        width: 100%;
+    }
+}
+
+.sign-up-page-large {
+    .sign-up-section {
+        width: 55%;
+        height: 400px;
+
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        // border: 1px solid black;
+
+        justify-content: space-around;
+        align-items: center;
+
+        .profile-pic {
+            position: absolute;
+            display: flex;
+            align-items: center;
+        }
+
+        form {
+            div {
+                &:first-child {
+                    margin-top: 50px;
+                }
+            }
+        }
+
+        > * {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .already-account {
+        bottom: 17%;
+        width: 55%;
+        right: 0;
+    }
+
+    .sign-in-next {
+        width: 55%;
+        right: 0;
+    }
+}
+
+
+// LOGIN PAGES
+.login-page {
+    position: relative;
+
+    .login-section {
+        position: absolute;
+
+        form {
+            label {
+                display: block;
+                font-weight: 400;
+                margin-bottom: 15px;
+                margin-top: 15px;
+            }
+
+            input {
+                outline: none;
+                border: none;
+                background-color: $lightPurple;
+                color: #fff;
+
+                width: 222px;
+                height: 15px;
+                padding: 10px;
+                border-radius: 5px;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.5);
+                }
+            }
+
+        }
+
+        .no-account {
+            text-align: center;
+            font-size: 12px;
+
+            a {
+                color: $purple;
+            }
+        }
+    }
+}
+
+.login-page-small {
+    .login-section {
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .no-account {
+        margin-top: 100px;
+    }
+
+    .sign-in-next {
+        width: 100%;
+    }
+}
+
+.login-page-large {
+    position: relative;
+
+    .login-section {
+        position: absolute;
+        width: 55%;
+        height: 200px;
+
+        top: 50%;
+        transform: translateY(-50%);
+
+        right: 0;
+        // border: 1px solid black;
+
+        justify-content: space-around;
+        align-items: center;
+
+        form {
+            // width: 315px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .no-account {
+            margin-top: 200px;
+        }
+    }
+
+    .sign-in-next {
+        width: 55%;
+        right: 0;
+    }
+}

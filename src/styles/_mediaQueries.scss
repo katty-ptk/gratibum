@@ -1,0 +1,310 @@
+// breakpoints:
+$xs: 320px;
+$sm: 480px;
+$md: 768px;
+$lg: 1000px;
+
+// screens:
+@media ( max-width: $sm ) {
+    .presentation {
+        .header {
+            font-size: 1rem;
+            top: 20px;
+        }
+
+        .description-card {
+            height: 350px;
+
+            img {
+                width: 90px;
+                height: 100px;
+            }
+        }
+
+        .sign-in {
+            top: calc( 40% + 250px );
+        }
+    }
+
+    .sign-up-page {
+        .sign-up-section {
+            sform {
+                label {
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+
+                input {
+                    height: 10px;
+                }
+            }
+        }
+
+        .already-account {
+            top: 82%;
+        }
+    }
+
+    .login-page {
+        .login-section {
+            top: 35%;
+            .no-account {
+                margin-top: 50px;
+            }
+        }
+
+    }
+
+}
+
+@media  ( max-height: 750px ) {
+    .about {
+        h1 {
+            font-size: 1rem;
+        }
+
+        .abouts {
+            div {
+                width: 280px;
+                height: 35px;
+                
+                &:not(:last-child) {
+                    margin-bottom: 40px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .feedback {
+        h1 {
+            font-size: 1rem;
+        }
+
+        .cards {
+            .card {
+                &:not(:first-child) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .join-us {
+        h1 {
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .landing-questions {
+            p {
+                font-size: 14px;
+            }
+        }
+
+        h3 {
+            margin-bottom: 10px;
+        }
+    }
+
+    .sign-in-page {
+        .sign-in-header {
+            height: 20%;
+        }
+    }
+
+    .sign-up-page {
+        .sign-up-section {
+            top: 23%;
+            
+            form {
+                label {
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+
+                input {
+                    height: 10px;
+                }
+            }
+        }
+
+        .already-account {
+            top: 82%;
+        }
+    }
+
+    .login-page {
+        .login-section {
+            top: 35%;
+            .no-account {
+                margin-top: 50px;
+            }
+        }
+
+    }
+}
+
+// @media ( min-height: 800px), ( max-height: 850px ) {
+//     .sign-up-page {
+//         .already-account {
+//             top: 87%;
+//         }
+//     }
+// }
+
+
+// large screens
+@media ( min-width: $md ) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .presentation {
+        .header {
+            top: 80px;
+        }
+    }
+
+    .description-card {
+        flex-direction: row;
+        background: none;
+        width: 100%;
+        justify-content: center;
+        top: 45%;
+        // transform: translateY(-50%);
+
+        .mini-images {
+            background-color: $secondary;
+            border-radius: 10px;
+            filter: drop-shadow(2px 2px 4px $secondary);
+
+            height: 360px;
+            width: 305px;
+
+            grid-column-gap: 20px;
+            grid-row-gap: 15px;
+
+            > * {
+                margin-top: 60px;
+                margin-left: 45px;
+            }
+
+            img {
+                width: 100px;
+                height: 110px;
+            }
+        }
+
+        p {
+            width: 280px;
+            margin-left: 100px;
+            font-size: 14px;
+        }
+    }
+
+    .about {
+        .abouts {
+            width: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            div {
+                width: 455px;
+            }
+        }
+    }
+
+    .feedback {
+        .cards {
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            display: flex;
+            justify-content: space-around;
+
+            .card {
+                width: 230px;
+                height: 250px;
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                }
+
+                h3 {
+                    font-size: 14px;
+                }
+
+                div {
+                    p {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    .join-us-large {
+        display: flex;
+        justify-content: center;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 100%;
+        
+        // border: 1px solid coral;
+
+        .landing-questions {
+            width: 300px;
+            margin-right: 150px;
+
+            p {
+                font-size: 17px;
+
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        .join-sign-in {
+            margin-top: 50px;
+
+            h3 {
+                margin-bottom: 10px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media ( min-width: 768px ), ( max-width: 1000px ) {
+    .about {
+        .abouts {
+            div {
+                width: 300px;
+            }
+        }
+    }
+
+    .feedback {
+        .cards {
+            .card {
+                
+                span {
+                    display: none;
+                }
+                &:last-child {
+                    display: none;
+                }
+            }
+        }
+    }
+}

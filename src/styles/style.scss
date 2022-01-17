@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+@import './colors';
+@import './presentation';
+@import './header';
+@import './description';
+@import './signIn';
+@import './about';
+@import './feedback';
+@import './joinGratibum';
+@import './sign-in-pages';
+@import './mediaQueries';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+svg {
+    cursor: pointer;
+}
+
+// Helper Classes
+.underline {
+    text-decoration: underline;
+}
+
+.scroll-to-top {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}

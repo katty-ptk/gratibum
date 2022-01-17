@@ -1,0 +1,45 @@
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: absolute;
+    height: 85px;
+
+    button {
+        width: 131px;
+        height: 33px;
+
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        background: $lightPurple;
+        color: #fff;
+        border-radius: 20px;
+
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.sign-in-small-pres {
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    button {
+        background: $secondary;
+        color: $purple;
+    }
+}
+
+.sign-in-small-join {
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sign-in-large-pres {
+    top: 90px;
+    right: 80px;
+}

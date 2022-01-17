@@ -1,0 +1,776 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+.presentation {
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(180deg, rgba(206, 162, 129, 0.4), rgba(206, 162, 129, 0.8));
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Roboto", sans-serif;
+}
+.App .scroll-to-learn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
+  font-size: small;
+  font-weight: bold;
+}
+
+.header {
+  color: #2c242b;
+  font-style: italic;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50px;
+}
+
+.description-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 305px;
+  height: 380px;
+  background-color: #FFEACF;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px #FFEACF);
+}
+.description-card .mini-images {
+  display: grid;
+  grid-template-columns: 95px 95px;
+  grid-template-rows: 105px 105px;
+  grid-column-gap: 15px;
+  grid-row-gap: 10px;
+}
+.description-card .mini-images img {
+  width: 95px;
+  height: 105px;
+  border-radius: 10px;
+}
+.description-card p {
+  text-align: center;
+  font-size: small;
+  width: 75%;
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  height: 85px;
+}
+.sign-in button {
+  width: 131px;
+  height: 33px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  background: #50434F;
+  color: #fff;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sign-in-small-pres {
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sign-in-small-pres button {
+  background: #FFEACF;
+  color: #2c242b;
+}
+
+.sign-in-small-join {
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sign-in-large-pres {
+  top: 90px;
+  right: 80px;
+}
+
+.about {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-image: linear-gradient(180deg, rgba(137, 115, 99, 0.8), #897363);
+}
+.about h1 {
+  color: #fff;
+  font-style: italic;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100px;
+}
+.about .abouts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  top: 200px;
+}
+.about .abouts div {
+  width: 295px;
+  height: 45px;
+  position: relative;
+  border: 1px solid #FFEACF;
+}
+.about .abouts div:not(:last-child) {
+  margin-bottom: 70px;
+}
+.about .abouts div p {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: #fff;
+  font-weight: 100;
+}
+.about .abouts .align-left {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.about .abouts .align-right {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.feedback {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-image: linear-gradient(180deg, rgba(94, 75, 61, 0.8), #41342b);
+}
+.feedback h1 {
+  color: #fff;
+  font-style: italic;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50px;
+}
+.feedback .cards {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -55%);
+}
+.feedback .cards .card {
+  width: 180px;
+  height: 200px;
+  background: #FFEACF;
+  border-radius: 12px;
+  border-top-left-radius: 0;
+  box-shadow: 2px 2px 4px rgba(255, 248, 241, 0.7);
+}
+.feedback .cards .card img {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+}
+.feedback .cards .card h3 {
+  text-align: center;
+  font-size: 12px;
+}
+.feedback .cards .card span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 31px;
+  height: 2px;
+  background: #f1dec5;
+  z-index: 1000;
+}
+.feedback .cards .card div p {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.feedback .cards .card div .quote-left {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.feedback .cards .card div .quote-right {
+  float: right;
+  margin-right: 20px;
+}
+.feedback .cards .card:not(:last-child) {
+  margin-bottom: 27px;
+}
+
+.join-us {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(180deg, rgba(206, 162, 129, 0.4), rgba(206, 162, 129, 0.8));
+}
+.join-us h1 {
+  position: absolute;
+  top: 107px;
+  font-size: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-style: italic;
+  color: #50434F;
+}
+.join-us .join-us-small .landing-questions {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  width: 295px;
+  height: 205px;
+}
+.join-us .join-us-small .landing-questions p {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 19.92px;
+}
+.join-us .join-us-small .landing-questions p:not(:last-child) {
+  margin-bottom: 20px;
+}
+.join-us .join-us-small h3 {
+  position: absolute;
+  bottom: 33%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: 700;
+  color: #50434F;
+}
+
+.sign-in-page {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.sign-in-page .sign-in-header {
+  background-color: #E4D3D3;
+  color: #50434F;
+}
+.sign-in-page .sign-in-header svg {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+}
+.sign-in-page .sign-in-header h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+.sign-in-page .sign-in-buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sign-in-page .sign-in-buttons button {
+  width: 250px;
+  height: 40px;
+  border: none;
+  background-color: #2c242b;
+  color: #fff;
+  border-radius: 20px;
+  font-weight: 400;
+  font-size: 15px;
+  cursor: pointer;
+}
+.sign-in-page .sign-in-buttons button:last-child {
+  position: relative;
+}
+.sign-in-page .sign-in-buttons button:last-child svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+}
+.sign-in-page .sign-in-next {
+  position: absolute;
+  height: 50px;
+  background: #CEA281;
+  bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.sign-in-page .sign-in-next svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.sign-in-page-small .sign-in-header {
+  height: 30%;
+  position: relative;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.sign-in-page-small .sign-in-buttons {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sign-in-page-large .sign-in-header {
+  width: 45%;
+  height: 100%;
+  position: absolute;
+  border-top-right-radius: 15px;
+}
+.sign-in-page-large .sign-in-buttons {
+  width: 55%;
+  height: 30%;
+  right: 0;
+  justify-content: space-around;
+  align-items: center;
+}
+.sign-in-page-large .sign-in-buttons button {
+  border-radius: 15px;
+}
+
+.sign-up-page {
+  position: relative;
+}
+.sign-up-page .sign-up-section {
+  position: absolute;
+}
+.sign-up-page .sign-up-section .profile-pic {
+  width: 230px;
+}
+.sign-up-page .sign-up-section .profile-pic svg {
+  display: inline;
+  cursor: pointer;
+}
+.sign-up-page .sign-up-section .profile-pic p {
+  display: inline;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  width: 150px;
+  margin-left: 30px;
+}
+.sign-up-page .sign-up-section form {
+  position: absolute;
+  margin-top: 15px;
+}
+.sign-up-page .sign-up-section form label {
+  display: block;
+  font-weight: 400;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.sign-up-page .sign-up-section form input {
+  outline: none;
+  border: none;
+  background-color: #50434F;
+  color: #fff;
+  width: 222px;
+  height: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.sign-up-page .sign-up-section form input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.sign-up-page .sign-up-section form input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.sign-up-page .sign-up-section form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.sign-up-page .already-account {
+  text-align: center;
+  position: absolute;
+  font-size: 12px;
+}
+.sign-up-page .already-account a {
+  color: #2c242b;
+}
+
+.sign-up-page-small .sign-up-section {
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sign-up-page-small .sign-up-section .profile-pic p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sign-up-page-small .already-account {
+  top: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sign-up-page-small .sign-in-next {
+  width: 100%;
+}
+
+.sign-up-page-large .sign-up-section {
+  width: 55%;
+  height: 400px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content: space-around;
+  align-items: center;
+}
+.sign-up-page-large .sign-up-section .profile-pic {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.sign-up-page-large .sign-up-section form div:first-child {
+  margin-top: 50px;
+}
+.sign-up-page-large .sign-up-section > * {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sign-up-page-large .already-account {
+  bottom: 17%;
+  width: 55%;
+  right: 0;
+}
+.sign-up-page-large .sign-in-next {
+  width: 55%;
+  right: 0;
+}
+
+.login-page {
+  position: relative;
+}
+.login-page .login-section {
+  position: absolute;
+}
+.login-page .login-section form label {
+  display: block;
+  font-weight: 400;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.login-page .login-section form input {
+  outline: none;
+  border: none;
+  background-color: #50434F;
+  color: #fff;
+  width: 222px;
+  height: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.login-page .login-section form input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.login-page .login-section form input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.login-page .login-section form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.login-page .login-section .no-account {
+  text-align: center;
+  font-size: 12px;
+}
+.login-page .login-section .no-account a {
+  color: #2c242b;
+}
+
+.login-page-small .login-section {
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.login-page-small .no-account {
+  margin-top: 100px;
+}
+.login-page-small .sign-in-next {
+  width: 100%;
+}
+
+.login-page-large {
+  position: relative;
+}
+.login-page-large .login-section {
+  position: absolute;
+  width: 55%;
+  height: 200px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  justify-content: space-around;
+  align-items: center;
+}
+.login-page-large .login-section form {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.login-page-large .login-section .no-account {
+  margin-top: 200px;
+}
+.login-page-large .sign-in-next {
+  width: 55%;
+  right: 0;
+}
+
+@media (max-width: 480px) {
+  .presentation .header {
+    font-size: 1rem;
+    top: 20px;
+  }
+  .presentation .description-card {
+    height: 350px;
+  }
+  .presentation .description-card img {
+    width: 90px;
+    height: 100px;
+  }
+  .presentation .sign-in {
+    top: calc( 40% + 250px );
+  }
+
+  .sign-up-page .sign-up-section sform label {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .sign-up-page .sign-up-section sform input {
+    height: 10px;
+  }
+  .sign-up-page .already-account {
+    top: 82%;
+  }
+
+  .login-page .login-section {
+    top: 35%;
+  }
+  .login-page .login-section .no-account {
+    margin-top: 50px;
+  }
+}
+@media (max-height: 750px) {
+  .about h1 {
+    font-size: 1rem;
+  }
+  .about .abouts div {
+    width: 280px;
+    height: 35px;
+  }
+  .about .abouts div:not(:last-child) {
+    margin-bottom: 40px;
+  }
+  .about .abouts div p {
+    font-size: 14px;
+  }
+
+  .feedback h1 {
+    font-size: 1rem;
+  }
+  .feedback .cards .card:not(:first-child) {
+    display: none;
+  }
+
+  .join-us h1 {
+    font-size: 1rem;
+    width: 100%;
+  }
+  .join-us .landing-questions p {
+    font-size: 14px;
+  }
+  .join-us h3 {
+    margin-bottom: 10px;
+  }
+
+  .sign-in-page .sign-in-header {
+    height: 20%;
+  }
+
+  .sign-up-page .sign-up-section {
+    top: 23%;
+  }
+  .sign-up-page .sign-up-section form label {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .sign-up-page .sign-up-section form input {
+    height: 10px;
+  }
+  .sign-up-page .already-account {
+    top: 82%;
+  }
+
+  .login-page .login-section {
+    top: 35%;
+  }
+  .login-page .login-section .no-account {
+    margin-top: 50px;
+  }
+}
+@media (min-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .presentation .header {
+    top: 80px;
+  }
+
+  .description-card {
+    flex-direction: row;
+    background: none;
+    width: 100%;
+    justify-content: center;
+    top: 45%;
+  }
+  .description-card .mini-images {
+    background-color: #FFEACF;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 4px #FFEACF);
+    height: 360px;
+    width: 305px;
+    grid-column-gap: 20px;
+    grid-row-gap: 15px;
+  }
+  .description-card .mini-images > * {
+    margin-top: 60px;
+    margin-left: 45px;
+  }
+  .description-card .mini-images img {
+    width: 100px;
+    height: 110px;
+  }
+  .description-card p {
+    width: 280px;
+    margin-left: 100px;
+    font-size: 14px;
+  }
+
+  .about .abouts {
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .about .abouts div {
+    width: 455px;
+  }
+
+  .feedback .cards {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .feedback .cards .card {
+    width: 230px;
+    height: 250px;
+  }
+  .feedback .cards .card img {
+    width: 80px;
+    height: 80px;
+  }
+  .feedback .cards .card h3 {
+    font-size: 14px;
+  }
+  .feedback .cards .card div p {
+    font-size: 12px;
+  }
+
+  .join-us-large {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  .join-us-large .landing-questions {
+    width: 300px;
+    margin-right: 150px;
+  }
+  .join-us-large .landing-questions p {
+    font-size: 17px;
+  }
+  .join-us-large .landing-questions p:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  .join-us-large .join-sign-in {
+    margin-top: 50px;
+  }
+  .join-us-large .join-sign-in h3 {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+@media (min-width: 768px), (max-width: 1000px) {
+  .about .abouts div {
+    width: 300px;
+  }
+
+  .feedback .cards .card span {
+    display: none;
+  }
+  .feedback .cards .card:last-child {
+    display: none;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.scroll-to-top {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}/*# sourceMappingURL=style.css.map */

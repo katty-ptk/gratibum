@@ -1,0 +1,40 @@
+.description-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+
+    width: 305px;
+    height: 380px;
+
+    background-color: $secondary;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 4px $secondary);
+
+    .mini-images {
+        display: grid;
+        grid-template-columns: 95px 95px;
+        grid-template-rows: 105px 105px;
+        grid-column-gap: 15px;
+        grid-row-gap: 10px;
+
+        // width: 80%;
+        // background: lightblue;
+
+        img {
+            width: 95px;
+            height: 105px;
+            border-radius: 10px;
+        }
+    }
+
+    p {
+        text-align: center;
+        font-size: small;
+        width: 75%;
+    }
+}

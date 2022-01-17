@@ -1,0 +1,52 @@
+.join-us {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(180deg, $lt_primary, $dk_primary);
+
+    h1 {
+        position: absolute;
+        top: 107px;
+        font-size: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        font-style: italic;
+        color: $lightPurple;
+    }
+
+    .join-us-small {
+
+        .landing-questions {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -45%);
+    
+            // background: lightblue;
+    
+            width: 295px;
+            height: 205px;
+            
+            p {
+                font-size: 17px;
+                font-weight: 400;
+                line-height: 19.92px;
+    
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    
+        h3 {
+            position: absolute;
+            bottom: 33%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: 700;
+            color: $lightPurple;
+        }
+    }
+}
