@@ -6,11 +6,16 @@ class AuthService {
             email: email,
             password: password
         };
-        axios.post("http://www.vecinulvirtual.ro/liw/api/auth/login.php", {
-            data: formData
-        })
+        axios.post("http://www.vecinulvirtual.ro/liw/api/auth/login.php", formData)
         .then(function (response) {
-          console.log(response);
+          console.log(response.data);
+          // save the idtoken for further requests
+          console.log( "id token : "+response.data.idToken );
+          // save the refresh token for when the id token expires.
+          console.log( "refresh token : "+response.data.refreshToken );
+        })
+        .catch(function (err) {
+            console.log(err.response.data);
         });
     }
 }
