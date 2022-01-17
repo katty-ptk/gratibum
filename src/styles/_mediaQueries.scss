@@ -28,7 +28,7 @@ $lg: 1000px;
 
     .sign-up-page {
         .sign-up-section {
-            sform {
+            form {
                 label {
                     font-size: 14px;
                     margin-bottom: 10px;
@@ -41,7 +41,7 @@ $lg: 1000px;
         }
 
         .already-account {
-            top: 82%;
+            top: 85%;
         }
     }
 
@@ -285,7 +285,7 @@ $lg: 1000px;
     }
 }
 
-@media ( min-width: 768px ), ( max-width: 1000px ) {
+@media ( min-width: 768px ) and ( max-width: 1000px ) {
     .about {
         .abouts {
             div {

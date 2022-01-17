@@ -571,15 +571,15 @@
     top: calc( 40% + 250px );
   }
 
-  .sign-up-page .sign-up-section sform label {
+  .sign-up-page .sign-up-section form label {
     font-size: 14px;
     margin-bottom: 10px;
   }
-  .sign-up-page .sign-up-section sform input {
+  .sign-up-page .sign-up-section form input {
     height: 10px;
   }
   .sign-up-page .already-account {
-    top: 82%;
+    top: 85%;
   }
 
   .login-page .login-section {
@@ -744,7 +744,7 @@
     text-align: center;
   }
 }
-@media (min-width: 768px), (max-width: 1000px) {
+@media (min-width: 768px) and (max-width: 1000px) {
   .about .abouts div {
     width: 300px;
   }
