@@ -1,3 +1,6 @@
+# The design of the application can be found here:
+https://www.figma.com/file/DlD4OMIFILD3ykCv9zXt0Q/gratibum?node-id=0%3A1
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
