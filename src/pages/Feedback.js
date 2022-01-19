@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import img_cosmin from '../images/feedback/cosmin.jpg';
 import img_tania from '../images/feedback/tania.jpg';
@@ -7,9 +8,11 @@ import Quote from '../components/Quote';
 import ScrollToTop from '../components/ScrollToTop';
 
 const Feedback = () => {
+    const { t } = useTranslation();
+
     return (
         <section className='feedback'>
-            <h1>FEEDBACK</h1>
+            <h1>{ t('feedback') }</h1>
 
             <div className="cards">
                 <div className="card">

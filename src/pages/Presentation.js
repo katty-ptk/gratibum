@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Description from '../components/Description';
 import Header from '../components/Header';
 import SignIn from '../components/SignIn';
 
 const Presentation = () => {
+    const { t } = useTranslation();
+
     return (
         <div className='presentation'>
             <Header />
@@ -16,7 +19,7 @@ const Presentation = () => {
             />
             <div className="scroll-to-learn">
                 <p className="underline">
-                    Scroll down to learn more.
+                    { t('scroll_down' )}
                 </p>
             </div>          
         </div>

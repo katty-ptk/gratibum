@@ -1,21 +1,31 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
+
 import ScrollToTop from '../components/ScrollToTop'
 import SignIn from '../components/SignIn'
 
 const JoinGratibum = () => {
+    const { t } = useTranslation();
+
     return (
         <div className='join-us'>
-            <h1>JOIN US IN KEEPING MEMORIES.</h1>
+            <h1>{ t('join_us') }</h1>
             <div className={ window.innerWidth > 1000 ? 'join-us-large' : 'join-us-small' }>
                 <div className='landing-questions'>
-                    <p>Did we catch your interest?</p>
+                    <p>
+                        { t('catch_interest') }
+                    </p>
 
-                    <p>Do you want to keep your memories in a virtual journal?</p>
+                    <p>
+                        { t('keep_memories') }
+                    </p>
 
-                    <p>Do you want to remember yourself that life is beautiful through your memories?</p>
+                    <p>
+                        { t('life_wonderful') }
+                    </p>
                 </div>
                 <div className="join-sign-in">
-                    <h3>Join Gratibum!</h3>
+                    <h3>{ t('join_gratibum') }</h3>
                     <SignIn 
                         buttonAlign={ window.innerWidth <= 1000 && "sign-in-small-join" }
                     />
