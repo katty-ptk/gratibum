@@ -17,6 +17,8 @@ const loginVariants = {
     }
 }
 
+const userData = "userData";
+
 const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -34,7 +36,34 @@ const LoginPage = () => {
 
     function login() {
         var authService = new AuthService();
-        authService.doLogin(email, password);
+        authService.doLogin(email, password, (data) => {
+            let loggedIn = data.success;
+            if ( loggedIn ) {
+                // go to app
+            } else {
+                // display error message
+                alert("error - could not log you in. Please try again.")
+            }
+            localStorage.setItem(userData, JSON.stringify(data.data));
+            console.log("login finnished");
+        });
+    }
+
+    function logout() {
+        localStorage.removeItem(userData);
+    }
+
+    function printAmILoggedIn() {
+        if ( localStorage.getItem(userData) !== null ) {
+            return (
+            <div>
+                <h1>You are logged in</h1>
+                <p onClick={logout}>Loggout</p>
+            </div>
+            );
+        } else {
+            return (<h1>You are not logged in</h1>);
+        }
     }
     
     return (
@@ -48,6 +77,7 @@ const LoginPage = () => {
                 <h2>
                     Login to Gratibum
                 </h2>
+                {printAmILoggedIn()}
             </div>
 
             <section className="login-section">
