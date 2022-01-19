@@ -1,39 +1,43 @@
 import React from 'react'
-import ScrollToTop from '../components/ScrollToTop'
+import { useTranslation } from 'react-i18next';
+
+import ScrollToTop from '../components/ScrollToTop';
 
 const About = () => {
+    const { t } = useTranslation();
+    
     return (
         <section className='about'>
-            <h1>DESPRE GRATIBUM</h1>
+            <h1>{ t('about_gratibum') }</h1>
 
             <div className="abouts">
                 <div className='align-left'>
                     <p>
-                        Un jurnal de memorii faine prin poze.
+                        { t('about#1') }
                     </p>
                 </div>
 
                 <div className='align-right'>
                     <p>
-                        Foarte simplu.
+                        { t('about#2') }
                     </p>
                 </div>
 
                 <div className='align-left'>
                     <p>
-                        Not time consuming.
+                        { t('about#3') }
                     </p>
                 </div>
 
                 <div className='align-right'>
                     <p>
-                        Poate ajuta la creearea obiceiului de journaling.
+                        { t('about#4') }
                     </p>
                 </div>
 
                 <div className='align-left'>
                     <p>
-                        Aduce cate un zambet la fiecare vizita.
+                        { t('about#5') }
                     </p>
                 </div>
             </div>

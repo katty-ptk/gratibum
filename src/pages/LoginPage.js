@@ -1,4 +1,6 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import Back from '../components/Back';
 import Next from '../components/Next';
 import AuthService from '../services/auth.service';
@@ -20,6 +22,8 @@ const loginVariants = {
 const userData = "userData";
 
 const LoginPage = () => {
+    const { t } = useTranslation();
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -48,7 +52,7 @@ const LoginPage = () => {
             console.log("login finnished");
         });
     }
-
+ 
     function logout() {
         localStorage.removeItem(userData);
     }
@@ -75,9 +79,9 @@ const LoginPage = () => {
             <div className="sign-in-header">
                 <Back />
                 <h2>
-                    Login to Gratibum
+                    { t('login_header') }
                 </h2>
-                {printAmILoggedIn()}
+                {/* {printAmILoggedIn()} */}
             </div>
 
             <section className="login-section">
@@ -96,7 +100,7 @@ const LoginPage = () => {
                         </div>
                         <div>                        
                             <label htmlFor="password">
-                                Password
+                                { t('password') }
                             </label>
                             <input
                                 id="password"
@@ -109,9 +113,13 @@ const LoginPage = () => {
                 </form>
 
                 <div className="no-account">
-                    <p>Don't have an account?</p>
+                    <p>
+                        { t('no_account') }
+                    </p>
                     <br></br>
-                    <Link to='/sign-up'>Sign Up</Link>
+                    <Link to='/sign-up'>
+                        { t('sign_up') }
+                    </Link>
                 </div>
             </section>
 
