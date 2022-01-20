@@ -555,6 +555,27 @@
   right: 0;
 }
 
+.languages {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+.languages button {
+  cursor: pointer;
+  padding: 5px;
+  background: transparent;
+  border: 1px solid #2c242b;
+  border-radius: 5px;
+  z-index: 1000;
+  font-family: "Roboto", sans-serif;
+  transition: all 150ms ease-in-out;
+  margin-right: 10px;
+}
+.languages button:hover {
+  background: #2c242b;
+  color: #fff;
+}
+
 @media (max-width: 480px) {
   .presentation .header {
     font-size: 1rem;
