@@ -13,7 +13,11 @@ i18next
   .init({
     fallbackLng: "en",
 
-    ns: ["default"],
+    detection: {
+      order: ['cookie', 'htmlTag', 'localStorage', 'sessionStorage','path'],
+      caches: ['cookie']
+    },
+ 
     defaultNS: "default",
 
     supportedLngs: ["en","ro"],
