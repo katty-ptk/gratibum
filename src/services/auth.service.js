@@ -26,7 +26,7 @@ class AuthService {
                 });
             })
             .catch( err => {
-                console.log( err.response.data );
+                // alert('an error occured');
 
                 callbackFunction({
                     success: false,
@@ -42,8 +42,6 @@ class AuthService {
         };
         axios.post("http://www.vecinulvirtual.ro/liw/api/auth/login.php", loginFormData)
         .then(function (response) {
-            alert("you logged in");
-
           // save the idtoken for further requests
           const idToken = response.data.idToken;
 
@@ -60,8 +58,6 @@ class AuthService {
           });
         })
         .catch(function (err) {
-            console.log(err.response.data);
-
             callbackFunction({
                 success: false,
                 data: err.response.data

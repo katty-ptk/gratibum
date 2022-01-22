@@ -27,10 +27,16 @@ const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const [ loggedIn, setLoggedIn ] = useState(false);
+
+    const [ error, setError ] = useState(false);
+    const [ error_msg, setErrorMsg ] = useState("");
+
     const emailTextChanged  = event => {
         let email = event.target.value;
         setEmail(email);
-      };
+    };
+
     const passwordTextChanged  = event => {
         let pass = event.target.value;
         setPassword(pass);
@@ -39,35 +45,23 @@ const LoginPage = () => {
     function login() {
         var authService = new AuthService();
         authService.doLogin(email, password, (data) => {
-            let loggedIn = data.success;
+            setLoggedIn(data.success);
             
             if ( loggedIn ) {
                 // go to app
             } else {
-                // display error message
-                alert("error - could not log you in. Please try again.")
+                setError( true );
+                setErrorMsg( data.data.error.message );
             }
+
             localStorage.setItem(userData, JSON.stringify(data.data));
-            console.log("login finnished");
-            console.log(data.data);
+            // console.log("login finnished");
+            console.log(data);
         });
     }
  
     function logout() {
         localStorage.removeItem(userData);
-    }
-
-    function printAmILoggedIn() {
-        if ( localStorage.getItem(userData) !== null ) {
-            return (
-            <div>
-                <h1>You are logged in</h1>
-                <p onClick={logout}>Loggout</p>
-            </div>
-            );
-        } else {
-            return (<h1>You are not logged in</h1>);
-        }
     }
     
     return (
@@ -81,7 +75,6 @@ const LoginPage = () => {
                 <h2>
                     { t('login_header') }
                 </h2>
-                {/* {printAmILoggedIn()} */}
             </div>
 
             <section className="login-section">
@@ -95,6 +88,7 @@ const LoginPage = () => {
                                 type="text"
                                 placeholder='alicesmith@email.com'    
                                 autoComplete='off'
+                                required
                                 onChange = {emailTextChanged} 
                             />
                         </div>
@@ -107,6 +101,7 @@ const LoginPage = () => {
                                 type="password"
                                 placeholder='********'    
                                 autoComplete='off'
+                                required
                                 onChange = {passwordTextChanged} 
                             />
                         </div>
@@ -122,6 +117,15 @@ const LoginPage = () => {
                     </Link>
                 </div>
             </section>
+
+            { loggedIn && 
+                <p className='error'>logged in</p>
+            }
+            
+            { error && 
+                <p className='error'>{ error_msg }</p>
+            }
+
 
             <div className="sign-in-next" 
                 onClick={ login }

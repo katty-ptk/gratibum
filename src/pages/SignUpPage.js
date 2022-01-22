@@ -28,26 +28,23 @@ const SignUpPage = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
 
+    const [ error, setError ] = useState(false);
+    const [ error_msg, setErrorMsg ] = useState("");
+
 
     const firstNameTextChanged = event => {
         let newFirstName = event.target.value;
         setFirstName( newFirstName );
-
-        console.log( firstName );
     }
 
     const emailTextChanged = event => {
         let newEmail = event.target.value;
-        console.log( newEmail );
         setEmail( newEmail );
-
     }
 
     const passwordTextChanged = event => {
         let newPassword = event.target.value;
         setPassword( newPassword );
-
-        console.log( password );
     }
 
     const signUp = () => {
@@ -60,7 +57,8 @@ const SignUpPage = () => {
                 // go to app
             } else {
                 // display error message
-                alert("error - could not sign you up. Please try again.")
+                setError(true);
+                setErrorMsg(data.data.error.message);
             }
 
             localStorage.setItem(userData, JSON.stringify(data.data));
@@ -151,6 +149,10 @@ const SignUpPage = () => {
                     { t('login') }
                 </Link>
             </div>
+
+            { error && 
+                <p className='error'>{ error_msg }</p>
+            }
 
             <div className="sign-in-next"
                 onClick={ signUp }
