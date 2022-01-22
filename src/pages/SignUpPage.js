@@ -151,7 +151,7 @@ const SignUpPage = () => {
             </div>
 
             { error && 
-                <p className='error'>{ error_msg }</p>
+                <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>{ error_msg }</p>
             }
 
             <div className="sign-in-next"

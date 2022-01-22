@@ -598,10 +598,6 @@
 }
 
 @media (max-width: 480px) {
-  .presentation .header {
-    font-size: 1rem;
-    top: 20px;
-  }
   .presentation .description-card {
     height: 350px;
   }
@@ -633,6 +629,12 @@
   }
   .login-page .login-section .no-account {
     margin-top: 50px;
+  }
+}
+@media (max-height: 685px) {
+  .presentation .header {
+    position: absolute;
+    top: 5px;
   }
 }
 @media (max-height: 750px) {
@@ -696,10 +698,6 @@
 @media (min-width: 768px) {
   body {
     overflow-x: hidden;
-  }
-
-  .presentation .header {
-    top: 80px;
   }
 
   .description-card {
@@ -802,43 +800,39 @@
     display: none;
   }
 }
-.error {
-  color: red;
+.error, .error-md {
+  color: #6b0763;
   font-weight: bold;
+  position: absolute;
+  text-align: center;
+  font-size: 14px;
+}
+
+.error-md {
+  bottom: 70px;
+  width: 100%;
 }
 
 .sign-up-page-large .error {
-  position: absolute;
   bottom: 21%;
   width: 55%;
   right: 0;
-  font-size: 14px;
-  text-align: center;
 }
 
 .sign-up-page-small .error {
-  position: absolute;
   top: 82%;
   width: 100%;
-  font-size: 14px;
-  text-align: center;
 }
 
 .login-page-small .error {
-  position: absolute;
   top: 75%;
   width: 100%;
-  font-size: 14px;
-  text-align: center;
 }
 
 .login-page-large .error {
-  position: absolute;
   bottom: 21%;
   width: 55%;
   right: 0;
-  font-size: 14px;
-  text-align: center;
 }
 
 * {
