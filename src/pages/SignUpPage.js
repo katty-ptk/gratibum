@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import Back from '../components/Back';
 import Next from '../components/Next';
+import AuthService from '../services/auth.service';
 
 import { motion } from 'framer-motion';
 
@@ -18,15 +19,60 @@ const signUpVariants = {
     }
 }
 
+const userData = "userData";
+
 const SignUpPage = () => {
     const { t } = useTranslation();
+
+    const [ firstName, setFirstName ] = useState("");
+    const [ email, setEmail ] = useState("");
+    const [ password, setPassword ] = useState("");
+
+
+    const firstNameTextChanged = event => {
+        let newFirstName = event.target.value;
+        setFirstName( newFirstName );
+
+        console.log( firstName );
+    }
+
+    const emailTextChanged = event => {
+        let newEmail = event.target.value;
+        console.log( newEmail );
+        setEmail( newEmail );
+
+    }
+
+    const passwordTextChanged = event => {
+        let newPassword = event.target.value;
+        setPassword( newPassword );
+
+        console.log( password );
+    }
+
+    const signUp = () => {
+        var auth = new AuthService();
+        auth.doSignUp( firstName, email, password, ( data ) => {
+            console.log(data);
+            let signedIn = data.success;
+
+            if ( signedIn ) {
+                // go to app
+            } else {
+                // display error message
+                alert("error - could not sign you up. Please try again.")
+            }
+
+            localStorage.setItem(userData, JSON.stringify(data.data));
+        });
+    }
 
     return (
         <motion.div className={ window.innerWidth < 1000 ? "sign-up-page sign-up-page-small sign-in-page sign-in-page-small" : "sign-up-page sign-up-page-large sign-in-page sign-in-page-large" }
             variants={ signUpVariants }
             initial="initial"
             animate="animate"
-        >
+        > 
             <div className="sign-in-header">
                 <Back />
                 <h2>
@@ -52,6 +98,7 @@ const SignUpPage = () => {
                         </label>
                         <input
                             id="name"
+                            onChange={ firstNameTextChanged }
                             type="text"
                             placeholder='Alice Smith'    
                             autoComplete='off'
@@ -67,6 +114,7 @@ const SignUpPage = () => {
                             type="text"
                             placeholder='alicesmith@email.com'    
                             autoComplete='off'
+                            onChange={ emailTextChanged }
                         />
                     </div>
                     <div>                        
@@ -78,6 +126,7 @@ const SignUpPage = () => {
                             type="password"
                             placeholder='********'    
                             autoComplete='off'
+                            onChange={ passwordTextChanged }
                         />
                     </div>
                     <div>                        
@@ -103,7 +152,9 @@ const SignUpPage = () => {
                 </Link>
             </div>
 
-            <div className="sign-in-next">
+            <div className="sign-in-next"
+                onClick={ signUp }
+            >
                 <Next />
             </div>
         </motion.div>
