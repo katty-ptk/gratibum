@@ -29,12 +29,10 @@ const LoginPage = () => {
 
     const emailTextChanged  = event => {
         let email = event.target.value;
-        console.log("new email: "+email);
         setEmail(email);
       };
     const passwordTextChanged  = event => {
         let pass = event.target.value;
-        console.log("new pass: "+pass);
         setPassword(pass);
       };
 
@@ -42,6 +40,7 @@ const LoginPage = () => {
         var authService = new AuthService();
         authService.doLogin(email, password, (data) => {
             let loggedIn = data.success;
+            
             if ( loggedIn ) {
                 // go to app
             } else {
@@ -50,6 +49,7 @@ const LoginPage = () => {
             }
             localStorage.setItem(userData, JSON.stringify(data.data));
             console.log("login finnished");
+            console.log(data.data);
         });
     }
  
@@ -123,7 +123,9 @@ const LoginPage = () => {
                 </div>
             </section>
 
-            <div className="sign-in-next" onClick={login}>
+            <div className="sign-in-next" 
+                onClick={ login }
+            >
                 <Next />
             </div>
         </motion.div>

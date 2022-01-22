@@ -1,9 +1,15 @@
 .languages-div {
     position: absolute;
 
-    svg {
+    .languages-btns {
         margin-top: 10px;
         margin-left: 20px;
+
+        svg {
+            &:last-child {
+                margin-left: 5px;
+            }
+        }
     }
 
     .languages {

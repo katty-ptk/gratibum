@@ -557,9 +557,12 @@
 .languages-div {
   position: absolute;
 }
-.languages-div svg {
+.languages-div .languages-btns {
   margin-top: 10px;
   margin-left: 20px;
+}
+.languages-div .languages-btns svg:last-child {
+  margin-left: 5px;
 }
 .languages-div .languages {
   display: none;
@@ -608,6 +611,10 @@
   }
   .presentation .sign-in {
     top: calc( 40% + 250px );
+  }
+
+  .languages-div .languages {
+    margin-left: 3px;
   }
 
   .sign-up-page .sign-up-section form label {
