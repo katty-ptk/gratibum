@@ -54,9 +54,9 @@ const SignUpPage = () => {
         var auth = new AuthService();
         auth.doSignUp( firstName, email, password, ( data ) => {
             console.log(data);
-            let signedIn = data.success;
+            let signedUp = data.success;
 
-            if ( signedIn ) {
+            if ( signedUp ) {
                 // go to app
             } else {
                 // display error message
