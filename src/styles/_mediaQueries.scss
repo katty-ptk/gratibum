@@ -7,10 +7,10 @@ $lg: 1000px;
 // screens:
 @media ( max-width: $sm ) {
     .presentation {
-        .header {
-            font-size: 1rem;
-            top: 20px;
-        }
+        // .header {
+        //     font-size: 1rem;
+        //     top: 20px;
+        // }
 
         .description-card {
             height: 350px;
@@ -50,6 +50,7 @@ $lg: 1000px;
         .already-account {
             top: 85%;
         }
+
     }
 
     .login-page {
@@ -59,12 +60,20 @@ $lg: 1000px;
                 margin-top: 50px;
             }
         }
-
     }
 
 }
 
-@media  ( max-height: 750px ) {
+@media ( max-height: 685px ) {
+    .presentation {
+        .header {
+            position: absolute;
+            top: 5px;
+        }
+    }
+}
+
+@media ( max-height: 750px ) {
     .about {
         h1 {
             font-size: 1rem;
@@ -168,12 +177,6 @@ $lg: 1000px;
 @media ( min-width: $md ) {
     body {
         overflow-x: hidden;
-    }
-
-    .presentation {
-        .header {
-            top: 80px;
-        }
     }
 
     .description-card {

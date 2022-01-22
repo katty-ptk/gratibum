@@ -1,48 +1,43 @@
-.error {
-    color: red;
+.error, .error-md {
+    color: rgb(107, 7, 99);
     font-weight: bold;
+
+    position: absolute;
+    text-align: center;
+    font-size: 14px;
+}
+
+.error-md {
+    bottom: 70px;
+    width: 100%;
 }
 
 .sign-up-page-large {
     .error {
-        position: absolute;
         bottom: 21%;
         width: 55%;
         right: 0;
-        font-size: 14px;
-        text-align: center;
     }
 }
 
 .sign-up-page-small {
     .error {
-        position: absolute;
         top: 82%;
         width: 100%;
-
-        font-size: 14px;
-        text-align: center;
     }
 }
 
 .login-page-small {
     .error {
-        position: absolute;
         top: 75%;
         width: 100%;
-
-        font-size: 14px;
-        text-align: center;
     }
 }
 
 .login-page-large {
     .error {
-        position: absolute;
         bottom: 21%;
         width: 55%;
         right: 0;
-        font-size: 14px;
-        text-align: center;
     }
 }
