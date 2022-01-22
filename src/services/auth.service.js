@@ -3,7 +3,7 @@ import axios from 'axios';
 class AuthService {
     doSignUp( first_name, email, password, callbackFunction ) {
         const signUpFormData = {
-            firstName: first_name,
+            first_name: first_name,
             email: email,
             password: password
         };
@@ -18,6 +18,7 @@ class AuthService {
                 callbackFunction({
                     success: true,
                     data: {
+                        first_name: first_name,
                         email: email,
                         idtoken: idToken,
                         refreshToken: refreshToken
