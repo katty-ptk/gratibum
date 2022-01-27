@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import Back from '../components/Back';
-import Next from '../components/Next';
-import AuthService from '../services/auth.service';
+import Back from '../../components/Back';
+import Next from '../../components/Next';
+import AuthService from '../../services/auth.service';
+import LocalStorage from '../../services/localStorage.service';
 
 import { motion } from 'framer-motion';
 
@@ -30,6 +31,7 @@ const SignUpPage = () => {
 
     const [ error, setError ] = useState(false);
     const [ error_msg, setErrorMsg ] = useState("");
+    const [ signedUp, setSignedUp ] = useState(false);
 
 
     const firstNameTextChanged = event => {
@@ -49,19 +51,27 @@ const SignUpPage = () => {
 
     const signUp = () => {
         var auth = new AuthService();
+        var storage = new LocalStorage();
+
         auth.doSignUp( firstName, email, password, ( data ) => {
-            console.log(data);
-            let signedUp = data.success;
+            setSignedUp(data.success);
 
             if ( signedUp ) {
-                // go to app
+                storage.setUserData( userData, data.data );
+                
+                const user = storage.getUserData( userData );
+                console.log( user );
             } else {
-                // display error message
                 setError(true);
-                setErrorMsg(data.data.error.message);
+
+                if ( data.data.error.message === "WEAK_PASSWORD : Password should be at least 6 characters"){
+                    setErrorMsg("Password should be at least 6 characters.");
+                } else {
+                    setErrorMsg(data.data.error.message);
+                }
             }
 
-            localStorage.setItem(userData, JSON.stringify(data.data));
+            // localStorage.setItem(userData, JSON.stringify(data.data));
         });
     }
 
@@ -152,6 +162,10 @@ const SignUpPage = () => {
 
             { error && 
                 <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>{ error_msg }</p>
+            }
+
+            { signedUp && 
+                <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>account created:)</p>
             }
 
             <div className="sign-in-next"

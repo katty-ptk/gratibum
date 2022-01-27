@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 
-import ScrollToTop from '../components/ScrollToTop';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const About = () => {
     const { t } = useTranslation();

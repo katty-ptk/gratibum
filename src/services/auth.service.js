@@ -10,9 +10,7 @@ class AuthService {
 
         axios.post("http://www.vecinulvirtual.ro/liw/api/auth/register.php", signUpFormData)
             .then( function( response ) {
-                alert("sign up complete");
-
-                const idToken = response.data.idToken;
+                const idToken = response.data.idToken;  // this saves the idToken for further using
                 const refreshToken = response.data.refreshToken;
 
                 callbackFunction({
@@ -25,9 +23,7 @@ class AuthService {
                     }
                 });
             })
-            .catch( err => {
-                // alert('an error occured');
-
+            .catch(function (err) {
                 callbackFunction({
                     success: false,
                     data: err.response.data

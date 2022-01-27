@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Back from '../components/Back';
-import Next from '../components/Next';
-import AuthService from '../services/auth.service';
+// components
+import Back from '../../components/Back';
+import Next from '../../components/Next';
+
+// services
+import AuthService from '../../services/auth.service';
+import LocalStorage from '../../services/localStorage.service';
 
 import { Link } from 'react-router-dom';
 import {  motion } from 'framer-motion';
@@ -44,19 +48,29 @@ const LoginPage = () => {
 
     function login() {
         var authService = new AuthService();
+        var storage = new LocalStorage();
+        
         authService.doLogin(email, password, (data) => {
             setLoggedIn(data.success);
-            
+
             if ( loggedIn ) {
                 // go to app
+                storage.setUserData( userData, data.data );
+                
+                const user = storage.getUserData( userData );
+                console.log( user );
             } else {
                 setError( true );
-                setErrorMsg( data.data.error.message );
-            }
+                // setErrorMsg( data.data.error.message );
 
-            localStorage.setItem(userData, JSON.stringify(data.data));
-            // console.log("login finnished");
-            console.log(data);
+                if ( data.data.error.message === "EMAIL_NOT_FOUND" ) {
+                    setErrorMsg("Your email is not valid.");
+                }
+
+                if ( data.data.error.message === "TOO_MANY_ATTEMPTS_TRY_LATER : Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later." ) {
+                    setErrorMsg("You tried too many times to log in. Please try again later.");
+                }
+            }
         });
     }
  

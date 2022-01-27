@@ -1,7 +1,7 @@
-import LandingPage from './pages/LandingPage';
-import SignInPage from './pages/SignInPage';
-import SignUpPage from './pages/SignUpPage';
-import LoginPage from './pages/LoginPage';
+import LandingPage from './pages/presentation/LandingPage';
+import SignInPage from './pages/presentation/SignInPage';
+import SignUpPage from './pages/presentation/SignUpPage';
+import LoginPage from './pages/presentation/LoginPage';
 import './styles/style.css';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
