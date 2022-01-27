@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
 
 @import './colors';
-@import './presentation';
-@import './header';
-@import './description';
-@import './signIn';
-@import './about';
-@import './feedback';
-@import './joinGratibum';
-@import './sign-in-pages';
-@import './languageBtn';
-@import './mediaQueries';
-@import './error';
+@import './presentation/presentation';
+@import './presentation/header';
+@import './presentation/description';
+@import './presentation/signIn';
+@import './presentation/about';
+@import './presentation/feedback';
+@import './presentation/joinGratibum';
+@import './presentation/sign-in-pages';
+@import './presentation/languageBtn';
+@import './presentation/mediaQueries';
+@import './presentation/error';
 
 * {
     margin: 0;

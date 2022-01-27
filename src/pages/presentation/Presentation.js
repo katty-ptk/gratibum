@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Description from '../components/Description';
-import Header from '../components/Header';
-import SignIn from '../components/SignIn';
+import Description from '../../components/Description';
+import Header from '../../components/Header';
+import SignIn from '../../components/SignIn';
 
 const Presentation = () => {
     const { t } = useTranslation();

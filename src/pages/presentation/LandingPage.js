@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
-import SelectLanguage from '../components/SelectLanguage'
-import About from './About'
+import SelectLanguage from '../../components/SelectLanguage';
+import About from './About';
 import Feedback from './Feedback'
 import JoinGratibum from './JoinGratibum'
 import Presentation from './Presentation'

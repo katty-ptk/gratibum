@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <div className='header'>
             <h1>Gratibum</h1>
-            <h2>Gratitude Album</h2>
+            {/* <h2>Gratitude Album</h2> */}
             {/* <h2>{ t('gratitude_journal') }</h2> */}
         </div>
     )
