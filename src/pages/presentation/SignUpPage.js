@@ -4,8 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import Back from '../../components/Back';
 import Next from '../../components/Next';
-import AuthService from '../../services/auth.service';
-import LocalStorage from '../../services/localStorage.service';
+
+// services
+import { auth } from '../../services/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import { motion } from 'framer-motion';
 
@@ -29,10 +31,9 @@ const SignUpPage = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
 
-    const [ error, setError ] = useState(false);
-    const [ error_msg, setErrorMsg ] = useState("");
-    const [ signedUp, setSignedUp ] = useState(false);
-
+    const [ signedUp, setSignedUp ] = useState( false );
+    const [ error, setError ] = useState( false );
+    const [ errorMsg, setErrorMsg ] = useState("");
 
     const firstNameTextChanged = event => {
         let newFirstName = event.target.value;
@@ -42,38 +43,30 @@ const SignUpPage = () => {
     const emailTextChanged = event => {
         let newEmail = event.target.value;
         setEmail( newEmail );
-    }
+    };
 
     const passwordTextChanged = event => {
         let newPassword = event.target.value;
         setPassword( newPassword );
-    }
+    };
 
     const signUp = () => {
-        var auth = new AuthService();
-        var storage = new LocalStorage();
+        createUserWithEmailAndPassword( auth, email, password )
+            .then( userCredentials => {
+                const user = userCredentials.user;
+                setSignedUp( true );
+                setError( false );
+                console.log(user.email);
 
-        auth.doSignUp( firstName, email, password, ( data ) => {
-            setSignedUp(data.success);
-
-            if ( signedUp ) {
-                storage.setUserData( userData, data.data );
-                
-                const user = storage.getUserData( userData );
-                console.log( user );
-            } else {
-                setError(true);
-
-                if ( data.data.error.message === "WEAK_PASSWORD : Password should be at least 6 characters"){
-                    setErrorMsg("Password should be at least 6 characters.");
-                } else {
-                    setErrorMsg(data.data.error.message);
-                }
-            }
-
-            // localStorage.setItem(userData, JSON.stringify(data.data));
-        });
-    }
+                localStorage.setItem( userData, user.email );
+            })
+            .catch( error => {
+                setError( true );
+                setErrorMsg( error.message )
+                setSignedUp( false );
+                console.log(errorMsg);
+            });
+    };
 
     return (
         <motion.div className={ window.innerWidth < 1000 ? "sign-up-page sign-up-page-small sign-in-page sign-in-page-small" : "sign-up-page sign-up-page-large sign-in-page sign-in-page-large" }
@@ -160,11 +153,11 @@ const SignUpPage = () => {
                 </Link>
             </div>
 
-            { error && 
-                <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>{ error_msg }</p>
+            { (error && !signedUp) && 
+                <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>{ errorMsg }</p>
             }
 
-            { signedUp && 
+            { (signedUp && !error ) && 
                 <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>account created:)</p>
             }
 
@@ -174,7 +167,7 @@ const SignUpPage = () => {
                 <Next />
             </div>
         </motion.div>
-    )
+    );
 }
 
 export default SignUpPage

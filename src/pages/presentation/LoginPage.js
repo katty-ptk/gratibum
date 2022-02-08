@@ -6,11 +6,11 @@ import Back from '../../components/Back';
 import Next from '../../components/Next';
 
 // services
-import AuthService from '../../services/auth.service';
-import LocalStorage from '../../services/localStorage.service';
+import { auth } from '../../services/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 import { Link } from 'react-router-dom';
-import {  motion } from 'framer-motion';
+import {  motion, useReducedMotion } from 'framer-motion';
 
 const loginVariants = {
     initial: {
@@ -31,6 +31,8 @@ const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const [userEmail, setUserEmail] = useState("");
+
     const [ loggedIn, setLoggedIn ] = useState(false);
 
     const [ error, setError ] = useState(false);
@@ -46,36 +48,23 @@ const LoginPage = () => {
         setPassword(pass);
       };
 
-    function login() {
-        var authService = new AuthService();
-        var storage = new LocalStorage();
-        
-        authService.doLogin(email, password, (data) => {
-            setLoggedIn(data.success);
+    const login = () => {
+        signInWithEmailAndPassword( auth, email, password )
+            .then( userCredentials => {
+                const user = userCredentials.user;
+                console.log('logged in as ' + user.email );
+                setUserEmail( user.email );
+                setLoggedIn( true );
+                setError( false );
 
-            if ( loggedIn ) {
-                // go to app
-                storage.setUserData( userData, data.data );
-                
-                const user = storage.getUserData( userData );
-                console.log( user );
-            } else {
+                localStorage.setItem( userData, user.email );
+            })
+            .catch( error => {
+                console.log(error.message);
                 setError( true );
-                // setErrorMsg( data.data.error.message );
-
-                if ( data.data.error.message === "EMAIL_NOT_FOUND" ) {
-                    setErrorMsg("Your email is not valid.");
-                }
-
-                if ( data.data.error.message === "TOO_MANY_ATTEMPTS_TRY_LATER : Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later." ) {
-                    setErrorMsg("You tried too many times to log in. Please try again later.");
-                }
-            }
-        });
-    }
- 
-    function logout() {
-        localStorage.removeItem(userData);
+                setErrorMsg( error.message );
+                setLoggedIn( false );
+            });
     }
     
     return (
@@ -132,11 +121,11 @@ const LoginPage = () => {
                 </div>
             </section>
 
-            { loggedIn && 
-                <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>logged in</p>
+            { ( loggedIn && !error ) && 
+                <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>logged in as: { userEmail }</p>
             }
             
-            { error && 
+            { (error && !loggedIn) && 
                 <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>{ error_msg }</p>
             }
 
