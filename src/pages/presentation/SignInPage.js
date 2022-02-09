@@ -11,7 +11,6 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../services/firebase';
 const provider = new GoogleAuthProvider();
 
-
 const signInVariants = {
     initial: {
         x: '-100vw'
@@ -25,6 +24,7 @@ const signInVariants = {
 
 const SignInPage = () => {
     const { t } = useTranslation();
+    
 
     const [ email, setEmail ] = useState("");
     const [ name, setName ] = useState("");
@@ -33,6 +33,8 @@ const SignInPage = () => {
     const [ signedIn, setSignedIn ] = useState(false);
     const [ error, setError ] = useState(false);
     const [ errorMsg, setErrorMsg ] = useState("");
+
+    // const [ user, setUser ] = useState({});
 
     const googleAuth = () => {
         signInWithPopup( auth, provider )
