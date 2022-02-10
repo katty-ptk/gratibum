@@ -5,7 +5,6 @@ import Feedback from './Feedback'
 import JoinGratibum from './JoinGratibum'
 import Presentation from './Presentation'
 
-// import SignInPage from './SignInPage';
 
 const LandingPage = () => {
     return (
