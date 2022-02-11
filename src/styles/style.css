@@ -390,7 +390,7 @@
 }
 .sign-up-page .sign-up-section form {
   position: absolute;
-  margin-top: 15px;
+  margin-top: 40px;
 }
 .sign-up-page .sign-up-section form label {
   display: block;
@@ -668,10 +668,6 @@
   }
   .join-us h3 {
     margin-bottom: 10px;
-  }
-
-  .sign-in-page .sign-in-header {
-    height: 20%;
   }
 
   .sign-up-page .sign-up-section {
