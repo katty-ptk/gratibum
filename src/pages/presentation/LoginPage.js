@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // components
-import Back from '../../components/Back';
-import Next from '../../components/Next';
+import Back from '../../components/landingPage/Back';
+import Next from '../../components/landingPage/Next';
 
 // services
 import { auth } from '../../services/firebase';

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import ScrollToTop from '../../components/ScrollToTop'
-import SignIn from '../../components/SignIn'
+import ScrollToTop from '../../components/landingPage/ScrollToTop'
+import SignIn from '../../components/landingPage/SignIn'
 
 const JoinGratibum = () => {
     const { t } = useTranslation();
