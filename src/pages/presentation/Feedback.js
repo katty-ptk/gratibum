@@ -5,8 +5,8 @@ import img_cosmin from '../../images/feedback/cosmin.jpg';
 import img_tania from '../../images/feedback/tania.jpg';
 import img_roland from '../../images/feedback/roland.jpg';
 
-import Quote from '../../components/landingPage/Quote';
-import ScrollToTop from '../../components/landingPage/ScrollToTop';
+import Quote from '../../components/Quote';
+import ScrollToTop from '../../components/ScrollToTop';
 
 const Feedback = () => {
     const { t } = useTranslation();

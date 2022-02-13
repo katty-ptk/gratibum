@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Description from '../../components/landingPage/Description';
-import Header from '../../components/landingPage/Header';
+import Header from '../../components/Header';
 import SignIn from '../../components/landingPage/SignIn';
 
 const Presentation = () => {

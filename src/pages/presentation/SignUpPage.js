@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import Back from '../../components/landingPage/Back';
-import Next from '../../components/landingPage/Next';
+import Back from '../../components/Back';
+import Next from '../../components/Next';
 
 // services
 import { auth } from '../../services/firebase';

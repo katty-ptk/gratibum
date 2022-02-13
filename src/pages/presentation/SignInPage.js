@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-import Back from '../../components/landingPage/Back'
+import Back from '../../components/Back'
 
 import { motion } from 'framer-motion';
 
