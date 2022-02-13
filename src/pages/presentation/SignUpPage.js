@@ -51,7 +51,7 @@ const SignUpPage = () => {
     };
 
     const signUp = () => {
-        createUserWithEmailAndPassword( auth, email, password )
+        createUserWithEmailAndPassword( auth, email, password ) // opens new pop out window
             .then( userCredentials => {
                 const user = userCredentials.user;
                 setSignedUp( true );
