@@ -5,6 +5,7 @@ import LoginPage from './pages/presentation/LoginPage';
 import './styles/style.css';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Main from './pages/gratibum/Main';
 
 function App() {
   return (
@@ -26,6 +27,11 @@ function App() {
           <Route
             exact path='/login'
             component={ LoginPage }
+          ></Route>
+
+          <Route
+            exact path='/gratibum'
+            component={ Main }
           ></Route>
         </Switch>
       </div>

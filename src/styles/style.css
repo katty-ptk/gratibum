@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap");
 .presentation {
   height: 100vh;
   width: 100vw;
@@ -833,6 +833,48 @@
 
 .googleAuth {
   position: relative;
+}
+
+body {
+  background-color: #F3F3F3;
+}
+
+.gratibum .app-header {
+  position: relative;
+  height: 80px;
+  width: 100vw;
+  background-color: #E4D3D3;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: #5A2356;
+}
+.gratibum .app-header h2 {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-style: italic;
+}
+.gratibum .app-header .profile-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.gratibum p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
+}
+.gratibum .create {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
 }
 
 * {

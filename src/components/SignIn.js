@@ -10,11 +10,11 @@ const SignIn = ( { buttonAlign } ) => {
 
     const [ signedIn, setSignedIn ] = useState( false );
 
-    const logout = () => {
-        signOut( auth );
-        localStorage.removeItem('userData');
-        console.log('logged out');
-    }
+    // const logout = () => {
+    //     signOut( auth );
+    //     localStorage.removeItem('userData');
+    //     console.log('logged out');
+    // }
 
     // this will run every time the page is visited
     useEffect( () => {
@@ -30,10 +30,9 @@ const SignIn = ( { buttonAlign } ) => {
     return (
 
         <div className={`sign-in ${ buttonAlign }`}>
-            <Link to={ !signedIn ? '/sign-in' : '/sign-in' }> { /* when the user is signed in, this will link to the app */}
-                <button onClick={ logout }>
-                    {/* { !signedIn ? t('sign_in') : t('go_to_app')} */}
-                    { !signedIn ? t('sign_in') : 'logout'}  {/* when the user is signed in, this will say 'go to App' */}
+            <Link to={ !signedIn ? '/sign-in' : '/gratibum' }> { /* when the user is signed in, this will link to the app */}
+                <button>
+                    { !signedIn ? t('sign_in') : t('go_to_app')}
                 </button>
             </Link>
         </div>
