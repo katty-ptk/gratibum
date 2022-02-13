@@ -1,0 +1,54 @@
+body {
+    background-color: #F3F3F3;
+}
+
+.gratibum {
+    // position: relative;
+
+    .app-header {
+        position: relative;
+        height: 80px;
+        width: 100vw;
+
+        background-color: #E4D3D3;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+        color: #5A2356;
+        
+        h2 {
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            font-style: italic;
+        }
+
+        .profile-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    }
+
+    p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        font-weight: 500;
+    }
+
+    .create {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+
+        cursor: pointer;
+    }
+}

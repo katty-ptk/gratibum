@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap');
 
 @import './colors';
 @import './presentation/presentation';
@@ -12,6 +12,8 @@
 @import './presentation/languageBtn';
 @import './presentation/mediaQueries';
 @import './presentation/error';
+
+@import './gratibum/main';
 
 * {
     margin: 0;
