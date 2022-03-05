@@ -606,7 +606,7 @@
     height: 100px;
   }
   .presentation .sign-in {
-    top: calc( 40% + 250px );
+    top: calc(40% + 250px);
   }
 
   .languages-div .languages {
@@ -863,12 +863,25 @@ body {
   transform: translateY(-50%);
   cursor: pointer;
 }
-.gratibum p {
+.gratibum .test-greeting {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: 500;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+}
+.gratibum .test-greeting button {
+  width: 131px;
+  height: 33px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  background: #50434F;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 15px;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 .gratibum .create {
   position: absolute;

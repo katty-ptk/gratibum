@@ -35,13 +35,28 @@ body {
         }
     }
 
-    p {
+    .test-greeting {
         position: absolute;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateY(-50%);
+        width: 100%;
+        text-align: center;
 
-        font-weight: 500;
+        button {
+            width: 131px;
+            height: 33px;
+    
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            background: $lightPurple;
+            color: #fff;
+            border-radius: 20px;
+            margin-top: 15px;
+    
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
     }
 
     .create {
