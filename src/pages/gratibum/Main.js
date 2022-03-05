@@ -3,6 +3,7 @@ import React from 'react'
 // components
 import AppHeader from './AppHeader'
 import Create from '../../components/gratibum/Create'
+import Logout from '../../components/gratibum/Logout'
 
 // import { motion } from 'framer-motion';
 
@@ -23,7 +24,10 @@ const Main = () => {
       <AppHeader />
 
 
-      <p>Hi, { localStorage.getItem("userData") }!</p>
+      <div className="test-greeting">
+        <h3>Hi, { localStorage.getItem("userData") }!</h3>
+        <Logout />
+      </div>
 
       <div className="create">
             <Create />
