@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import Back from '../../components/Back'
@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 // services
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../services/firebase';
+import { Redirect } from 'react-router-dom';
 const provider = new GoogleAuthProvider();
 
 const signInVariants = {
@@ -24,6 +25,8 @@ const signInVariants = {
 
 const SignInPage = () => {
     const { t } = useTranslation();
+
+    let history = useHistory();
     
 
     const [ email, setEmail ] = useState("");
@@ -54,6 +57,8 @@ const SignInPage = () => {
                 console.log( user );
 
                 localStorage.setItem("userData", user.email);
+
+                history.push("/gratibum");  // redirects to app
             })
             .catch( error => {
                 setError(true);
