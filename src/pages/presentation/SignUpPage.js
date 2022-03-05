@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import Back from '../../components/Back';
@@ -26,6 +26,8 @@ const userData = "userData";
 
 const SignUpPage = () => {
     const { t } = useTranslation();
+
+    let history = useHistory();
 
     const [ firstName, setFirstName ] = useState("");
     const [ email, setEmail ] = useState("");
@@ -59,6 +61,8 @@ const SignUpPage = () => {
                 console.log(user.email);
 
                 localStorage.setItem( userData, user.email );
+
+                history.push("/gratibum");
             })
             .catch( error => {
                 setError( true );

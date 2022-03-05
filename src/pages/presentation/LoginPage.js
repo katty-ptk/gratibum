@@ -9,7 +9,7 @@ import Next from '../../components/Next';
 import { auth } from '../../services/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {  motion, useReducedMotion } from 'framer-motion';
 
 const loginVariants = {
@@ -27,6 +27,8 @@ const userData = "userData";
 
 const LoginPage = () => {
     const { t } = useTranslation();
+
+    let history = useHistory();
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -58,6 +60,7 @@ const LoginPage = () => {
                 setError( false );
 
                 localStorage.setItem( userData, user.email );
+                history.push("/gratibum");  // redirects to app
             })
             .catch( error => {
                 console.log(error.message);
