@@ -45,6 +45,8 @@ const SignInPage = () => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
 
+                // get user data from firebase
+                // save user data into storage
                 const user = result.user;
 
                 setName( user.displayName );

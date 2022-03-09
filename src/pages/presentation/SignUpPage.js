@@ -6,8 +6,9 @@ import Back from '../../components/Back';
 import Next from '../../components/Next';
 
 // services
-import { auth } from '../../services/firebase';
+import { auth, firebaseDb } from '../../services/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { collection, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
 
 import { motion } from 'framer-motion';
 
@@ -55,14 +56,8 @@ const SignUpPage = () => {
     const signUp = () => {
         createUserWithEmailAndPassword( auth, email, password )
             .then( userCredentials => {
-                const user = userCredentials.user;
-                setSignedUp( true );
-                setError( false );
-                console.log(user.email);
-
-                localStorage.setItem( userData, user.email );
-
-                history.push("/gratibum");
+                saveUserToFirebase(userCredentials);
+                
             })
             .catch( error => {
                 setError( true );
@@ -71,6 +66,31 @@ const SignUpPage = () => {
                 console.log(errorMsg);
             });
     };
+
+    const saveUserToFirebase = async (userCredentials) => {
+        let userData = {
+            accountId: userCredentials.user.uid,
+            email: userCredentials.user.email,
+            name: firstName,
+            photoUrl: ""
+        };
+        await setDoc(doc(
+                        collection(firebaseDb, "test/accounts", userCredentials.user.email),
+                        "accountData"
+                        ), 
+                        userData
+          );
+          await setDoc(doc(collection(firebaseDb, "test/accounts", userCredentials.user.email),"gratibums"), {});
+
+        const user = userCredentials.user;
+        setSignedUp( true );
+        setError( false );
+        console.log(user.email);
+
+        localStorage.setItem( userData, user.email );
+
+        history.push("/gratibum");
+    }
 
     return (
         <motion.div className={ window.innerWidth < 1000 ? "sign-up-page sign-up-page-small sign-in-page sign-in-page-small" : "sign-up-page sign-up-page-large sign-in-page sign-in-page-large" }
