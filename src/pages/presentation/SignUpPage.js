@@ -23,8 +23,6 @@ const signUpVariants = {
     }
 }
 
-const userData = "userData";
-
 const SignUpPage = () => {
     const { t } = useTranslation();
 
