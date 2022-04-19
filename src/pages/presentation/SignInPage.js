@@ -97,7 +97,7 @@ const SignInPage = () => {
     const getUserFromFirebase = async ( userEmail ) => {
         const querySnapshot = await getDocs( collection( firebaseDb, "test/accounts/", userEmail ) );
         querySnapshot.forEach( doc => {
-            console.log( doc );
+            console.log( doc.data );
         })
     }
 
