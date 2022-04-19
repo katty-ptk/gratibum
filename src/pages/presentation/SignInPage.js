@@ -6,9 +6,12 @@ import Back from '../../components/Back'
 
 import { motion } from 'framer-motion';
 
+import { collection, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
+
+
 // services
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from '../../services/firebase';
+import { auth, firebaseDb } from '../../services/firebase';
 import { Redirect } from 'react-router-dom';
 const provider = new GoogleAuthProvider();
 
@@ -45,6 +48,8 @@ const SignInPage = () => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
 
+                saveUserToFirebase( result.user );
+
                 // get user data from firebase
                 // save user data into storage
                 const user = result.user;
@@ -56,7 +61,7 @@ const SignInPage = () => {
                 setSignedIn(true);
                 setError(false);
 
-                console.log( user );
+                // console.log( user );
 
                 localStorage.setItem("userData", user.email);
 
@@ -67,6 +72,25 @@ const SignInPage = () => {
                 setErrorMsg( error.message );
                 setSignedIn(false);
             });
+    }
+
+    const saveUserToFirebase = async ( userCredentials ) => {
+        let userData = {
+            accountId: userCredentials.uid,
+            email: userCredentials.email,
+            name: userCredentials.displayName,
+            photoUrl: ""
+        };
+
+        await setDoc(doc(
+                        collection(firebaseDb, "test/accounts", userCredentials.email),
+                        "accountData"
+                        ), 
+                        userData
+          );
+
+        await setDoc(doc(collection(firebaseDb, "test/accounts", userCredentials.email),"gratibums"), {});
+
     }
 
     return (
