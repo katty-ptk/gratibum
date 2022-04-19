@@ -6,12 +6,11 @@ import Back from '../../components/Back'
 
 import { motion } from 'framer-motion';
 
-import { collection, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
-
 
 // services
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth, firebaseDb } from '../../services/firebase';
+import { collection, getDoc, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
 import { Redirect } from 'react-router-dom';
 const provider = new GoogleAuthProvider();
 
@@ -48,10 +47,13 @@ const SignInPage = () => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
 
+                // get user data from firebase: todo
+                getUserFromFirebase( result.user.email );
+
+                // save user data into storage
                 saveUserToFirebase( result.user );
 
-                // get user data from firebase
-                // save user data into storage
+
                 const user = result.user;
 
                 setName( user.displayName );
@@ -90,7 +92,13 @@ const SignInPage = () => {
           );
 
         await setDoc(doc(collection(firebaseDb, "test/accounts", userCredentials.email),"gratibums"), {});
+    }
 
+    const getUserFromFirebase = async ( userEmail ) => {
+        const querySnapshot = await getDocs( collection( firebaseDb, "test/accounts/", userEmail ) );
+        querySnapshot.forEach( doc => {
+            console.log( doc.data );
+        })
     }
 
     return (
