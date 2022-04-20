@@ -47,7 +47,7 @@ const SignInPage = () => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
 
-                // get user data from firebase: todo
+                // get user data from firebase
                 getUserFromFirebase( result.user.email );
 
                 // save user data into storage
@@ -95,10 +95,15 @@ const SignInPage = () => {
     }
 
     const getUserFromFirebase = async ( userEmail ) => {
-        const querySnapshot = await getDocs( collection( firebaseDb, "test/accounts/", userEmail ) );
-        querySnapshot.forEach( doc => {
-            console.log( doc.data );
-        })
+        const querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
+        // querySnapshot.forEach( doc => {
+        //     // localStorage.setItem("data", doc.data() );
+        //     console.log( doc.data() );
+        // })
+
+        console.log( querySnapshot.docs.at(1).data() ); // empty object
+
+        localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
     }
 
     return (
