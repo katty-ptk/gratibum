@@ -6,8 +6,9 @@ import Back from '../../components/Back';
 import Next from '../../components/Next';
 
 // services
-import { auth } from '../../services/firebase';
+import { auth, firebaseDb } from '../../services/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { collection, getDoc, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
 
 import { Link, useHistory } from 'react-router-dom';
 import {  motion, useReducedMotion } from 'framer-motion';
@@ -54,6 +55,10 @@ const LoginPage = () => {
         signInWithEmailAndPassword( auth, email, password )
             .then( userCredentials => {
                 const user = userCredentials.user;
+
+                // get user data from firebase
+                getUserFromFirebase( user.email );
+
                 console.log('logged in as ' + user.email );
                 setUserEmail( user.email );
                 setLoggedIn( true );
@@ -69,6 +74,19 @@ const LoginPage = () => {
                 setLoggedIn( false );
             });
     }
+
+    const getUserFromFirebase = async ( userEmail ) => {
+        const querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
+        // querySnapshot.forEach( doc => {
+        //     // localStorage.setItem("data", doc.data() );
+        //     console.log( doc.data() );
+        // })
+
+        console.log( querySnapshot.docs.at(1).data() ); // empty object
+
+        localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
+    }
+
     
     return (
         <motion.div className={ window.innerWidth < 1000 ? 'login-page login-page-small sign-in-page sign-in-page-small' : 'login-page login-page-large sign-in-page sign-in-page-large'}
