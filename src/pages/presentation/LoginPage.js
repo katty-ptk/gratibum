@@ -8,7 +8,7 @@ import Next from '../../components/Next';
 // services
 import { auth, firebaseDb } from '../../services/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { collection, getDoc, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
+import { collection, getDocs } from 'firebase/firestore/lite';
 
 import { Link, useHistory } from 'react-router-dom';
 import {  motion, useReducedMotion } from 'framer-motion';
@@ -64,7 +64,7 @@ const LoginPage = () => {
                 setLoggedIn( true );
                 setError( false );
 
-                localStorage.setItem( userData, user.email );
+                localStorage.setItem( "currentUser", user.email );
                 history.push("/gratibum");  // redirects to app
             })
             .catch( error => {
@@ -77,13 +77,8 @@ const LoginPage = () => {
 
     const getUserFromFirebase = async ( userEmail ) => {
         const querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
-        // querySnapshot.forEach( doc => {
-        //     // localStorage.setItem("data", doc.data() );
-        //     console.log( doc.data() );
-        // })
-
-        console.log( querySnapshot.docs.at(1).data() ); // empty object
-
+        
+        console.log( querySnapshot.docs.at(1).data() );
         localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
     }
 
@@ -138,6 +133,11 @@ const LoginPage = () => {
                     <br></br>
                     <Link to='/sign-up'>
                         { t('sign_up') }
+                    </Link>
+                </div>
+                <div className="no-account">
+                    <Link to='/forgot_password'>
+                        { t('forgot_password') }
                     </Link>
                 </div>
             </section>
