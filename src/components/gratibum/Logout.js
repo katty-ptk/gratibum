@@ -8,7 +8,8 @@ const Logout = () => {
 
   const logout = () => {
     signOut(auth);
-    localStorage.removeItem('userData');
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("gratibums");
   }  
 
   return (

@@ -8,7 +8,7 @@ import Next from '../../components/Next';
 // services
 import { auth, firebaseDb } from '../../services/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { collection, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
+import { collection, getDocs, setDoc, doc, } from 'firebase/firestore/lite';
 
 import { motion } from 'framer-motion';
 
@@ -55,7 +55,7 @@ const SignUpPage = () => {
         createUserWithEmailAndPassword( auth, email, password )
             .then( userCredentials => {
                 saveUserToFirebase(userCredentials);
-                
+                getUserFromFirebase( userCredentials.user.email )                
             })
             .catch( error => {
                 setError( true );
@@ -85,10 +85,18 @@ const SignUpPage = () => {
         setError( false );
         console.log(user.email);
 
-        localStorage.setItem( userData, user.email );
+        localStorage.setItem( "currentUser", user.email );
 
         history.push("/gratibum");
     }
+
+    const getUserFromFirebase = async ( userEmail ) => {
+        const querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
+
+        console.log( querySnapshot.docs.at(1).data() );
+        localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
+    }
+
 
     return (
         <motion.div className={ window.innerWidth < 1000 ? "sign-up-page sign-up-page-small sign-in-page sign-in-page-small" : "sign-up-page sign-up-page-large sign-in-page sign-in-page-large" }

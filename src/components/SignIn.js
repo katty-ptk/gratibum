@@ -10,7 +10,7 @@ const SignIn = ( { buttonAlign } ) => {
     // this will run every time the page is visited
     useEffect( () => {
         // verifying if the user is signed in
-        if ( localStorage.getItem("userData") ) {
+        if ( localStorage.getItem("currentUser") ) {
             setSignedIn( true );
         } else {
             setSignedIn( false );

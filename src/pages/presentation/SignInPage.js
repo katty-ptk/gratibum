@@ -65,7 +65,7 @@ const SignInPage = () => {
 
                 // console.log( user );
 
-                localStorage.setItem("userData", user.email);
+                localStorage.setItem("currentUser", user.email);
 
                 history.push("/gratibum");  // redirects to app
             })
@@ -96,12 +96,8 @@ const SignInPage = () => {
 
     const getUserFromFirebase = async ( userEmail ) => {
         const querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
-        // querySnapshot.forEach( doc => {
-        //     // localStorage.setItem("data", doc.data() );
-        //     console.log( doc.data() );
-        // })
 
-        console.log( querySnapshot.docs.at(1).data() ); // empty object
+        console.log( querySnapshot.docs.at(1).data() );
 
         localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
     }
