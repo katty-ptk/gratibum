@@ -11,6 +11,7 @@ import { auth } from "../../services/firebase";
 import { sendPasswordResetEmail } from 'firebase/auth';
 
 function ForgotPassword() {
+    const { t } = useTranslation();
 
     const [ email, setEmail ] = useState("");
 
@@ -42,7 +43,7 @@ function ForgotPassword() {
             <div className="sign-in-header">
                 <Back />
                 <h2>
-                    Forgot Password
+                    { t('password_reset') }
                 </h2>
             </div>
 
@@ -50,7 +51,7 @@ function ForgotPassword() {
                 <form>
                     <div>                        
                         <label htmlFor="email">
-                            Enter your email address:
+                            { t('enter_email') }
                         </label>
                         <input
                             id="email"
@@ -66,12 +67,14 @@ function ForgotPassword() {
 
 
             { ( !error && succees ) && 
-                <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>You will receive an email at: { email }</p>
+                <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>
+                    { t('you_will_receive') } { email }
+                </p>
             }
 
             { ( error && !succees ) && 
                 <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>
-                    Please enter a valid email address.
+                    { t('enter_valid_email') }
                 </p>
             }
 
