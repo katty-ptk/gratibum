@@ -31,6 +31,7 @@ const SignUpPage = () => {
     const [ firstName, setFirstName ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
+    const [ passwordRepeat, setPasswordRepeat ] = useState("");
 
     const [ signedUp, setSignedUp ] = useState( false );
     const [ error, setError ] = useState( false );
@@ -51,20 +52,28 @@ const SignUpPage = () => {
         setPassword( newPassword );
     };
 
-    const signUp = () => {
-        createUserWithEmailAndPassword( auth, email, password )
-            .then( userCredentials => {
-                sendEmail( userCredentials.user );
+    const passwordRepeatTextChanged = event => {
+        let newPasswordRepeat = event.target.value;
+        setPasswordRepeat( newPasswordRepeat );
+    }
 
-                saveUserToFirebase(userCredentials);
-                getUserFromFirebase( userCredentials.user.email )                
-            })
-            .catch( error => {
-                setError( true );
-                setErrorMsg( error.message )
-                setSignedUp( false );
-                console.log(errorMsg);
-            });
+    const signUp = () => {
+
+        if ( password == passwordRepeat ) {
+            createUserWithEmailAndPassword( auth, email, password )
+                .then( userCredentials => {
+                    sendEmail( userCredentials.user );
+    
+                    saveUserToFirebase(userCredentials);
+                    getUserFromFirebase( userCredentials.user.email )                
+                })
+                .catch( error => {
+                    setErr( error.message );
+                });
+        } else {
+            setErr( t("repeat_password_error") );
+        }
+
     };
 
     const sendEmail = ( user ) => {
@@ -109,6 +118,12 @@ const SignUpPage = () => {
         localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
     }
 
+    const setErr = ( message ) => {
+        setError( true );
+        setErrorMsg( message )
+        setSignedUp( false );
+        console.log(errorMsg);
+    }
 
     return (
         <motion.div className={ window.innerWidth < 1000 ? "sign-up-page sign-up-page-small sign-in-page sign-in-page-small" : "sign-up-page sign-up-page-large sign-in-page sign-in-page-large" }
@@ -181,6 +196,7 @@ const SignUpPage = () => {
                             type="password"
                             placeholder='********'    
                             autoComplete='off'
+                            onChange={ passwordRepeatTextChanged }
                         />
                     </div>
                 </form>
