@@ -24,8 +24,6 @@ const loginVariants = {
     }
 }
 
-const userData = "userData";
-
 const LoginPage = () => {
     const { t } = useTranslation();
 
@@ -55,17 +53,24 @@ const LoginPage = () => {
         signInWithEmailAndPassword( auth, email, password )
             .then( userCredentials => {
                 const user = userCredentials.user;
+                
+                if ( user.emailVerified ) {
+                    // get user data from firebase
+                    getUserFromFirebase( user.email );
+    
+                    console.log('logged in as ' + user.email );
+                    setUserEmail( user.email );
+                    setLoggedIn( true );
+                    setError( false );
+    
+                    localStorage.setItem( "currentUser", user.email );
+                    history.push("/gratibum");  // redirects to app
+                } else {
+                    setError( true );
+                    setErrorMsg( "Please verify your email first!" );
+                    setLoggedIn( false );    
+                }
 
-                // get user data from firebase
-                getUserFromFirebase( user.email );
-
-                console.log('logged in as ' + user.email );
-                setUserEmail( user.email );
-                setLoggedIn( true );
-                setError( false );
-
-                localStorage.setItem( "currentUser", user.email );
-                history.push("/gratibum");  // redirects to app
             })
             .catch( error => {
                 console.log(error.message);
