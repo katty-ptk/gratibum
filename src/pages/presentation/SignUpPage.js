@@ -7,7 +7,7 @@ import Next from '../../components/Next';
 
 // services
 import { auth, firebaseDb } from '../../services/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { collection, getDocs, setDoc, doc, } from 'firebase/firestore/lite';
 
 import { motion } from 'framer-motion';
@@ -54,6 +54,8 @@ const SignUpPage = () => {
     const signUp = () => {
         createUserWithEmailAndPassword( auth, email, password )
             .then( userCredentials => {
+                sendEmail( userCredentials.user );
+
                 saveUserToFirebase(userCredentials);
                 getUserFromFirebase( userCredentials.user.email )                
             })
@@ -64,6 +66,16 @@ const SignUpPage = () => {
                 console.log(errorMsg);
             });
     };
+
+    const sendEmail = ( user ) => {
+        sendEmailVerification( user )
+            .then( () => {
+                console.log( "email sent!" );
+            })
+            .catch( error => {
+                console.log( error );
+            });
+    }
 
     const saveUserToFirebase = async (userCredentials) => {
         let userData = {
@@ -87,7 +99,7 @@ const SignUpPage = () => {
 
         localStorage.setItem( "currentUser", user.email );
 
-        history.push("/gratibum");
+        history.push("/login");
     }
 
     const getUserFromFirebase = async ( userEmail ) => {
