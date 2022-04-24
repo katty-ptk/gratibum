@@ -1,9 +1,9 @@
 import React from 'react';
 
 import img1 from '../images/1.jpg';
-import img2 from '../images/2.jpg';
-import img3 from '../images/3.jpg';
-import img4 from '../images/4.jpg';
+import img2 from '../images/RealGratitudes/2.jpg';
+import img3 from '../images/RealGratitudes/1.1.jpg';
+import img4 from '../images/RealGratitudes/4.jpg';
 
 const Description = () => {
     return (

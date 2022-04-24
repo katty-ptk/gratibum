@@ -1,5 +1,6 @@
 // react
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 // components
 import Back from '../../components/Back'
@@ -39,7 +40,7 @@ function ForgotPassword() {
     }
 
     return (
-        <div className={ window.innerWidth < 1000 ? 'login-page login-page-small sign-in-page sign-in-page-small' : 'login-page login-page-large sign-in-page sign-in-page-large'} >
+        <div className={ window.innerWidth < 1000 ? 'login-page login-page-small sign-in-page sign-in-page-small forgot-pass' : 'login-page login-page-large sign-in-page sign-in-page-large forgot-pass'} >
             <div className="sign-in-header">
                 <Back />
                 <h2>
@@ -63,7 +64,16 @@ function ForgotPassword() {
                         />
                     </div>
                 </form>
+
+                <div className={ window.innerWidth < 1000 ? 'back-login-small' : 'back-login-large' }>
+                    <Link to='/login'>
+                        {/* { t('login') } */}
+                        Go back to Login
+                    </Link>
+                </div>
             </section>
+
+
 
 
             { ( !error && succees ) && 

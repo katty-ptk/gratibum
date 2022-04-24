@@ -63,7 +63,7 @@ const LoginPage = () => {
                     setLoggedIn( true );
                     setError( false );
     
-                    localStorage.setItem( "currentUser", user.email );
+                    // localStorage.setItem( "currentUser", user.email );
                     history.push("/gratibum");  // redirects to app
                 } else {
                     setError( true );
@@ -85,6 +85,7 @@ const LoginPage = () => {
         
         console.log( querySnapshot.docs.at(1).data() );
         localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
+        localStorage.setItem( "currentUser", JSON.stringify(querySnapshot.docs.at(0).data() ) );
     }
 
     
