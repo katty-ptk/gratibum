@@ -554,6 +554,22 @@
   right: 0;
 }
 
+.back-login-large {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -60%);
+}
+
+.back-login-small {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+}
+
 .languages-div {
   position: absolute;
 }

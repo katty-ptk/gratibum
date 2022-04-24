@@ -106,16 +106,16 @@ const SignUpPage = () => {
         setError( false );
         console.log(user.email);
 
-        localStorage.setItem( "currentUser", user.email );
-
-        history.push("/login");
+        
+        // history.push("/login");
     }
-
+    
     const getUserFromFirebase = async ( userEmail ) => {
         const querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
-
+        
         console.log( querySnapshot.docs.at(1).data() );
         localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
+        localStorage.setItem( "currentUser", JSON.stringify(querySnapshot.docs.at(0).data() ) );
     }
 
     const setErr = ( message ) => {
@@ -216,7 +216,7 @@ const SignUpPage = () => {
             }
 
             { (signedUp && !error ) && 
-                <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>account created:)</p>
+                <p className={ window.innerWidth <= 480 ? 'error-md' : 'error' }>Please verify your email and then log in. :)</p>
             }
 
             <div className="sign-in-next"
