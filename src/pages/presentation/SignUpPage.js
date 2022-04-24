@@ -107,7 +107,7 @@ const SignUpPage = () => {
         console.log(user.email);
 
         
-        // history.push("/login");
+        history.push("/login");
     }
     
     const getUserFromFirebase = async ( userEmail ) => {
