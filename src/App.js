@@ -7,6 +7,7 @@ import './styles/style.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Main from './pages/gratibum/Main';
 import ForgotPassword from './pages/presentation/ForgotPassword';
+import ProfilePage from './pages/gratibum/ProfilePage';
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
           <Route
             exact path='/forgot_password'
             component={ ForgotPassword }
+          ></Route>
+          <Route
+            exact path='/profile'
+            component={ ProfilePage }
           ></Route>
         </Switch>
       </div>
