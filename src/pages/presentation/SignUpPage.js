@@ -132,7 +132,9 @@ const SignUpPage = () => {
             animate="animate"
         > 
             <div className="sign-in-header">
-                <Back />
+                <Link to="/sign-in">
+                    <Back />
+                </Link>
                 <h2>
                     { t('sign_up_header') }
                 </h2>

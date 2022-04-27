@@ -111,7 +111,9 @@ const SignInPage = () => {
             animate="animate"
         >
             <div className="sign-in-header">
-                <Back />
+                <Link to="/">
+                    <Back />
+                </Link>
                 <h2>
                     { t('sign_in_header') }
                 </h2>
