@@ -4,6 +4,9 @@ import { useTranslation } from 'react-i18next';
 import img_cosmin from '../../images/feedback/cosmin.jpg';
 import img_tania from '../../images/feedback/tania.jpg';
 import img_roland from '../../images/feedback/roland.jpg';
+
+import logo from '../../images/logo.png'
+
 import Quote from '../../components/Quote';
 import ScrollToTop from '../../components/ScrollToTop';
 
@@ -33,7 +36,7 @@ const Feedback = () => {
                 </div>
 
                 <div className="card">
-                <img src={ img_tania } alt="" />
+                <img src={ logo } alt="" />
                     <h3>TANIA</h3>
                     <span></span>
                     <div>
@@ -50,7 +53,7 @@ const Feedback = () => {
                 </div>
 
                 <div className="card">
-                <img src={ img_roland } alt="" />
+                <img src={ logo } alt="" />
                     <h3>ROLAND</h3>
                     <span></span>
                     <div>

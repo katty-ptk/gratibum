@@ -906,6 +906,115 @@ body {
   cursor: pointer;
 }
 
+.profile-page .profile-page-header h2 {
+  font-style: italic;
+}
+.profile-page img {
+  width: 150px;
+  height: 150px;
+  border: 2px dashed black;
+  border-radius: 100%;
+}
+
+.profile-page-large .profile-page-info {
+  position: absolute;
+  width: 55%;
+  height: 100%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.profile-page-large .profile-page-info .user-info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 40%;
+}
+.profile-page-large .profile-page-info .user-info h2 {
+  color: #CFAC91;
+}
+.profile-page-large .profile-page-info .user-info h3 {
+  color: #3E253C;
+}
+.profile-page-large .profile-page-info .user-info button {
+  width: 131px;
+  height: 33px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  background: #E4D3D3;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 15px;
+  color: #5A2356;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.profile-page-large .profile-page-info .about-gratibum {
+  position: absolute;
+  bottom: 15px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.profile-page-large .profile-page-info .about-gratibum p {
+  font-style: bold;
+}
+
+.profile-page-small .profile-page-info {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.profile-page-small .profile-page-info .user-info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  top: 20px;
+  width: 100%;
+  height: 50%;
+}
+.profile-page-small .profile-page-info .user-info h2 {
+  color: #CFAC91;
+}
+.profile-page-small .profile-page-info .user-info h3 {
+  color: #3E253C;
+}
+.profile-page-small .profile-page-info .user-info button {
+  width: 131px;
+  height: 33px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  background: #E4D3D3;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 15px;
+  color: #5A2356;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.profile-page-small .profile-page-info .about-gratibum {
+  position: absolute;
+  bottom: 15px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.profile-page-small .profile-page-info .about-gratibum p {
+  font-style: bold;
+}
+
 * {
   margin: 0;
   padding: 0;

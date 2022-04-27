@@ -3,7 +3,6 @@ import React from 'react'
 // components
 import AppHeader from './AppHeader'
 import Create from '../../components/gratibum/Create'
-import Logout from '../../components/gratibum/Logout'
 
 const Main = () => {
   return (
@@ -12,8 +11,7 @@ const Main = () => {
 
 
       <div className="test-greeting">
-        <h3>Hi, { localStorage.getItem("currentUser") }!</h3>
-        <Logout />
+        <h3>Hey, you! :)</h3>
       </div>
 
       <div className="create">
