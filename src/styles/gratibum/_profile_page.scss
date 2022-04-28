@@ -70,6 +70,8 @@
         .about-gratibum { 
             position: absolute;
             bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
             text-decoration: underline;
             cursor: pointer;
 
@@ -132,12 +134,14 @@
         .about-gratibum { 
             position: absolute;
             bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
             text-decoration: underline;
             cursor: pointer;
 
-            p {
-                font-style: bold;
-            }
+            // width: 100%;
+            text-align: center;
+
         }
 
 

@@ -317,7 +317,7 @@
 .sign-in-page .sign-in-buttons button:last-child {
   position: relative;
 }
-.sign-in-page .sign-in-buttons button:last-child svg {
+.sign-in-page .sign-in-buttons button:last-child img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -959,6 +959,8 @@ body {
 .profile-page-large .profile-page-info .about-gratibum {
   position: absolute;
   bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
   text-decoration: underline;
   cursor: pointer;
 }
@@ -1008,11 +1010,39 @@ body {
 .profile-page-small .profile-page-info .about-gratibum {
   position: absolute;
   bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
   text-decoration: underline;
   cursor: pointer;
+  text-align: center;
 }
-.profile-page-small .profile-page-info .about-gratibum p {
-  font-style: bold;
+
+.about-gratibum img {
+  border: none;
+  width: 40px;
+  margin-right: 10px;
+}
+.about-gratibum .links {
+  justify-content: center;
+}
+.about-gratibum .links a {
+  text-decoration: none;
+}
+.about-gratibum .links .link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #3E253C;
+  cursor: pointer;
+}
+
+.about-gratibum-large .links {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.about-gratibum-small .links {
+  align-items: center;
 }
 
 * {

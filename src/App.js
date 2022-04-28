@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Main from './pages/gratibum/Main';
 import ForgotPassword from './pages/presentation/ForgotPassword';
 import ProfilePage from './pages/gratibum/ProfilePage';
+import AboutGratibum from './pages/gratibum/AboutGratibum';
 
 function App() {
   return (
@@ -42,6 +43,10 @@ function App() {
           <Route
             exact path='/profile'
             component={ ProfilePage }
+          ></Route>
+          <Route
+            exact path='/about-gratibum'
+            component={ AboutGratibum }
           ></Route>
         </Switch>
       </div>

@@ -42,9 +42,11 @@ const ProfilePage = () => {
                     <Logout />
                 </div>
 
-                <div className="about-gratibum">
-                    <p>About Gratibum</p>
-                </div>
+                <Link to="/about-gratibum">
+                    <div className="about-gratibum">
+                        <p>About Gratibum</p>
+                    </div>
+                </Link>
             </section>
         </div>
     )
