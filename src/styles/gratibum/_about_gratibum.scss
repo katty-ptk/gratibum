@@ -1,0 +1,39 @@
+.about-gratibum {
+    img {
+        border: none;
+        width: 40px;
+        margin-right: 10px;
+    }
+
+
+    .links {
+        justify-content: center;
+        
+        a {
+            text-decoration: none;
+        }
+
+        .link {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            color: #3E253C;
+
+            cursor: pointer;
+        }
+    }
+}
+
+.about-gratibum-large {
+    .links {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.about-gratibum-small {
+    .links {
+        align-items: center;
+    }
+}
