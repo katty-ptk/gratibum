@@ -78,9 +78,17 @@ const AboutGratibum = () => {
                 Gratibum was built with love and coffee. A looot of coffee! So if you love Gratibum and you are grateful for its impact on your life, buy us a coffee.
             </p>
             <Link 
-                    to={{ pathname: "https://ko-fi.com/gratibum" }}
-                    target="_blank">
+                to={{ pathname: "https://ko-fi.com/gratibum" }}
+                target="_blank">
                 <img src={kofi} alt="" />
+            </Link>
+        </section>
+
+        <section className="get-app profile-page-info">
+            <Link 
+                 to={{ pathname: "https://play.google.com/store/apps/details?id=com.vvs.gratibum&ah=A5NWk-tLAw4OwpbSxqSfI584GUA" }}
+                target="_blank">
+                    <p>Get Gratibum for Android</p>
             </Link>
         </section>
     </div>

@@ -1037,6 +1037,7 @@ body {
   justify-content: center;
   align-items: center;
   pointer-events: none;
+  cursor: pointer;
 }
 .about-gratibum .social-links {
   font-weight: bold;
@@ -1050,6 +1051,7 @@ body {
 }
 .about-gratibum .social-links a {
   text-decoration: none;
+  cursor: pointer;
 }
 .about-gratibum .social-links .link {
   display: flex;
@@ -1076,6 +1078,7 @@ body {
   width: auto;
   height: auto;
   border-radius: 0px;
+  cursor: pointer;
 }
 .about-gratibum .kofi-link {
   margin-top: 530px;
@@ -1088,6 +1091,10 @@ body {
   width: auto;
   height: auto;
   border-radius: 0px;
+}
+.about-gratibum .get-app {
+  top: 95%;
+  color: #3E253C;
 }
 
 .about-gratibum-small {
