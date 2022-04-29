@@ -1017,32 +1017,99 @@ body {
   text-align: center;
 }
 
+.about-gratibum {
+  overflow-y: hidden;
+}
+.about-gratibum p {
+  font-weight: bold;
+}
 .about-gratibum img {
   border: none;
-  width: 40px;
-  margin-right: 10px;
 }
-.about-gratibum .links {
+.about-gratibum .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  height: 100%;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  pointer-events: none;
 }
-.about-gratibum .links a {
+.about-gratibum .social-links {
+  font-weight: bold;
+  margin-top: 200px;
+}
+.about-gratibum .social-links .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.about-gratibum .social-links a {
   text-decoration: none;
 }
-.about-gratibum .links .link {
+.about-gratibum .social-links .link {
   display: flex;
   flex-direction: row;
   align-items: center;
   color: #3E253C;
   cursor: pointer;
 }
-
-.about-gratibum-large .links {
-  top: 50%;
-  transform: translateY(-50%);
+.about-gratibum .social-links .link img {
+  border: none;
+  width: 40px;
+  margin-right: 10px;
+}
+.about-gratibum .substack-link {
+  margin-top: 400px;
+}
+.about-gratibum .substack-link p {
+  margin-bottom: 20px;
+}
+.about-gratibum .substack-link img {
+  display: block;
+  max-width: 180px;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  border-radius: 0px;
+}
+.about-gratibum .kofi-link {
+  margin-top: 530px;
+}
+.about-gratibum .kofi-link img {
+  display: block;
+  margin-top: 20px;
+  max-width: 150px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  border-radius: 0px;
 }
 
-.about-gratibum-small .links {
+.about-gratibum-small {
+  overflow-y: visible;
+}
+.about-gratibum-small p {
+  margin: 0px 10px;
+  margin-top: 15px;
+}
+.about-gratibum-small .social-links {
   align-items: center;
+  font-size: 0.85em;
+  margin-top: 10px;
+}
+.about-gratibum-small .social-links .links .link h3 {
+  display: none;
+}
+.about-gratibum-small .substack-link {
+  top: 35px;
+}
+.about-gratibum-small .kofi-link {
+  top: 50px;
 }
 
 * {

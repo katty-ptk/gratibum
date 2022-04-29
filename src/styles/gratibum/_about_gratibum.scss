@@ -1,14 +1,41 @@
 .about-gratibum {
-    img {
-        border: none;
-        width: 40px;
-        margin-right: 10px;
+    overflow-y: hidden;
+    
+    p {
+        font-weight: bold;
     }
 
+    img {
+        border: none;
+    }
 
-    .links {
+    .logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        align-items: center;
+        height: 100%;
+
+        display: flex;
         justify-content: center;
+        align-items: center;
+        pointer-events: none;
+    }
+    
+    .social-links {
+        // justify-content: start;
+        font-weight: bold;
+        margin-top: 200px;
         
+        .links {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 100%;
+            // border: 2px solid #3E253C;
+        }
+
         a {
             text-decoration: none;
         }
@@ -17,23 +44,87 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-
+            
             color: #3E253C;
-
+            
             cursor: pointer;
+
+            img {
+                border: none;
+                width: 40px;
+                margin-right: 10px;
+            }
         }
+    }
+
+    .substack-link {
+        margin-top: 400px;
+
+        p {
+            margin-bottom: 20px;
+        }
+        
+        img {
+            display: block;
+            max-width: 180px;
+            max-height: 70px;
+            width: auto;
+            height: auto;
+            border-radius: 0px;
+          }
+    }
+
+    .kofi-link {
+        margin-top: 530px;
+
+        img {
+            display: block;
+            margin-top: 20px;
+            max-width: 150px;
+            max-height: 50px;
+            width: auto;
+            height: auto;
+            border-radius: 0px;
+          }
     }
 }
 
 .about-gratibum-large {
-    .links {
-        top: 50%;
-        transform: translateY(-50%);
-    }
+    // .social-links {
+    //     position: absolute;
+    //     top: 50%;
+    //     transform: translateY(-50%);
+    // }
 }
 
 .about-gratibum-small {
-    .links {
+    overflow-y: visible;
+
+    p {
+        margin: 0px 10px;
+        margin-top: 15px;
+    }
+
+    .social-links {
         align-items: center;
+        font-size: 0.85em;
+        margin-top: 10px;
+
+        .links {
+
+            .link {
+                h3 {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .substack-link {
+        top: 35px;
+    }
+
+    .kofi-link {
+        top: 50px;
     }
 }
