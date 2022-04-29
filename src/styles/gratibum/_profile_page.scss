@@ -10,6 +10,13 @@
         height: 150px;
         border: 2px dashed black;
         border-radius: 100%;
+        cursor: pointer;
+    }
+
+    .select-language-profile {
+        position: absolute;
+        top: 60%;
+        left: 71%;
     }
 }
 
@@ -143,7 +150,12 @@
             text-align: center;
 
         }
+    }
 
-
+    .select-language-profile {
+        position: absolute;
+        top: 70%;
+        left: 45%;
+        transform: translateX(-50%);
     }
 }

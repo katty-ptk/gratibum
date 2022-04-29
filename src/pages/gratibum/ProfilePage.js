@@ -7,6 +7,7 @@ import Logout from '../../components/gratibum/Logout';
 import logo from '../../images/logo.png';
 
 import { useTranslation } from 'react-i18next'
+import SelectLanguage from '../../components/SelectLanguage';
 
 const ProfilePage = () => {
 
@@ -21,7 +22,7 @@ const ProfilePage = () => {
                     <Back />
                 </Link>
                 <h2>
-                    Profile
+                { t('profile') }
                 </h2>
             </div>
 
@@ -36,7 +37,7 @@ const ProfilePage = () => {
                     </div>
 
                     <div className="gratitudes-nr">
-                        <h3>0 Gratitudes</h3>
+                        <h3>0 { t('gratitudes') }</h3>
                     </div>
 
                     <Logout />
@@ -44,10 +45,14 @@ const ProfilePage = () => {
 
                 <Link to="/about-gratibum">
                     <div className="about-gratibum">
-                        <p>About Gratibum</p>
+                        <p>{ t('about_gratibum_2') }</p>
                     </div>
                 </Link>
             </section>
+
+            <div className="select-language-profile">
+                <SelectLanguage />
+            </div>
         </div>
     )
 }

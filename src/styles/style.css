@@ -914,6 +914,12 @@ body {
   height: 150px;
   border: 2px dashed black;
   border-radius: 100%;
+  cursor: pointer;
+}
+.profile-page .select-language-profile {
+  position: absolute;
+  top: 60%;
+  left: 71%;
 }
 
 .profile-page-large .profile-page-info {
@@ -1016,12 +1022,19 @@ body {
   cursor: pointer;
   text-align: center;
 }
+.profile-page-small .select-language-profile {
+  position: absolute;
+  top: 70%;
+  left: 45%;
+  transform: translateX(-50%);
+}
 
 .about-gratibum {
   overflow-y: hidden;
 }
 .about-gratibum p {
   font-weight: bold;
+  margin: 0px 30px;
 }
 .about-gratibum img {
   border: none;
