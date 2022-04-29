@@ -10,6 +10,7 @@ import twitter from '../../images/icons/social media/twitter.svg';
 import substack from '../../images/icons/social media/substack.png';
 import kofi from '../../images/icons/social media/kofi.png';
 import logo from '../../images/logo.png';
+import { t } from 'i18next';
 
 const AboutGratibum = () => {
   return (
@@ -29,7 +30,7 @@ const AboutGratibum = () => {
 
         <section className="social-links  profile-page-info">
             <p>
-                We are extremely grateful for having you in our Gratibum family. We do extend our gratitude lessons through a lot of other channels. Be part of the bigger Gratibum family by checking out our social media as well.
+                { t('social') }
             </p>
 
             <div className="links">
@@ -64,7 +65,7 @@ const AboutGratibum = () => {
 
         <section className="substack-link profile-page-info">
             <p>
-                We compile all our learnings into a very small, we promise, weekly email. Subscribe to our Substack letter and be reminded of all the great things that happen around us.
+                { t('substack') }
             </p>
             <Link 
                     to={{ pathname: "https://substack.com/" }}
@@ -75,7 +76,7 @@ const AboutGratibum = () => {
 
         <section className="kofi-link profile-page-info">
             <p>
-                Gratibum was built with love and coffee. A looot of coffee! So if you love Gratibum and you are grateful for its impact on your life, buy us a coffee.
+                { t('kofi') }
             </p>
             <Link 
                 to={{ pathname: "https://ko-fi.com/gratibum" }}
