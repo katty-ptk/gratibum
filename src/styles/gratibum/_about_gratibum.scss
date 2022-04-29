@@ -1,6 +1,7 @@
 .about-gratibum {
     overflow-y: hidden;
-    
+
+
     p {
         font-weight: bold;
     }
@@ -21,6 +22,7 @@
         justify-content: center;
         align-items: center;
         pointer-events: none;
+        cursor: pointer;
     }
     
     .social-links {
@@ -38,6 +40,7 @@
 
         a {
             text-decoration: none;
+            cursor: pointer;
         }
 
         .link {
@@ -48,7 +51,7 @@
             color: #3E253C;
             
             cursor: pointer;
-
+            
             img {
                 border: none;
                 width: 40px;
@@ -71,6 +74,7 @@
             width: auto;
             height: auto;
             border-radius: 0px;
+            cursor: pointer;
           }
     }
 
@@ -87,14 +91,12 @@
             border-radius: 0px;
           }
     }
-}
 
-.about-gratibum-large {
-    // .social-links {
-    //     position: absolute;
-    //     top: 50%;
-    //     transform: translateY(-50%);
-    // }
+    .get-app {
+       top: 95%;
+
+       color: #3E253C;
+    }
 }
 
 .about-gratibum-small {
