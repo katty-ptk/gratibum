@@ -9,6 +9,7 @@ import Main from './pages/gratibum/Main';
 import ForgotPassword from './pages/presentation/ForgotPassword';
 import ProfilePage from './pages/gratibum/ProfilePage';
 import AboutGratibum from './pages/gratibum/AboutGratibum';
+import CreateGratitude from './pages/gratibum/CreateGratitude';
 
 function App() {
   return (
@@ -47,6 +48,10 @@ function App() {
           <Route
             exact path='/about-gratibum'
             component={ AboutGratibum }
+          ></Route>
+          <Route
+            exact path='/create-gratitude'
+            component={ CreateGratitude }
           ></Route>
         </Switch>
       </div>

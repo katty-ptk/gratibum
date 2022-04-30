@@ -25,7 +25,6 @@ const Main = () => {
               <img src={logo} alt="" />
             </div>
           </Link>
-
       </div>
 
       <section className="entries">
