@@ -13,7 +13,7 @@ const CreateGratitude = () => {
         <div className={ window.innerWidth < 1000 ? 'create-gratitude create-gratitude-small gratibum gratibum-small' : 'create-gratitude create-gratitude-large gratibum gratibum-large'}>
             <div className="app-header">          
                 <h2>
-                    { t("New Gratitude") }
+                    { t("new_gratitude") }
                 </h2>
 
                 <Link to="/gratibum">
@@ -27,44 +27,44 @@ const CreateGratitude = () => {
             <section className="query">
                 <div className="gratitude-image">
                     <p>
-                        { t('Add an image') }
+                        { t('add_image') }
                     </p>
                 </div>
 
                 <form>
                     <div className="gratitude-title">
                         <label htmlFor="title">
-                            { t('The title of your gratitude: ') }
+                            { t('gratitude_title') }
                         </label>
-                        <input id="title" type="text" placeholder="ex: Sunsets" required/>
+                        <input id="title" type="text" placeholder={t('sunsets')} required/>
                     </div>
 
                     <div className="gratitude-description">
                         <label htmlFor="what">
-                            { t('What are you grateful for?') }
+                            { t('q_what') }
                         </label>
-                        <input id="what" type="text" placeholder="I am grateful for ..." />
+                        <input id="what" type="text" placeholder={t('q_what_placeholder')} />
                     </div>
 
                     <div className="gratitude-description">
                         <label htmlFor="why">
-                            { t('Why are you grateful for this?') }
+                            { t('q_why') }
                         </label>
-                        <input id="why" type="text" placeholder="I am grateful for this because ..." />
+                        <input id="why" type="text" placeholder={t('q_why_placeholder')} />
                     </div>
 
                     <div className="gratitude-description">
-                        <label htmlFor="wlse">
-                            { t('Anything else you want to add?') }
+                        <label htmlFor="else">
+                            { t('q_else') }
                         </label>
-                        <input id="else" type="text" placeholder="I felt ... and ..." />
+                        <input id="else" type="text" placeholder={t('q_else_placeholder')} />
                     </div>
 
                 </form>
 
                 <div className="submit">
                     <p>
-                        { t('Add Gratitude!') }
+                        { t('add_gratitude') }
                     </p>
                 </div>
             </section>
