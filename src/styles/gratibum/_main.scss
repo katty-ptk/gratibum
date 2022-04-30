@@ -2,7 +2,32 @@ body {
     background-color: #F3F3F3;
 }
 
-.gratibum {
+.gratibum { 
+    .app-header{
+        .user-img {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+
+            img { 
+                width: 50px;
+                border: 3px solid #CEA281;
+                border-radius: 100%;
+            }
+        }
+    }
+
+    .create {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+
+        cursor: pointer;
+    }
+}
+
+.gratibum-small {
     // position: relative;
 
     .app-header {
@@ -35,35 +60,67 @@ body {
         }
     }
 
-    .test-greeting {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        text-align: center;
+    .entries { 
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        button {
-            width: 131px;
-            height: 33px;
-    
-            font-family: 'Roboto', sans-serif;
-            font-weight: bold;
-            background: $lightPurple;
-            color: #fff;
-            border-radius: 20px;
-            margin-top: 15px;
-    
-            outline: none;
-            border: none;
+        width: 100%;
+        top: 80px;
+        height: calc(100vh - 80px);
+
+        // border: 2px solid pink;
+
+        // .test-greeting {
+        //     position: absolute;
+        //     top: 50%;
+        //     transform: translateY(-50%);
+        //     width: 100%;
+        //     text-align: center;
+        // }
+    }
+
+}
+
+.gratibum-large { 
+    .app-header {
+        position: absolute;
+        height: 100%;
+        width: 30%;
+
+        background-color: #E4D3D3;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+        color: #5A2356;
+        
+        h2 {
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            font-style: italic;
+        }
+
+        .profile-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
             cursor: pointer;
         }
     }
 
-    .create {
+    .entries { 
         position: absolute;
-        bottom: 20px;
-        right: 20px;
+        right: 0;
+        width: 70%;
+        height: 100%;
 
-        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

@@ -855,7 +855,25 @@ body {
   background-color: #F3F3F3;
 }
 
-.gratibum .app-header {
+.gratibum .app-header .user-img {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+.gratibum .app-header .user-img img {
+  width: 50px;
+  border: 3px solid #CEA281;
+  border-radius: 100%;
+}
+.gratibum .create {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.gratibum-small .app-header {
   position: relative;
   height: 80px;
   width: 100vw;
@@ -864,7 +882,7 @@ body {
   border-bottom-right-radius: 20px;
   color: #5A2356;
 }
-.gratibum .app-header h2 {
+.gratibum-small .app-header h2 {
   position: absolute;
   text-align: center;
   top: 50%;
@@ -872,38 +890,54 @@ body {
   transform: translate(-50%, -50%);
   font-style: italic;
 }
-.gratibum .app-header .profile-icon {
+.gratibum-small .app-header .profile-icon {
   position: absolute;
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
 }
-.gratibum .test-greeting {
+.gratibum-small .entries {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  top: 80px;
+  height: calc(100vh - 80px);
+}
+
+.gratibum-large .app-header {
   position: absolute;
+  height: 100%;
+  width: 30%;
+  background-color: #E4D3D3;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: #5A2356;
+}
+.gratibum-large .app-header h2 {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-style: italic;
+}
+.gratibum-large .app-header .profile-icon {
+  position: absolute;
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  width: 100%;
-  text-align: center;
-}
-.gratibum .test-greeting button {
-  width: 131px;
-  height: 33px;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  background: #50434F;
-  color: #fff;
-  border-radius: 20px;
-  margin-top: 15px;
-  outline: none;
-  border: none;
   cursor: pointer;
 }
-.gratibum .create {
+.gratibum-large .entries {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  cursor: pointer;
+  right: 0;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-page .profile-page-header h2 {
