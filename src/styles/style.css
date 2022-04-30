@@ -1166,6 +1166,145 @@ body {
   top: 50px;
 }
 
+.create-gratitude .app-header .back {
+  position: absolute;
+  left: 20px;
+}
+.create-gratitude .query .gratitude-image {
+  position: relative;
+  width: 313px;
+  height: 210px;
+  border: 2px dashed #50434F;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+.create-gratitude .query .gratitude-image p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.2em;
+}
+.create-gratitude .query form {
+  width: 313px;
+}
+.create-gratitude .query form label {
+  display: block;
+  margin-bottom: 10px;
+}
+.create-gratitude .query form input {
+  outline: none;
+  border: none;
+  background-color: #50434F;
+  color: #fff;
+  width: 300px;
+  height: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+.create-gratitude .query form input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.create-gratitude .query form input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.create-gratitude .query form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.create-gratitude .query form .gratitude-title input {
+  background: none;
+  border-bottom: 2px solid #50434F;
+  border-radius: 0px;
+  color: #50434F;
+  font-weight: bold;
+  transition: all 0.5s ease-in-out;
+}
+.create-gratitude .query form .gratitude-title input::-moz-placeholder {
+  color: #50434F;
+  font-weight: lighter;
+}
+.create-gratitude .query form .gratitude-title input:-ms-input-placeholder {
+  color: #50434F;
+  font-weight: lighter;
+}
+.create-gratitude .query form .gratitude-title input::placeholder {
+  color: #50434F;
+  font-weight: lighter;
+}
+.create-gratitude .query form .gratitude-title input:focus {
+  border-bottom: 2px solid #111;
+  border-radius: 5px;
+}
+.create-gratitude .query form .gratitude-description input {
+  height: 25px;
+  transition: all 0.5s ease-in-out;
+}
+
+.create-gratitude-large .app-header .back {
+  top: 20px;
+}
+.create-gratitude-large .query {
+  position: absolute;
+  right: 0;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.create-gratitude-large .query .submit {
+  width: 320px;
+  height: 40px;
+  background-color: #E4D3D3;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.create-gratitude-large .query .submit p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #50434F;
+  font-weight: bold;
+}
+
+.create-gratitude-small .app-header .back {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.create-gratitude-small .query {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  top: 80px;
+  height: calc(100vh - 80px);
+}
+.create-gratitude-small .query .submit {
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  background-color: #E4D3D3;
+  border-radius: 10px;
+  position: absolute;
+  cursor: pointer;
+}
+.create-gratitude-small .query .submit p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #50434F;
+  font-weight: bold;
+}
+
 * {
   margin: 0;
   padding: 0;
