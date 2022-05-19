@@ -15,8 +15,8 @@ const Description = () => {
                 <img src={ img4 } alt="memory" />
             </div>
             <p className="description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-            </p>
+                Gratibum the Gratitude Album. It helps you save moments and ideas you want to be reminded of. Moments with your family, or heart warming messages. With Gratibum you can save pictures and messages and let it remind you about them with configured periodical notifications.
+        </p>
         </section>
     )
 }

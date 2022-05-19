@@ -30,6 +30,7 @@ const ProfilePage = () => {
                 <div className="user-info">
                     <div className="profile-img">
                         <img src={ logo } alt="" />
+                        <input type="file" accept="image/*" />
                     </div>
 
                     <div className="profile-name">

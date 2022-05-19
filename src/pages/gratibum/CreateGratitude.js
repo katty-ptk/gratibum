@@ -29,6 +29,7 @@ const CreateGratitude = () => {
                     <p>
                         { t('add_image') }
                     </p>
+                    <input type="file" accept="image/*" />
                 </div>
 
                 <form>
