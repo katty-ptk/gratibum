@@ -14,7 +14,7 @@ import { t } from 'i18next';
 
 const AboutGratibum = () => {
   return (
-    <div className={ window.innerWidth < 1000 ? 'about-gratibum about-gratibum-small profile-page profile-page-small sign-in-page sign-in-page-small' : 'about-gratibum profile-page profile-page-large sign-in-page sign-in-page-large'}>
+    <div className={ window.innerWidth < 1000 ? 'about-gratibum about-gratibum-small profile-page profile-page-small sign-in-page sign-in-page-small' : 'about-gratibum about-gratibum-large profile-page profile-page-large sign-in-page sign-in-page-large'}>
         <div className="profile-page-header  sign-in-header">
             <Link to="/profile">
                 <Back />
@@ -30,7 +30,8 @@ const AboutGratibum = () => {
 
         <section className="social-links  profile-page-info">
             <p>
-                { t('social') }
+                {/* { t('social') } */}
+                We are extremely grateful for you joining our Gratibum family. We do extend our gratitude lessons through a lot of other channels. Be part of the bigger Gratibum family by checking out our social media as well.
             </p>
 
             <div className="links">
@@ -39,7 +40,6 @@ const AboutGratibum = () => {
                     target="_blank">
                     <div className="link fb">
                         <img src={ facebook } alt="" />
-                        <h3>Facebook</h3>
                     </div>
                 </Link>
 
@@ -48,7 +48,6 @@ const AboutGratibum = () => {
                     target="_blank">
                     <div className="link fb">
                         <img src={ instagram } alt="" />
-                        <h3>Instagram</h3>
                     </div>
                 </Link>
 
@@ -57,7 +56,6 @@ const AboutGratibum = () => {
                     target="_blank">
                     <div className="link fb">
                         <img src={ twitter } alt="" />
-                        <h3>Twitter</h3>
                     </div>
                 </Link>
             </div>
@@ -65,7 +63,8 @@ const AboutGratibum = () => {
 
         <section className="substack-link profile-page-info">
             <p>
-                { t('substack') }
+                {/* { t('substack') } */}
+                We compile all of our learnings into a very small weekly email. Subscribe to our Substack letter and be reminded of all the great things that happen around us.
             </p>
             <Link 
                     to={{ pathname: "https://substack.com/" }}
@@ -76,7 +75,8 @@ const AboutGratibum = () => {
 
         <section className="kofi-link profile-page-info">
             <p>
-                { t('kofi') }
+                {/* { t('kofi') } */}
+                Gratibum was built with love and coffee. A looot of coffee! So, if you love Gratibum and you are grateful for it, please buy us a coffee.
             </p>
             <Link 
                 to={{ pathname: "https://ko-fi.com/gratibum" }}
