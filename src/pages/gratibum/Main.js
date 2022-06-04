@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 import { useTranslation } from 'react-i18next';
@@ -13,6 +13,14 @@ const Main = () => {
 
   const { t } = useTranslation();
 
+  const localstor = JSON.parse(localStorage.getItem("currentUser"));
+  const img = localstor.photoUrl;
+
+
+  useEffect( () => {
+    console.log('img');
+  }, [img]);
+
   return (
     <div className={ window.innerWidth < 1000 ? 'gratibum gratibum-small' : 'gratibum gratibum-large'}>
       <div className="app-header">          
@@ -22,7 +30,7 @@ const Main = () => {
 
           <Link to="/profile">
             <div className="user-img">
-              <img src={logo} alt="" />
+              <img src={localstor.photoUrl} alt="" />
             </div>
           </Link>
       </div>

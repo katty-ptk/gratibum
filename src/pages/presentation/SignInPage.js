@@ -84,7 +84,7 @@ const SignInPage = () => {
             accountId: userCredentials.uid,
             email: userCredentials.email,
             name: userCredentials.displayName,
-            photoUrl: ""
+            photoUrl: userCredentials.photoUrl
         };
 
         await setDoc(doc(

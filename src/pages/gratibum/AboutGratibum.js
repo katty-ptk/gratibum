@@ -31,8 +31,8 @@ const AboutGratibum = () => {
 
             <section className="social-links">
                 <p>
-                    {/* { t('social') } */}
-                    We are extremely grateful for you joining our Gratibum family. We do extend our gratitude lessons through a lot of other channels. Be part of the bigger Gratibum family by checking out our social media as well.
+                    { t('social') }
+                    {/* We are extremely grateful for you joining our Gratibum family. We do extend our gratitude lessons through a lot of other channels. Be part of the bigger Gratibum family by checking out our social media as well. */}
                 </p>
 
                 <div className="links">
@@ -64,8 +64,8 @@ const AboutGratibum = () => {
 
             <section className="substack-link">
                 <p>
-                    {/* { t('substack') } */}
-                    We compile all of our learnings into a very small weekly email. Subscribe to our Substack letter and be reminded of all the great things that happen around us.
+                    { t('substack') }
+                    {/* We compile all of our learnings into a very small weekly email. Subscribe to our Substack letter and be reminded of all the great things that happen around us. */}
                 </p>
                 <Link 
                         to={{ pathname: "https://substack.com/" }}
@@ -76,8 +76,8 @@ const AboutGratibum = () => {
 
             <section className="kofi-link">
                 <p>
-                    {/* { t('kofi') } */}
-                    Gratibum was built with love and coffee. A looot of coffee! So, if you love Gratibum and you are grateful for it, please buy us a coffee.
+                    { t('kofi') }
+                    {/* Gratibum was built with love and coffee. A looot of coffee! So, if you love Gratibum and you are grateful for it, please buy us a coffee. */}
                 </p>
                 <Link 
                     to={{ pathname: "https://ko-fi.com/gratibum" }}
