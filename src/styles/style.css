@@ -863,6 +863,7 @@ body {
 }
 .gratibum .app-header .user-img img {
   width: 50px;
+  height: 50px;
   border: 3px solid #CEA281;
   border-radius: 100%;
 }
@@ -1155,6 +1156,7 @@ body {
   align-items: center;
   text-align: center;
   box-shadow: 3px 5px 6px #F0E3D9;
+  padding-top: 10px;
 }
 .about-gratibum .cards .substack-link p {
   margin-bottom: 20px;
@@ -1177,6 +1179,7 @@ body {
   text-align: center;
   color: #5A2356;
   box-shadow: 3px 5px 6px #F0E3D9;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
