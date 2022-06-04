@@ -1099,39 +1099,68 @@ body {
   pointer-events: none;
   cursor: pointer;
 }
-.about-gratibum .social-links {
-  font-weight: bold;
-  margin-top: 200px;
+.about-gratibum .cards {
+  position: absolute;
+  width: 65%;
+  height: 100%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
-.about-gratibum .social-links .links {
+.about-gratibum .cards .social-links {
+  font-weight: bold;
+  color: #5A2356;
+  width: 728px;
+  height: 250px;
+  background-color: #E7D0C0;
+  border-radius: 30px;
+  box-shadow: 3px 5px 6px #F0E3D9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about-gratibum .cards .social-links p {
+  text-align: center;
+}
+.about-gratibum .cards .social-links .links {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
+  height: 50px;
 }
-.about-gratibum .social-links a {
+.about-gratibum .cards .social-links .links .link {
+  cursor: pointer;
+}
+.about-gratibum .cards .social-links .links .link img {
+  border: none;
+  width: 50px;
+  margin-right: 10px;
+}
+.about-gratibum .cards a {
   text-decoration: none;
   cursor: pointer;
 }
-.about-gratibum .social-links .link {
+.about-gratibum .cards .substack-link {
+  width: 728px;
+  height: 150px;
+  background-color: #E7D0C0;
+  border-radius: 30px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: #3E253C;
-  cursor: pointer;
+  text-align: center;
+  box-shadow: 3px 5px 6px #F0E3D9;
 }
-.about-gratibum .social-links .link img {
-  border: none;
-  width: 40px;
-  margin-right: 10px;
-}
-.about-gratibum .substack-link {
-  margin-top: 400px;
-}
-.about-gratibum .substack-link p {
+.about-gratibum .cards .substack-link p {
   margin-bottom: 20px;
+  color: #5A2356;
 }
-.about-gratibum .substack-link img {
+.about-gratibum .cards .substack-link img {
   display: block;
   max-width: 180px;
   max-height: 70px;
@@ -1140,10 +1169,20 @@ body {
   border-radius: 0px;
   cursor: pointer;
 }
-.about-gratibum .kofi-link {
-  margin-top: 530px;
+.about-gratibum .cards .kofi-link {
+  width: 728px;
+  height: 150px;
+  background-color: #E7D0C0;
+  border-radius: 30px;
+  text-align: center;
+  color: #5A2356;
+  box-shadow: 3px 5px 6px #F0E3D9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.about-gratibum .kofi-link img {
+.about-gratibum .cards .kofi-link img {
   display: block;
   margin-top: 20px;
   max-width: 150px;
@@ -1153,7 +1192,10 @@ body {
   border-radius: 0px;
 }
 .about-gratibum .get-app {
-  top: 95%;
+  position: absolute;
+  top: 98%;
+  transform: translateY(-100%);
+  text-decoration: underline;
   color: #3E253C;
 }
 
@@ -1177,6 +1219,10 @@ body {
 }
 .about-gratibum-small .kofi-link {
   top: 50px;
+}
+
+.about-gratibum-large .sign-in-header {
+  width: 35%;
 }
 
 .create-gratitude .app-header .back {
