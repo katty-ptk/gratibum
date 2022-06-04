@@ -37,7 +37,7 @@
         align-items: center;
         justify-content: space-evenly;
 
-        // border: 1px solid black;
+        // border: 1px solid black  ;
 
         .social-links {
             font-weight: bold;
@@ -172,37 +172,71 @@
 .about-gratibum-small {
     overflow-y: visible;
 
-    p {
-        margin: 0px 10px;
-        margin-top: 15px;
-    }
-
-    .social-links {
+    .cards {
+        position: absolute;
+        width: 100%;
+        // height: 70%;
+        top: 30%;
+        
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        font-size: 0.85em;
-        margin-top: 10px;
+        justify-content: space-around;
 
-        .links {
+        .social-links {
+            font-weight: bold;
+            color: #5A2356;
+            // margin-top: 100px;
+            width: 340px;
+            height: 320px;
+            background-color: #E7D0C0;
+            // left: 40%;
+            border-radius: 30px;
+    
+            // border: 1px solid coral;
+            box-shadow: 3px 5px 6px #F0E3D9;
+    
+            // position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
 
-            .link {
-                h3 {
-                    display: none;
-                }
-            }
+            margin-top: 30px;
+            margin-bottom: 30px;
+
+            .links {
+                // position: relative;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                height: 0px;
+            }   
+        }
+
+        .substack-link {
+            width: 340px;
+            height: 320px;
+            margin-bottom: 30px;
+        }
+
+        .kofi-link {
+            width: 340px;
+            height: 320px;
+            margin-bottom: 50px;
+        }
+
+        .get-app {
+            position: absolute;
+            bottom: 0;
         }
     }
 
-    .substack-link {
-        top: 35px;
-    }
-
-    .kofi-link {
-        top: 50px;
-    }
 }
 
 .about-gratibum-large {
     .sign-in-header {
-        width: 35% ;
+        width: 35%;
     }
 }
