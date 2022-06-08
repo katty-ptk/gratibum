@@ -43,17 +43,20 @@ const SignInPage = () => {
 
     // const [ user, setUser ] = useState({});
 
-    const googleAuth = () => {
-        signInWithPopup( auth, provider )
+    let photo = "";
+
+    const googleAuth = async () => {
+        await signInWithPopup( auth, provider )
             .then( result => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
-
-                // save user data into storage
-                saveUserToFirebase( result.user );
                 
+                // save user data into storage
+                // saveUserToFirebase( result.user );
+
                 // get user data from firebase
                 getUserFromFirebase( result.user.email );
+
 
                 const user = result.user;
 
@@ -74,13 +77,18 @@ const SignInPage = () => {
     }
 
     const saveUserToFirebase = async ( userCredentials ) => {
+
         let userData = {
             accountId: userCredentials.uid,
             email: userCredentials.email,
             name: userCredentials.displayName,
             photoUrl: userCredentials.photoURL
         };
-
+        
+        // if ( photo != "" ) {
+        //     userData.photoUrl = photo;
+        // }
+        
         await setDoc(doc(
                         collection(firebaseDb, "test/accounts", userCredentials.email),
                         "accountData"
@@ -94,7 +102,9 @@ const SignInPage = () => {
     const getUserFromFirebase = async ( userEmail ) => {
         const querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
 
-        console.log( querySnapshot.docs.at(0).data() );
+        
+
+        photo = querySnapshot.docs.at(0).data().photoUrl;
 
         localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
         localStorage.setItem( "currentUser", JSON.stringify(querySnapshot.docs.at(0).data()) );

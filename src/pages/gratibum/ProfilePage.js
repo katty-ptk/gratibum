@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import Back from '../../components/Back'
 import Logout from '../../components/gratibum/Logout';
 
-import { auth } from '../../services/firebase';
+import { auth, firebaseDb } from '../../services/firebase';
+import { collection, getDoc, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
 
 import logo from '../../images/logo.png';
 
@@ -52,9 +53,29 @@ const ProfilePage = () => {
                 localstor.photoUrl = files.normal;
                 localStorage.setItem("currentUser", JSON.stringify(localstor));
                 console.log(auth.currentUser.photoURL);
+                saveUserToFirebase( localstor, files.normal )
             })
             .catch(error => console.error('error', error));
     }
+
+    const saveUserToFirebase = async ( userCredentials, newProfilePhoto ) => {
+        let userData = {
+            accountId: userCredentials.accountId,
+            email: userCredentials.email,
+            name: userCredentials.name,
+            photoUrl: newProfilePhoto
+        };
+    
+        await setDoc(doc(
+                        collection(firebaseDb, "test/accounts", userCredentials.email),
+                        "accountData"
+                      ), 
+                        userData
+        );
+    
+        await setDoc(doc(collection(firebaseDb, "test/accounts", userCredentials.email),"gratibums"), {});
+      }
+    
 
     return (
         <div className={ window.innerWidth < 1000 ? 'profile-page profile-page-small sign-in-page sign-in-page-small' : 'profile-page profile-page-large sign-in-page sign-in-page-large'}>
