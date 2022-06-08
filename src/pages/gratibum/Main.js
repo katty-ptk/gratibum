@@ -7,38 +7,29 @@ import { useTranslation } from 'react-i18next';
 import Create from '../../components/gratibum/Create'
 
 // services
-import { auth } from '../../services/firebase';
+import { auth, firebaseDb } from '../../services/firebase';
+import { collection, getDoc, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
 
 // images
 import logo from '../../images/logo.png';
-
 const Main = () => {
 
   const { t } = useTranslation();
 
   const localstor = JSON.parse(localStorage.getItem("currentUser"));
-  let img = logo;
+  const name = localstor.name;
+  
+  let img = logo;  
 
   if ( localstor.photoUrl != "" )
     img = localstor.photoUrl;
-  
-  useEffect( () => {
-    console.log("img");
-  }, [img]);
-
-
-  let reload = true;
-  // if ( reload === true ){
-  //   window.location.reload(true);
-  //   reload = false;
-  //   return;
-  // }
 
   return (
     <div className={ window.innerWidth < 1000 ? 'gratibum gratibum-small' : 'gratibum gratibum-large'}>
       <div className="app-header">          
           <h2>
-            { t("User's Gratibum") }
+            {/* { t("User's Gratibum") } */}
+            { name }'s Gratibum
           </h2>
 
           <Link to="/profile">
