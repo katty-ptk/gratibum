@@ -11,8 +11,9 @@ import Google from '../../images/icons/social media/google.svg';
 // services
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth, firebaseDb } from '../../services/firebase';
-import { collection, getDoc, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
+import { collection, getDoc, getDocs, setDoc, doc, addDoc, query } from 'firebase/firestore/lite';
 import { Redirect } from 'react-router-dom';
+import { async } from '@firebase/util';
 const provider = new GoogleAuthProvider();
 
 
@@ -43,6 +44,8 @@ const SignInPage = () => {
 
     // const [ user, setUser ] = useState({});
 
+    let querySnapshot;
+
     let photo = "";
 
     const googleAuth = async () => {
@@ -55,19 +58,38 @@ const SignInPage = () => {
                 // saveUserToFirebase( result.user );
 
                 // get user data from firebase
-                getUserFromFirebase( result.user.email );
+                const ress = getUserFromFirebase( result.user.email );
+
+                ress
+                 .then ( ful => {
+                     const user = result.user;
+     
+                     setName( user.displayName );
+                     setEmail( user.email );
+                     setPhotoUrl( user.photoURL );
+     
+                     setSignedIn(true);
+                     setError(false);
+     
+                     history.push("/gratibum");  // redirects to app
+                 } )
+                 .catch( er => {
+                     saveUserToFirebase( result.user );
+                     getUserFromFirebase( result.user.email );
+
+                     const user = result.user;
+     
+                     setName( user.displayName );
+                     setEmail( user.email );
+                     setPhotoUrl( user.photoURL );
+     
+                     setSignedIn(true);
+                     setError(false);
+     
+                     history.push("/gratibum");  // redirects to app
+                 } );
 
 
-                const user = result.user;
-
-                setName( user.displayName );
-                setEmail( user.email );
-                setPhotoUrl( user.photoURL );
-
-                setSignedIn(true);
-                setError(false);
-
-                history.push("/gratibum");  // redirects to app
             })
             .catch( error => {
                 setError(true);
@@ -85,10 +107,6 @@ const SignInPage = () => {
             photoUrl: userCredentials.photoURL
         };
         
-        // if ( photo != "" ) {
-        //     userData.photoUrl = photo;
-        // }
-        
         await setDoc(doc(
                         collection(firebaseDb, "test/accounts", userCredentials.email),
                         "accountData"
@@ -100,14 +118,22 @@ const SignInPage = () => {
     }
 
     const getUserFromFirebase = async ( userEmail ) => {
-        const querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
-
-        
-
-        photo = querySnapshot.docs.at(0).data().photoUrl;
+        querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
+        // console.log( querySnapshot.docs.length );
+        // photo = querySnapshot.docs.at(0).data().photoUrl;
 
         localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
         localStorage.setItem( "currentUser", JSON.stringify(querySnapshot.docs.at(0).data()) );
+
+        return querySnapshot;
+
+        // return new Promise( ( resolve, reject ) => {
+        //     if ( querySnapshot.docs.length > 0 ) {
+        //         resolve( "resolved! :)" );
+        //     } else {
+        //         reject( new Error("rejected! :(") );
+        //     }
+        // });
     }
 
     return (
