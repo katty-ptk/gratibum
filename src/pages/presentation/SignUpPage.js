@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import Back from '../../components/Back';
 import Next from '../../components/Next';
 
+import logo from '../../images/logo.png';
+
 // services
 import { auth, firebaseDb } from '../../services/firebase';
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
@@ -91,7 +93,7 @@ const SignUpPage = () => {
             accountId: userCredentials.user.uid,
             email: userCredentials.user.email,
             name: firstName,
-            photoUrl: ""
+            photoUrl: logo
         };
         await setDoc(doc(
                         collection(firebaseDb, "test/accounts", userCredentials.user.email),
