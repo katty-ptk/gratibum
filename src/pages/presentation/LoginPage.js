@@ -39,6 +39,8 @@ const LoginPage = () => {
     const [ error, setError ] = useState(false);
     const [ error_msg, setErrorMsg ] = useState("");
 
+    let querySnapshot;
+
     const emailTextChanged  = event => {
         let email = event.target.value;
         setEmail(email);
@@ -56,15 +58,18 @@ const LoginPage = () => {
                 
                 if ( user.emailVerified ) {
                     // get user data from firebase
-                    getUserFromFirebase( user.email );
-    
-                    console.log('logged in as ' + user.email );
-                    setUserEmail( user.email );
-                    setLoggedIn( true );
-                    setError( false );
-    
-                    // localStorage.setItem( "currentUser", user.email );
-                    history.push("/gratibum");  // redirects to app
+                    const ress = getUserFromFirebase( user.email );
+
+                    ress
+                        .then( ful => { 
+                            console.log('logged in as ' + user.email );
+                            setUserEmail( user.email );
+                            setLoggedIn( true );
+                            setError( false );
+            
+                            // localStorage.setItem( "currentUser", user.email );
+                            history.push("/gratibum");  // redirects to app
+                        })
                 } else {
                     setError( true );
                     setErrorMsg( "Please verify your email first!" );
@@ -81,11 +86,13 @@ const LoginPage = () => {
     }
 
     const getUserFromFirebase = async ( userEmail ) => {
-        const querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
+        querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
         
         console.log( querySnapshot.docs.at(1).data() );
         localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
         localStorage.setItem( "currentUser", JSON.stringify(querySnapshot.docs.at(0).data() ) );
+
+        return querySnapshot;
     }
 
     
