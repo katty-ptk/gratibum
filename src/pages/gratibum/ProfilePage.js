@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import Back from '../../components/Back'
 import Logout from '../../components/gratibum/Logout';
 
-import { auth, firebaseDb } from '../../services/firebase';
+import { useHistory } from 'react-router-dom';
+
+import { auth, firebaseDb, app } from '../../services/firebase';
 import { collection, getDoc, getDocs, setDoc, doc, addDoc } from 'firebase/firestore/lite';
+import { sendEmailVerification, signOut } from 'firebase/auth';
 
 import logo from '../../images/logo.png';
 
@@ -14,6 +17,7 @@ import SelectLanguage from '../../components/SelectLanguage';
 
 const ProfilePage = () => {
     const {t} = useTranslation();
+    const history = useHistory();
 
     const [ profilePic, setProfilePic ] = useState( logo );
     
@@ -21,6 +25,9 @@ const ProfilePage = () => {
     const email = JSON.parse(localStorage.getItem('currentUser')).email;
     const name = JSON.parse(localStorage.getItem('currentUser')).name;
     let localstor = JSON.parse(localStorage.getItem("currentUser"));
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    // console.log( auth.currentUser.emailVerified );
 
     // setProfilePic( localstor.photoUrl );
 
@@ -75,7 +82,22 @@ const ProfilePage = () => {
     
         await setDoc(doc(collection(firebaseDb, "test/accounts", userCredentials.email),"gratibums"), {});
       }
-    
+
+    const sendEmail = ( userCredentials ) => {
+        sendEmailVerification( userCredentials )
+            .then( () => {
+                console.log( "email sent!" );
+            })
+            .catch( error => {
+                console.error( error );
+            });
+
+        signOut(auth);
+        localStorage.removeItem("currentUser");
+        localStorage.removeItem("gratibums");
+        localStorage.removeItem("user");
+        history.push('/sign-in');
+    }
 
     return (
         <div className={ window.innerWidth < 1000 ? 'profile-page profile-page-small sign-in-page sign-in-page-small' : 'profile-page profile-page-large sign-in-page sign-in-page-large'}>
@@ -108,6 +130,15 @@ const ProfilePage = () => {
 
                     <Logout />
                 </div>
+
+                { !user.emailVerified &&
+                    <div className="activate-account"
+                        onClick={ () => sendEmail( auth.currentUser ) }
+                    >
+                        <p>Your account has not been verified yet.</p>
+                        <p className='underline'>Click here to send activation email.</p>
+                    </div>
+                }
 
                 <Link to="/about-gratibum">
                     <div className="about-gratibum">

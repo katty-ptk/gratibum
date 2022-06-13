@@ -10,7 +10,7 @@ import logo from '../../images/logo.png';
 // services
 import { auth, firebaseDb } from '../../services/firebase';
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
-import { collection, getDocs, setDoc, doc, } from 'firebase/firestore/lite';
+import { collection, getDocs, setDoc, doc, query, } from 'firebase/firestore/lite';
 
 import { motion } from 'framer-motion';
 
@@ -59,15 +59,33 @@ const SignUpPage = () => {
         setPasswordRepeat( newPasswordRepeat );
     }
 
+    let querySnapshot;
+
     const signUp = () => {
 
         if ( password == passwordRepeat ) {
             createUserWithEmailAndPassword( auth, email, password )
                 .then( userCredentials => {
-                    sendEmail( userCredentials.user );
+                    // sendEmail( userCredentials.user );
+                    localStorage.setItem("user", JSON.stringify( userCredentials.user ));
     
-                    saveUserToFirebase(userCredentials);
-                    getUserFromFirebase( userCredentials.user.email )                
+                    saveUserToFirebase(userCredentials)
+                        .then( ful => {
+                            console.log("yay");
+                            history.push('/gratibum');              
+
+                        })
+                        .catch( er => console.log(er) );
+
+                    const ress = getUserFromFirebase( userCredentials.user.email );
+
+                    ress
+                        .then( ful => {
+                            history.push('/gratibum');              
+                        })
+                        .catch( er => console.log(er) );
+
+
                 })
                 .catch( error => {
                     setErr( error.message );
@@ -108,16 +126,18 @@ const SignUpPage = () => {
         setError( false );
         console.log(user.email);
 
-        
-        history.push("/login");
+        localStorage.setItem("currentUser", JSON.stringify(userData));
+        localStorage.setItem("gratibums", JSON.stringify({}));
     }
     
     const getUserFromFirebase = async ( userEmail ) => {
-        const querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
+        querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
         
         console.log( querySnapshot.docs.at(1).data() );
         localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
         localStorage.setItem( "currentUser", JSON.stringify(querySnapshot.docs.at(0).data() ) );
+
+        return querySnapshot;
     }
 
     const setErr = ( message ) => {

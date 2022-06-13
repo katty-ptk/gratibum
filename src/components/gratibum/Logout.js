@@ -14,6 +14,7 @@ const Logout = () => {
     signOut(auth);
     localStorage.removeItem("currentUser");
     localStorage.removeItem("gratibums");
+    localStorage.removeItem("user");
   }  
 
   return (

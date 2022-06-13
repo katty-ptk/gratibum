@@ -1009,6 +1009,15 @@ body {
   border: none;
   cursor: pointer;
 }
+.profile-page-large .profile-page-info .activate-account {
+  position: absolute;
+  bottom: 100px;
+  color: #CEA281;
+}
+.profile-page-large .profile-page-info .activate-account .underline {
+  cursor: pointer;
+  font-style: bold;
+}
 .profile-page-large .profile-page-info .about-gratibum {
   position: absolute;
   bottom: 15px;
@@ -1060,6 +1069,15 @@ body {
   outline: none;
   border: none;
   cursor: pointer;
+}
+.profile-page-small .profile-page-info .activate-account {
+  position: absolute;
+  bottom: 100px;
+  color: #CEA281;
+}
+.profile-page-small .profile-page-info .activate-account .underline {
+  cursor: pointer;
+  font-style: bold;
 }
 .profile-page-small .profile-page-info .about-gratibum {
   position: absolute;

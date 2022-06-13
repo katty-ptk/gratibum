@@ -55,8 +55,10 @@ const LoginPage = () => {
         signInWithEmailAndPassword( auth, email, password )
             .then( userCredentials => {
                 const user = userCredentials.user;
+
+                localStorage.setItem("user", JSON.stringify(user));
                 
-                if ( user.emailVerified ) {
+                // if ( user.emailVerified ) {
                     // get user data from firebase
                     const ress = getUserFromFirebase( user.email );
 
@@ -70,11 +72,11 @@ const LoginPage = () => {
                             // localStorage.setItem( "currentUser", user.email );
                             history.push("/gratibum");  // redirects to app
                         })
-                } else {
-                    setError( true );
-                    setErrorMsg( "Please verify your email first!" );
-                    setLoggedIn( false );    
-                }
+                // } else {
+                //     setError( true );
+                //     setErrorMsg( "Please verify your email first!" );
+                //     setLoggedIn( false );    
+                // }
 
             })
             .catch( error => {
