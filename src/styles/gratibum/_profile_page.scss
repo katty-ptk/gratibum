@@ -88,6 +88,18 @@
     
         }
 
+        .activate-account {
+            // display: none;
+            position: absolute;
+            bottom: 100px;
+
+            color: #CEA281;
+
+            .underline {
+                cursor: pointer;
+                font-style: bold;
+            }
+        }
 
         .about-gratibum { 
             position: absolute;
@@ -153,6 +165,20 @@
                 cursor: pointer;
             }
         }
+
+        .activate-account {
+            // display: none;
+            position: absolute;
+            bottom: 100px;
+
+            color: #CEA281;
+
+            .underline {
+                cursor: pointer;
+                font-style: bold;
+            }
+        }
+
 
         .about-gratibum { 
             position: absolute;
