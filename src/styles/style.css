@@ -286,7 +286,7 @@
   top: 30px;
   left: 20px;
 }
-.sign-in-page .sign-in-header h2 {
+.sign-in-page .sign-in-header h2, .sign-in-page .sign-in-header .h2 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -968,6 +968,10 @@ body {
   left: 71%;
 }
 
+.profile-page-large .profile-page-header .h2 {
+  align-items: center;
+  justify-content: center;
+}
 .profile-page-large .profile-page-info {
   position: absolute;
   width: 55%;
@@ -991,6 +995,8 @@ body {
 }
 .profile-page-large .profile-page-info .user-info h2 {
   color: #CFAC91;
+  font-size: 2em;
+  font-style: italic;
 }
 .profile-page-large .profile-page-info .user-info h3 {
   color: #3E253C;
@@ -1030,6 +1036,9 @@ body {
   font-style: bold;
 }
 
+.profile-page-small .profile-page-header .h2 {
+  justify-content: center;
+}
 .profile-page-small .profile-page-info {
   position: absolute;
   width: 100%;
@@ -1044,7 +1053,7 @@ body {
   position: absolute;
   display: flex;
   flex-direction: column;
-  justify-content: spa-around;
+  justify-content: space-around;
   align-items: center;
   top: 20px;
   width: 100%;
@@ -1052,6 +1061,7 @@ body {
 }
 .profile-page-small .profile-page-info .user-info h2 {
   color: #CFAC91;
+  font-style: italic;
 }
 .profile-page-small .profile-page-info .user-info h3 {
   color: #3E253C;

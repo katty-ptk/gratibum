@@ -35,6 +35,13 @@
 }
 
 .profile-page-large { 
+
+    .profile-page-header {
+        .h2 {
+            align-items: center;
+            justify-content: center;
+        }
+    }
     
     .profile-page-info {
         position: absolute;
@@ -63,6 +70,8 @@
 
             h2 { 
                 color: #CFAC91;
+                font-size: 2em;
+                font-style: italic;
             }
 
             h3 { 
@@ -117,7 +126,14 @@
 }
 
 .profile-page-small { 
+    .profile-page-header {
+        .h2 {
+            justify-content: center;
+        }
+    }
+
     .profile-page-info {
+        
         position: absolute;
         width: 100%;
         height: 70%;
@@ -133,15 +149,17 @@
             position: absolute;
             display: flex;
             flex-direction: column;
-            justify-content: spa-around;
+            justify-content: space-around;
             align-items: center;
             top: 20px;
             width: 100%;
             height: 50%;
+    
             // border: 1px solid #50434F;
 
             h2 { 
-                color: #CFAC91;
+                color: #CFAC91;;
+                font-style: italic;
             }
 
             h3 { 
