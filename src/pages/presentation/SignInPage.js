@@ -63,6 +63,7 @@ const SignInPage = () => {
                 ress
                  .then ( ful => {
                      const user = result.user;
+                     localStorage.setItem("user", JSON.stringify(user));
      
                      setName( user.displayName );
                      setEmail( user.email );

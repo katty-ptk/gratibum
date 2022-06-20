@@ -43,17 +43,20 @@ const ProfilePage = () => {
         var formdata = new FormData();
         formdata.append( "email", email );
         formdata.append( "folder", "profile" );
-        formdata.append("image", fileInput, "106999602_3735056599854298_" + Math.random(100000000000000000, 199999999999999999) + "_n.jpeg");
+        formdata.append("image", fileInput, "profile.jpeg");
 
         var requestOptions = {
-        method: 'POST',
-        body: formdata,
-        redirect: 'follow'
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
         };
 
         await fetch("http://www.vecinulvirtual.ro/liw/api/images.php", requestOptions)
-            .then(response => response.json())
+            .then(response => {
+                response.json();
+            })
             .then(result => {
+                console.log(result)
                 let files = result.files;
                 setProfilePic(files.normal);
                 auth.currentUser.photoURL = files.normal;
@@ -62,7 +65,7 @@ const ProfilePage = () => {
                 console.log(auth.currentUser.photoURL);
                 saveUserToFirebase( localstor, files.normal )
             })
-            .catch(error => console.error('error', error));
+            .catch(error => console.error('error: ', error));
     }
 
     const saveUserToFirebase = async ( userCredentials, newProfilePhoto ) => {
@@ -105,20 +108,21 @@ const ProfilePage = () => {
                 <Link to="/gratibum">
                     <Back />
                 </Link>
-                <h2>
+                {/* <h2>
                 { t('profile') }
-                </h2>
-            </div>
-
-            <section className="profile-page-info">
-                <div className="user-info">
-                    <div className="profile-img">
-                        <img src={ profilePic } alt="" />
+                </h2> */}
+                    <div className="profile-img h2">
+                        {/* <img src={ profilePic } alt="" /> */}
+                        <img src={ logo } alt="" />
                         <input type="file" accept="image/jpeg" 
                             id="profile-img-input"
                             onChange={ UploadProfilePicture }
                         />
                     </div>
+            </div>
+
+            <section className="profile-page-info">
+                <div className="user-info">
 
                     <div className="profile-name">
                         <h2>{ name }</h2>
