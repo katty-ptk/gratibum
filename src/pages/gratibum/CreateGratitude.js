@@ -1,13 +1,90 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { useTranslation } from 'react-i18next'
 
 import Back from '../../components/Back'
 
+import { auth, firebaseDb } from '../../services/firebase'
+import { collection, getDocs, setDoc, doc, query, } from 'firebase/firestore/lite';
+
 const CreateGratitude = () => {
 
     const {t} = useTranslation();
+
+    const [ img, setImg ] = useState("");
+    const [ title, setTitle ] = useState("");
+    const [ description, setDescription ] = useState("");
+    const [ descriptionWhat, setDescriptionWhat ] = useState("");
+    const [ descriptionWhy, setDescriptionWhy ] = useState("");
+    const [ descriptionElse, setDescriptionElse ] = useState("");
+
+    const [ error, setError ] = useState( false );
+
+    const titleTextChanged = event => {
+        let newTitle = event.target.value;
+        setTitle(newTitle);
+    }
+
+    const whatTextChanged = event => {
+        let newDesc = event.target.value;
+        setDescriptionWhat(newDesc);
+    }
+
+    const whyTextChanged = event => {
+        let newDesc = event.target.value;
+        setDescriptionWhy(newDesc);
+    }
+
+    const elseTextChanged = event => {
+        let newDesc = event.target.value;
+        setDescriptionElse(newDesc);
+    }
+
+    const submit = async () => {
+        setDescription( descriptionWhat + ' ' + descriptionWhy + ' ' + descriptionElse );
+
+        if ( description != "" )
+            saveToFirebase();
+        else {
+            setError( true );
+        }
+    }
+    
+
+    const email = JSON.parse(localStorage.getItem('currentUser')).email;
+
+    let querySnapshot;
+    const getUserFromFirebase = async ( userEmail ) => {
+        querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
+        
+        console.log( querySnapshot.docs.at(1).data() );
+        // localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
+        // localStorage.setItem( "currentUser", JSON.stringify(querySnapshot.docs.at(0).data() ) );
+
+        return querySnapshot;
+    }
+
+
+    const saveToFirebase = async () => {
+
+        const ress = getUserFromFirebase( email );
+
+        ress
+            .then( ful => {
+                console.log( ful );
+                // history.push('/gratibum');              
+            })
+            .catch( er => console.log(er) );
+
+        await setDoc(doc(collection(firebaseDb, "test/accounts", email),"gratibums"), {
+            title: title,
+            description: description
+    });
+
+
+        console.log( title + " " + description );
+    }
 
     return (
         <div className={ window.innerWidth < 1000 ? 'create-gratitude create-gratitude-small gratibum gratibum-small' : 'create-gratitude create-gratitude-large gratibum gratibum-large'}>
@@ -37,33 +114,52 @@ const CreateGratitude = () => {
                         <label htmlFor="title">
                             { t('gratitude_title') }
                         </label>
-                        <input id="title" type="text" placeholder={t('sunsets')} required/>
+                        <input id="title" type="text" placeholder={t('sunsets')} required
+                            onChange={ titleTextChanged }
+                        />
                     </div>
 
                     <div className="gratitude-description">
                         <label htmlFor="what">
                             { t('q_what') }
                         </label>
-                        <input id="what" type="text" placeholder={t('q_what_placeholder')} />
+                        <input id="what" type="text" placeholder={t('q_what_placeholder')} 
+                            onChange={ whatTextChanged }
+                        />
                     </div>
 
                     <div className="gratitude-description">
                         <label htmlFor="why">
                             { t('q_why') }
                         </label>
-                        <input id="why" type="text" placeholder={t('q_why_placeholder')} />
+                        <input id="why" type="text" placeholder={t('q_why_placeholder')} 
+                            onChange={ whyTextChanged }
+                        />
                     </div>
 
                     <div className="gratitude-description">
                         <label htmlFor="else">
                             { t('q_else') }
                         </label>
-                        <input id="else" type="text" placeholder={t('q_else_placeholder')} />
+                        <input id="else" type="text" placeholder={t('q_else_placeholder')} 
+                            onChange={ elseTextChanged }
+                        />
                     </div>
 
                 </form>
 
-                <div className="submit">
+            { error &&
+                <p id="error" style={
+                    { color: 'red',
+                      fontSize: '1.5em'
+                    }
+                }>
+                    Click again.
+                </p>
+            }
+                <div className="submit"
+                    onClick={ () => submit() }
+                >
                     <p>
                         { t('add_gratitude') }
                     </p>
