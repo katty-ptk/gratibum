@@ -6,7 +6,9 @@ import { useTranslation } from 'react-i18next'
 import Back from '../../components/Back'
 
 import { auth, firebaseDb } from '../../services/firebase'
-import { collection, getDocs, setDoc, doc, query, } from 'firebase/firestore/lite';
+import { collection, getDocs, getDoc, setDoc, doc, query, addDoc } from 'firebase/firestore/lite';
+import { getDatabase, ref, child, push, update, set } from "firebase/database";
+// import document
 
 const CreateGratitude = () => {
 
@@ -57,11 +59,6 @@ const CreateGratitude = () => {
     let querySnapshot;
     const getUserFromFirebase = async ( userEmail ) => {
         querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
-        
-        console.log( querySnapshot.docs.at(1).data() );
-        // localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
-        // localStorage.setItem( "currentUser", JSON.stringify(querySnapshot.docs.at(0).data() ) );
-
         return querySnapshot;
     }
 
@@ -69,23 +66,36 @@ const CreateGratitude = () => {
     const saveToFirebase = async () => {
 
         const ress = getUserFromFirebase( email );
+        let gratibums_doc;
 
         ress
             .then( ful => {
-                console.log( ful );
-                // history.push('/gratibum');              
+                console.log(ful);
             })
             .catch( er => console.log(er) );
+            
+            
+            const docRef = doc( firebaseDb, `test/accounts/${email}`, "gratibums");
+            const docSnap = await getDoc(docRef);
+            console.log(docSnap.data());
+            
+            const data = docSnap.data();
 
-        await setDoc(doc(collection(firebaseDb, "test/accounts", email),"gratibums"), {
-            title: title,
-            description: description
-    });
+            const id = "21334321321";
+            const newGratitde = {
+                "554431":{
+                    date: new Date(),
+                    title: title,
+                    description: description,
+                    imageUrl: ""
+                }
+            };
+            
+            console.log( newGratitde );
+            await setDoc(doc( firebaseDb, `/test/accounts/${email}`, "gratibums"), newGratitde, { merge: true });
+            
 
-
-        console.log( title + " " + description );
     }
-
     return (
         <div className={ window.innerWidth < 1000 ? 'create-gratitude create-gratitude-small gratibum gratibum-small' : 'create-gratitude create-gratitude-large gratibum gratibum-large'}>
             <div className="app-header">          
