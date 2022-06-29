@@ -104,7 +104,7 @@ const CreateGratitude = () => {
             await setDoc(doc( firebaseDb, `/test/accounts/${email}`, "gratibums"), newGratitude, { merge: true });
             
             history.push('/gratibum');
-            localStorage.setItem("gratibums", JSON.stringify(docSnap.data()));
+            // localStorage.setItem("gratibums", JSON.stringify(docSnap.data()));
     }
     return (
         <div className={ window.innerWidth < 1000 ? 'create-gratitude create-gratitude-small gratibum gratibum-small' : 'create-gratitude create-gratitude-large gratibum gratibum-large'}>

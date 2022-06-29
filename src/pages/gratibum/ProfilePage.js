@@ -25,7 +25,6 @@ const ProfilePage = () => {
     const email = JSON.parse(localStorage.getItem('currentUser')).email;
     const name = JSON.parse(localStorage.getItem('currentUser')).name;
     let localstor = JSON.parse(localStorage.getItem("currentUser"));
-    let gratibums = JSON.parse(localStorage.getItem("gratibums"));
 
     const user = JSON.parse(localStorage.getItem("user"));
     // console.log( auth.currentUser.emailVerified );
@@ -84,8 +83,10 @@ const ProfilePage = () => {
                         userData
         );
     
-        await setDoc(doc(collection(firebaseDb, "test/accounts", userCredentials.email),"gratibums"), {});
+        // await setDoc(doc(collection(firebaseDb, "test/accounts", userCredentials.email),"gratibums"), {});
       }
+
+
 
     const sendEmail = ( userCredentials ) => {
         sendEmailVerification( userCredentials )
@@ -103,6 +104,20 @@ const ProfilePage = () => {
         history.push('/sign-in');
     }
 
+    let querySnapshot;
+    const getGratibumsFromFirebase = async ( userEmail ) => {
+        querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
+        return querySnapshot.docs.at(1).data();
+    }
+  
+    const ress = getGratibumsFromFirebase( localstor.email );
+    const [ gratitudes, setGratitudes ] = useState({});
+    ress
+        .then( ful => {
+            setGratitudes( ful );    
+        })
+        .catch( er => console.log(er) );
+  
     return (
         <div className={ window.innerWidth < 1000 ? 'profile-page profile-page-small sign-in-page sign-in-page-small' : 'profile-page profile-page-large sign-in-page sign-in-page-large'}>
             <div className="profile-page-header  sign-in-header">
@@ -130,7 +145,7 @@ const ProfilePage = () => {
                     </div>
 
                     <div className="gratitudes-nr">
-                        <h3>{ Object.keys(gratibums).length + " " + t('gratitudes') }</h3>
+                        <h3>{ Object.keys(gratitudes).length + " " + t('gratitudes') }</h3>
                     </div>
 
                     <Logout />
