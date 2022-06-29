@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { useTranslation } from 'react-i18next'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 import Back from '../../components/Back'
 
@@ -13,6 +14,7 @@ import { getDatabase, ref, child, push, update, set } from "firebase/database";
 const CreateGratitude = () => {
 
     const {t} = useTranslation();
+    const history = useHistory();
 
     const [ img, setImg ] = useState("");
     const [ title, setTitle ] = useState("");
@@ -81,20 +83,28 @@ const CreateGratitude = () => {
             
             const data = docSnap.data();
 
-            const id = "21334321321";
-            const newGratitde = {
-                "554431":{
+            var desiredMaxLength = 13;
+            var randomNumber = '';
+            for (var i = 0; i < desiredMaxLength; i++) {
+                randomNumber += Math.floor(Math.random() * 10);
+            }            
+
+            const id = randomNumber;
+            const newGratitude = {
+                [id]:{
                     date: new Date(),
                     title: title,
                     description: description,
                     imageUrl: ""
                 }
             };
-            
-            console.log( newGratitde );
-            await setDoc(doc( firebaseDb, `/test/accounts/${email}`, "gratibums"), newGratitde, { merge: true });
-            
 
+            // Object.keys(newGratitude)[0] = `${Math.random()}`;
+            // console.log( Object.keys(newGratitude) );
+            await setDoc(doc( firebaseDb, `/test/accounts/${email}`, "gratibums"), newGratitude, { merge: true });
+            
+            history.push('/gratibum');
+            localStorage.setItem("gratibums", JSON.stringify(docSnap.data()));
     }
     return (
         <div className={ window.innerWidth < 1000 ? 'create-gratitude create-gratitude-small gratibum gratibum-small' : 'create-gratitude create-gratitude-large gratibum gratibum-large'}>
