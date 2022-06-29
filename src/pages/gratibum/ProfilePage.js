@@ -25,6 +25,7 @@ const ProfilePage = () => {
     const email = JSON.parse(localStorage.getItem('currentUser')).email;
     const name = JSON.parse(localStorage.getItem('currentUser')).name;
     let localstor = JSON.parse(localStorage.getItem("currentUser"));
+    let gratibums = JSON.parse(localStorage.getItem("gratibums"));
 
     const user = JSON.parse(localStorage.getItem("user"));
     // console.log( auth.currentUser.emailVerified );
@@ -129,7 +130,7 @@ const ProfilePage = () => {
                     </div>
 
                     <div className="gratitudes-nr">
-                        <h3>0 { t('gratitudes') }</h3>
+                        <h3>{ Object.keys(gratibums).length + " " + t('gratitudes') }</h3>
                     </div>
 
                     <Logout />
