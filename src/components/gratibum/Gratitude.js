@@ -2,11 +2,13 @@ import logo from '../../images/logo.png';
 import test from '../../images/tests/test.png';
 import more from '../../images/icons/arrow_down.png';
 
-const Gratitude = ({ data }) => {
+const Gratitude = ({ data, handleClick }) => {
     return (
-        <div className="gratitude">
+        <div className="gratitude"
+            onClick={ () => handleClick( data.date.seconds ) }
+        >
             <div className="image">
-                <img src={logo} alt="" />
+                <img src={test} alt="" />
             </div>
 
             <div className="text">
@@ -17,7 +19,8 @@ const Gratitude = ({ data }) => {
             </div>
 
             {/* <div className="more"> */}
-                <img className="more" src={more} alt="" />
+                <img className="more" src={more} alt=""
+                 />
             {/* </div> */}
         </div>
     );

@@ -81,17 +81,11 @@ const CreateGratitude = () => {
             const docSnap = await getDoc(docRef);
             console.log(docSnap.data());
             
-            const data = docSnap.data();
+            // const data = docSnap.data();
 
-            var desiredMaxLength = 13;
-            var randomNumber = '';
-            for (var i = 0; i < desiredMaxLength; i++) {
-                randomNumber += Math.floor(Math.random() * 10);
-            }            
 
-            
             const d = new Date();
-            const id = d.getMilliseconds();
+            const id = d.getTime();
             const newGratitude = {
                 [id]:{
                     date: new Date(),
@@ -101,13 +95,11 @@ const CreateGratitude = () => {
                 }
             };
 
-            // Object.keys(newGratitude)[0] = `${Math.random()}`;
-            // console.log( Object.keys(newGratitude) );
             await setDoc(doc( firebaseDb, `/test/accounts/${email}`, "gratibums"), newGratitude, { merge: true });
             
             history.push('/gratibum');
-            // localStorage.setItem("gratibums", JSON.stringify(docSnap.data()));
     }
+
     return (
         <div className={ window.innerWidth < 1000 ? 'create-gratitude create-gratitude-small gratibum gratibum-small' : 'create-gratitude create-gratitude-large gratibum gratibum-large'}>
             <div className="app-header">          
