@@ -89,7 +89,9 @@ const CreateGratitude = () => {
                 randomNumber += Math.floor(Math.random() * 10);
             }            
 
-            const id = randomNumber;
+            
+            const d = new Date();
+            const id = d.getMilliseconds();
             const newGratitude = {
                 [id]:{
                     date: new Date(),
