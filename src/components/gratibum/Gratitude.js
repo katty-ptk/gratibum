@@ -1,0 +1,26 @@
+import logo from '../../images/logo.png';
+import test from '../../images/tests/test.png';
+import more from '../../images/icons/arrow_down.png';
+
+const Gratitude = ({ data }) => {
+    return (
+        <div className="gratitude">
+            <div className="image">
+                <img src={logo} alt="" />
+            </div>
+
+            <div className="text">
+                <h2>{ data.title }</h2>
+                <p>
+                    { data.description }
+                </p>
+            </div>
+
+            {/* <div className="more"> */}
+                <img className="more" src={more} alt="" />
+            {/* </div> */}
+        </div>
+    );
+}
+
+export default Gratitude;

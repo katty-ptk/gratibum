@@ -12,6 +12,7 @@ import { collection, getDoc, getDocs, setDoc, doc, addDoc } from 'firebase/fires
 
 // images
 import logo from '../../images/logo.png';
+import Gratitude from '../../components/gratibum/Gratitude';
 const Main = () => {
 
   const { t } = useTranslation();
@@ -64,7 +65,7 @@ const Main = () => {
           </Link>
       </div>
 
-      <section className="entries" style={{display: 'flex', flexDirection: 'column'}}>
+      <section className="entries">
         {/* <div className="test-greeting">
           <h3>
             { t('empty_gratibum') }
@@ -76,9 +77,7 @@ const Main = () => {
             console.log( gratitudes[index] );
 
             return (
-              <div >
-                { item.title }
-              </div>
+              <Gratitude data={item} />
             )
 
           })

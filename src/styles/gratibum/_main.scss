@@ -1,9 +1,12 @@
 body {
     background-color: #F3F3F3;
+    overflow: hidden;
 }
 
 .gratibum { 
     .app-header{
+        // position: ;
+
         .user-img {
             position: absolute;
             right: 10px;
@@ -15,6 +18,75 @@ body {
                 height: 50px;
                 border: 3px solid #CEA281;
                 border-radius: 100%;
+            }
+        }
+    }
+
+    .entries {
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+
+        // margin-top: 25%;
+        overflow-y: auto;
+
+        
+        .gratitude {
+            width: 80%;
+            height: 350px;
+            position: relative;
+            transform: translate(0, 60%);
+            margin-bottom: 45px;
+            
+            // border: 1px solid #030303;
+            // border-radius: 20px;
+
+            .image {
+                height: 50%;
+                // width: 100%;
+                
+                
+                img { 
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border-top-left-radius: 20px;
+                    border-top-right-radius: 20px;
+                    border: 1px solid #CEA281;
+                    // width: 50%;
+                }
+            }
+
+            .text {
+                background-color: #CEA281;
+                height: 50%;
+                bottom: 0;
+
+                text-align: center;
+                padding-top: 20px;
+
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+
+                h2 {
+                    font-style: italic;
+                    color: #50434F;
+                    margin-bottom: 15px;
+                    // margin-top: ;
+                }
+            }
+
+            .more {
+                
+                // img {
+                    width: 35px;
+                    position: absolute;
+                    right: 5px;
+                    bottom: 0px;
+                    cursor: pointer;
+                // }
             }
         }
     }

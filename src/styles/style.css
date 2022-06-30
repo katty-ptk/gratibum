@@ -853,6 +853,7 @@
 
 body {
   background-color: #F3F3F3;
+  overflow: hidden;
 }
 
 .gratibum .app-header .user-img {
@@ -866,6 +867,52 @@ body {
   height: 50px;
   border: 3px solid #CEA281;
   border-radius: 100%;
+}
+.gratibum .entries {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.gratibum .entries .gratitude {
+  width: 80%;
+  height: 350px;
+  position: relative;
+  transform: translate(0, 60%);
+  margin-bottom: 45px;
+}
+.gratibum .entries .gratitude .image {
+  height: 50%;
+}
+.gratibum .entries .gratitude .image img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: 1px solid #CEA281;
+}
+.gratibum .entries .gratitude .text {
+  background-color: #CEA281;
+  height: 50%;
+  bottom: 0;
+  text-align: center;
+  padding-top: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.gratibum .entries .gratitude .text h2 {
+  font-style: italic;
+  color: #50434F;
+  margin-bottom: 15px;
+}
+.gratibum .entries .gratitude .more {
+  width: 35px;
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+  cursor: pointer;
 }
 .gratibum .create {
   position: absolute;
