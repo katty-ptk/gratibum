@@ -2,9 +2,11 @@ import React, { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 // components
 import Create from '../../components/gratibum/Create'
+import Gratitude from '../../components/gratibum/Gratitude';
 
 // services
 import { auth, firebaseDb } from '../../services/firebase';
@@ -12,13 +14,12 @@ import { collection, getDoc, getDocs, setDoc, doc, addDoc } from 'firebase/fires
 
 // images
 import logo from '../../images/logo.png';
-import Gratitude from '../../components/gratibum/Gratitude';
 const Main = () => {
 
   const { t } = useTranslation();
+  const history = useHistory();
 
   const localstor = JSON.parse(localStorage.getItem("currentUser"));
-  const gratibums = JSON.parse(localStorage.getItem("gratibums"));
 
   const [ gratitudes, setGratitudes ] = useState([]);
 
@@ -38,9 +39,11 @@ const Main = () => {
   const ress = getGratibumsFromFirebase( localstor.email );
   ress
       .then( ful => {
-          console.log(ful);        
+          localStorage.setItem("gratibums", JSON.stringify(ful));       
       })
       .catch( er => console.log(er) );
+
+  const gratibums = JSON.parse(localStorage.getItem("gratibums"));
 
   for (var key in gratibums) {
     if (gratibums.hasOwnProperty(key)) {
@@ -49,6 +52,15 @@ const Main = () => {
   }
 
 
+  let focused;
+  const viewGratitude = async ( id ) => {
+
+      focused = gratitudes.filter( gratitude => gratitude.date.seconds === id );
+
+      console.log(focused[0].title);
+  
+      history.push(`/focused-gratitude/${focused[0].date.seconds}`);
+  }
 
   return (
     <div className={ window.innerWidth < 1000 ? 'gratibum gratibum-small' : 'gratibum gratibum-large'}>
@@ -77,11 +89,14 @@ const Main = () => {
             console.log( gratitudes[index] );
 
             return (
-              <Gratitude data={item} />
+              <Gratitude key={item.date.seconds}
+                  data={item} 
+                  handleClick={viewGratitude}
+              />
             )
-
           })
         }
+
       </section>
 
 

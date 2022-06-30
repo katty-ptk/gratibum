@@ -10,6 +10,7 @@ import ForgotPassword from './pages/presentation/ForgotPassword';
 import ProfilePage from './pages/gratibum/ProfilePage';
 import AboutGratibum from './pages/gratibum/AboutGratibum';
 import CreateGratitude from './pages/gratibum/CreateGratitude';
+import FocusedGratitude from './pages/gratibum/FocusedGratitude';
 
 function App() {
   return (
@@ -52,6 +53,10 @@ function App() {
           <Route
             exact path='/create-gratitude'
             component={ CreateGratitude }
+          ></Route>
+          <Route
+            exact path='/focused-gratitude/:id'
+            component={ FocusedGratitude }
           ></Route>
         </Switch>
       </div>

@@ -870,15 +870,14 @@ body {
 }
 .gratibum .entries {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   overflow-y: auto;
 }
 .gratibum .entries .gratitude {
-  width: 80%;
-  height: 350px;
+  height: 300px;
   position: relative;
-  transform: translate(0, 60%);
-  margin-bottom: 45px;
 }
 .gratibum .entries .gratitude .image {
   height: 50%;
@@ -907,12 +906,21 @@ body {
   color: #50434F;
   margin-bottom: 15px;
 }
+.gratibum .entries .gratitude .text p {
+  font-weight: bold;
+}
 .gratibum .entries .gratitude .more {
   width: 35px;
   position: absolute;
   right: 5px;
   bottom: 0px;
   cursor: pointer;
+}
+.gratibum .entries .focused-gratitude {
+  display: block;
+  position: absolute;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .gratibum .create {
   position: absolute;
@@ -953,6 +961,14 @@ body {
   top: 80px;
   height: calc(100vh - 80px);
 }
+.gratibum-small .entries .gratitude {
+  width: 80%;
+  height: 300px;
+  margin-bottom: 40px;
+}
+.gratibum-small .entries .gratitude:first-child {
+  margin-top: 20px;
+}
 
 .gratibum-large .app-header {
   position: absolute;
@@ -983,9 +999,12 @@ body {
   right: 0;
   width: 70%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+.gratibum-large .entries .gratitude {
+  width: 315px;
+  height: 300px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .profile-page .profile-page-header h2 {
@@ -1278,7 +1297,7 @@ body {
 }
 
 .about-gratibum-small {
-  overflow-y: visible;
+  overflow-y: auto;
 }
 .about-gratibum-small .cards {
   position: absolute;
