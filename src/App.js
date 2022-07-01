@@ -55,7 +55,7 @@ function App() {
             component={ CreateGratitude }
           ></Route>
           <Route
-            exact path='/focused-gratitude/:id'
+            exact path='/gratibum/:id'
             component={ FocusedGratitude }
           ></Route>
         </Switch>
