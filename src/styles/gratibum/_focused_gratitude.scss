@@ -59,6 +59,12 @@
                     font-weight: bolder;
                 }
             }
+
+            #single-desc {
+                &::before{
+                    content: "";
+                }
+            }
         }
 
     }

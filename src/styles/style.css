@@ -908,6 +908,8 @@ body {
 }
 .gratibum .entries .gratitude .text p {
   font-weight: bold;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .gratibum .entries .gratitude .more {
   width: 35px;
@@ -1540,6 +1542,9 @@ body {
 }
 .focused-gratitude .text .question p:last-child {
   font-weight: bolder;
+}
+.focused-gratitude .text .question #single-desc::before {
+  content: "";
 }
 
 .focused-gratitude-small .image {
