@@ -50,31 +50,46 @@ const FocusedGratitude = () => {
 
               <h1>{ focused[0].title }</h1>
 
-              <div className="question">
-                <p>
-                  { t('q_what') }
-                </p>
-                <p>
-                  { focused[0].description }
-                </p>
-              </div>
-              <div className="question">
-                <p>
-                  { t('q_why') }
-                </p>
-                <p>
-                  { focused[0].description }
-                </p>
-              </div>
-              <div className="question">
-                <p>
-                  { t('other') }
-                </p>
-                <p>
-                  { focused[0].description }
-                </p>
-              </div>
-            </div>
+              {/* if the user did not answer every question, it will only show what they wrote */}
+              { focused[0].qWhat && focused[0].qWhy && focused[0].qOther ?
+                          <>
+                          <div className="question">
+                              <p>
+                                { t('q_what') }
+                              </p>
+                              <p>
+                                { focused[0].qWhat }
+                              </p>
+                            </div>
+                            <div className="question">
+                              <p>
+                                { t('q_why') }
+                              </p>
+                              <p>
+                                { focused[0].qWhy }
+                              </p>
+                            </div>
+                            <div className="question">
+                              <p>
+                                { t('other') }
+                              </p>
+                              <p>
+                                { focused[0].qOther }
+                              </p>
+                            </div>
+                          </>
+
+                :
+                  <>
+                            <div className="question">
+                              <p id="single-desc">
+                                { focused[0].description }
+                              </p>
+                            </div>
+                  </>
+
+              }            
+        </div>
 
         </div>
     );

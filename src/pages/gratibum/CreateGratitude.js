@@ -6,6 +6,8 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 import Back from '../../components/Back'
 
+import logo from '../../images/logo.png';
+
 import { auth, firebaseDb } from '../../services/firebase'
 import { collection, getDocs, getDoc, setDoc, doc, query, addDoc } from 'firebase/firestore/lite';
 import { getDatabase, ref, child, push, update, set } from "firebase/database";
@@ -24,6 +26,7 @@ const CreateGratitude = () => {
     const [ descriptionElse, setDescriptionElse ] = useState("");
 
     const [ error, setError ] = useState( false );
+
 
     const titleTextChanged = event => {
         let newTitle = event.target.value;
@@ -46,7 +49,8 @@ const CreateGratitude = () => {
     }
 
     const submit = async () => {
-        setDescription( descriptionWhat + ' ' + descriptionWhy + ' ' + descriptionElse );
+        await setDescription( descriptionWhat + ' ' + descriptionWhy + ' ' + descriptionElse );
+        await setImg( logo );
 
         if ( description != "" )
             saveToFirebase();
@@ -68,8 +72,6 @@ const CreateGratitude = () => {
     const saveToFirebase = async () => {
 
         const ress = getUserFromFirebase( email );
-        let gratibums_doc;
-
         ress
             .then( ful => {
                 console.log(ful);
@@ -91,7 +93,11 @@ const CreateGratitude = () => {
                     date: new Date(),
                     title: title,
                     description: description,
-                    imageUrl: ""
+                    qWhat: descriptionWhat,
+                    qWhy: descriptionWhy,
+                    qOther: descriptionElse,
+                    imageUrl: img,
+                    ownerID: email
                 }
             };
 
