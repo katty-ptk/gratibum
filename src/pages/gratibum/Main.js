@@ -59,7 +59,7 @@ const Main = () => {
 
       console.log(focused[0].title);
   
-      history.push(`/focused-gratitude/${focused[0].date.seconds}`);
+      history.push(`/gratibum/${focused[0].date.seconds}`);
   }
 
   return (
