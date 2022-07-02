@@ -25,7 +25,10 @@ const FocusedGratitude = () => {
     let focused = gratitudes.filter( gratitude => gratitude.date.seconds === parseInt(id) );
 
 
-    console.log( focused );
+    const editGratitude = () => {
+      localStorage.setItem('gratitudeData', JSON.stringify(focused[0]));
+      history.push(`/gratibum/edit/${id}`);
+    } 
   
     return (
         <div className={ window.innerWidth < 1000 ? 'focused-gratitude focused-gratitude-small' : 'focused-gratitude focused-gratitude-large'}>
@@ -41,7 +44,7 @@ const FocusedGratitude = () => {
                   onClick={ () => history.push('/gratibum') }
                  />
                 <img src={edit}
-                  onClick={ () => history.push('/') }
+                  onClick={ editGratitude }
                  />
                 <img src={trash} 
                   onClick={ () => history.push('/') }
