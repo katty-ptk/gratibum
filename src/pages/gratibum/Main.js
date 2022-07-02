@@ -55,11 +55,9 @@ const Main = () => {
   let focused;
   const viewGratitude = async ( id ) => {
 
-      focused = gratitudes.filter( gratitude => gratitude.date.seconds === id );
-
-      // console.log(focused[0].title);
-  
-      history.push(`/gratibum/${focused[0].date.seconds}`);
+      focused = gratitudes.filter( gratitude => gratitude.date.seconds === parseInt(id) );
+      
+      history.push(`/gratibum/${id}`);
   }
 
   return (

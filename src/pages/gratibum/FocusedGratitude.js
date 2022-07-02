@@ -2,6 +2,10 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useTranslation } from "react-i18next";
 
+import { auth, firebaseDb } from '../../services/firebase';
+import { doc, updateDoc, deleteField } from "firebase/firestore";
+import { getFirestore } from 'firebase/firestore'
+
 import back from '../../images/icons/back.png';
 import trash from '../../images/icons/trash.png';
 import edit from '../../images/icons/edit.png';
@@ -12,8 +16,10 @@ const FocusedGratitude = () => {
     const { id } = useParams();
     const history = useHistory();
     const { t } = useTranslation();
+    const db = getFirestore();
 
     const gratibums = JSON.parse(localStorage.getItem("gratibums"));
+    const email = JSON.parse(localStorage.getItem("currentUser")).email;
 
     let gratitudes = [];
     for (var key in gratibums) {
@@ -22,13 +28,23 @@ const FocusedGratitude = () => {
       }
     }
 
-    let focused = gratitudes.filter( gratitude => gratitude.date.seconds === parseInt(id) );
-
+    let focused = gratitudes.filter( gratitude => (gratitude.date.seconds).toString() + (gratitude.date.nanoseconds / 1000000).toString() === id.toString() );
 
     const editGratitude = () => {
       localStorage.setItem('gratitudeData', JSON.stringify(focused[0]));
       history.push(`/gratibum/edit/${id}`);
     } 
+    
+    const ref = doc( db, `test/accounts/${email}`, 'gratibums');
+    const deleteGratitude = async () => {
+      await updateDoc(ref, {
+        [id]: deleteField()
+      });
+
+      history.push('/gratibum');
+
+      console.log('delete')
+    }
   
     return (
         <div className={ window.innerWidth < 1000 ? 'focused-gratitude focused-gratitude-small' : 'focused-gratitude focused-gratitude-large'}>
@@ -47,7 +63,7 @@ const FocusedGratitude = () => {
                   onClick={ editGratitude }
                  />
                 <img src={trash} 
-                  onClick={ () => history.push('/') }
+                  onClick={ deleteGratitude }
                 />
               </div>
 
