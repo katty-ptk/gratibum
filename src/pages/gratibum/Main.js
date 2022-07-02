@@ -57,7 +57,7 @@ const Main = () => {
 
       focused = gratitudes.filter( gratitude => gratitude.date.seconds === id );
 
-      console.log(focused[0].title);
+      // console.log(focused[0].title);
   
       history.push(`/gratibum/${focused[0].date.seconds}`);
   }
@@ -86,7 +86,7 @@ const Main = () => {
 
         {
           gratitudes.map( ( item, index ) => {
-            console.log( gratitudes[index] );
+            {/* console.log( gratitudes[index] ); */}
 
             return (
               <Gratitude key={item.date.seconds}

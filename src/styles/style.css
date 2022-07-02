@@ -1555,8 +1555,8 @@ body {
 .focused-gratitude-small .image .gratitude-image {
   width: 100%;
   height: 100%;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 .focused-gratitude-small .text {
   position: absolute;
@@ -1604,8 +1604,8 @@ body {
 }
 .focused-gratitude-large .text h1 {
   text-align: center;
-  margin-bottom: 0px;
-  margin-top: 150px;
+  margin-bottom: 50px;
+  margin-top: 100px;
   font-style: italic;
   color: #50434F;
 }
