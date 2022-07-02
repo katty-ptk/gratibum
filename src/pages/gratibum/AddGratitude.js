@@ -90,7 +90,7 @@ const CreateGratitude = () => {
             const id = d.getTime();
             const newGratitude = {
                 [id]:{
-                    date: new Date(),
+                    date: new Date(id),
                     title: title,
                     description: description,
                     qWhat: descriptionWhat,

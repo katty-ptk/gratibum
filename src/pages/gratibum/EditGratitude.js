@@ -47,12 +47,15 @@ const EditGratitude = () => {
         console.log('image changed');
     }
 
+    // console.log( new Date() )
+
     const submit = async () => {
         await setDescription( qWhat + " " + qWhy + " " + qOther );
 
+        const date = new Date()
         const updated = {
             [id]:{
-                date: new Date(),
+                date: gratitudeData.date,
                 title: title != "" ? title : gratitudeData.title,
                 description: qWhat + " " + qWhy + " " + qOther,
                 qWhat: qWhat != "" ? qWhat : gratitudeData.qWhat,
@@ -64,7 +67,12 @@ const EditGratitude = () => {
         }
 
         await console.log(updated);
-        await updateDoc(doc( firebaseDb, `/test/accounts/${email}`, "gratibums"), updated, { merge: true} );
+        // const washingtonRef = doc(db, "cities", "DC");
+        const docRef = doc(firebaseDb, `test/accounts/${email}`, "gratibums");
+        await updateDoc(
+            docRef,
+            updated
+        );
     }
 
     return (
