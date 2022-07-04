@@ -44,7 +44,7 @@ body {
             // border-radius: 20px;
 
             .image {
-                height: 50%;
+                height: 60%;
                 // width: 100%;
                 
                 
@@ -63,7 +63,7 @@ body {
 
             .text {
                 background-color: #CEA281;
-                height: 50%;
+                height: 40%;
                 bottom: 0;
 
                 text-align: center;
@@ -71,6 +71,10 @@ body {
 
                 border-bottom-left-radius: 20px;
                 border-bottom-right-radius: 20px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 h2 {
                     font-style: italic;

@@ -48,6 +48,7 @@ const Main = () => {
   for (var key in gratibums) {
     if (gratibums.hasOwnProperty(key)) {
       gratitudes.push( gratibums[key] );
+      console.log( new Date(gratibums[key].date).getTime() );
     }
   }
 

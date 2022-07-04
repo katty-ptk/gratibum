@@ -28,7 +28,7 @@ const FocusedGratitude = () => {
       }
     }
 
-    let focused = gratitudes.filter( gratitude => (gratitude.date.seconds).toString() + (gratitude.date.nanoseconds / 1000000).toString() === id.toString() );
+    let focused = gratitudes.filter( gratitude => gratitude.id == id );
 
     const editGratitude = () => {
       localStorage.setItem('gratitudeData', JSON.stringify(focused[0]));
@@ -70,14 +70,14 @@ const FocusedGratitude = () => {
               <h1>{ focused[0].title }</h1>
 
               {/* if the user did not answer every question, it will only show what they wrote */}
-              { focused[0].qWhat && focused[0].qWhy && focused[0].qOther ?
+              { focused[0].questions.what && focused[0].questions.why && focused[0].questions.other ?
                           <>
                           <div className="question">
                               <p>
                                 { t('q_what') }
                               </p>
                               <p>
-                                { focused[0].qWhat }
+                                { focused[0].questions.what }
                               </p>
                             </div>
                             <div className="question">
@@ -85,7 +85,7 @@ const FocusedGratitude = () => {
                                 { t('q_why') }
                               </p>
                               <p>
-                                { focused[0].qWhy }
+                                { focused[0].questions.why }
                               </p>
                             </div>
                             <div className="question">
@@ -93,7 +93,7 @@ const FocusedGratitude = () => {
                                 { t('other') }
                               </p>
                               <p>
-                                { focused[0].qOther }
+                                { focused[0].questions.other }
                               </p>
                             </div>
                           </>
