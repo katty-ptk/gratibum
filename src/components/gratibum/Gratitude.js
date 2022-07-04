@@ -1,5 +1,6 @@
 import logo from '../../images/logo.png';
 import test from '../../images/tests/test.png';
+import test2 from '../../images/tests/test2.png';
 import more from '../../images/icons/arrow_down.png';
 
 const Gratitude = ({ data, handleClick }) => {
@@ -8,7 +9,7 @@ const Gratitude = ({ data, handleClick }) => {
             onClick={ () => handleClick( data.id ) }
         >
             <div className="image">
-                <img src={test} alt="" />
+                <img src={ test2 } alt="" />
             </div>
 
             <div className="text">
