@@ -49,17 +49,19 @@ const EditGratitude = () => {
 
     // console.log( new Date() )
 
+    console.log( gratitudeData.date )
     const submit = async () => {
         await setDescription( qWhat + " " + qWhy + " " + qOther );
+        // DE VB CU COSMIN!
         const updated = {
             [id]:{
-                date: gratitudeData.date,
+                date: !gratitudeData.date.seconds ? gratitudeData.date : new Date(),  // date changing to now if gratitude from app is being edited
                 title: title != "" ? title : gratitudeData.title,
                 description: qWhat + " " + qWhy + " " + qOther,
                 questions: {
-                    what: qWhat != "" ? qWhat : gratitudeData.questions.what,
-                    why: qWhy != "" ? qWhy : gratitudeData.questions.why,
-                    other: qOther != "" ? qOther : gratitudeData.questions.other
+                    what: qWhat != "" ? qWhat : (gratitudeData.questions ? gratitudeData.questions.what : ""),
+                    why: qWhy != "" ? qWhy : (gratitudeData.questions ? gratitudeData.questions.why : ""),
+                    other: qOther != "" ? qOther : (gratitudeData.questions ? gratitudeData.questions.other : "")
                 },
                 imageUrl: img,
                 ownerID: email,
@@ -125,7 +127,7 @@ const EditGratitude = () => {
                             id="what" 
                             type="text" 
                             placeholder={t('q_what_placeholder')} 
-                            defaultValue={gratitudeData.questions.what && gratitudeData.questions.what }                            
+                            defaultValue={( gratitudeData.questions && gratitudeData.questions.what) && gratitudeData.questions.what }                            
                             onChange={handleWhatChange}
                         />
                     </div>
@@ -138,7 +140,7 @@ const EditGratitude = () => {
                             id="why" 
                             type="text" 
                             placeholder={t('q_why_placeholder')} 
-                            defaultValue={gratitudeData.questions.why && gratitudeData.questions.why }
+                            defaultValue={ gratitudeData.questions && gratitudeData.questions.why && gratitudeData.questions.why }
                             onChange={handleWhyChange}
                         />
                     </div>
@@ -151,7 +153,7 @@ const EditGratitude = () => {
                             id="else" 
                             type="text" 
                             placeholder={t('q_else_placeholder')}                            
-                            defaultValue={gratitudeData.questions.other && gratitudeData.questions.other }                            
+                            defaultValue={ gratitudeData.questions && gratitudeData.questions.other && gratitudeData.questions.other }                            
                             onChange={handleOtherChange}
                         />
                     </div>
