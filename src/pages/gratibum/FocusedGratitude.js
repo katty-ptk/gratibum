@@ -70,7 +70,7 @@ const FocusedGratitude = () => {
               <h1>{ focused[0].title }</h1>
 
               {/* if the user did not answer every question, it will only show what they wrote */}
-              { focused[0].questions.what && focused[0].questions.why && focused[0].questions.other ?
+              { focused[0].questions && focused[0].questions.what && focused[0].questions.why && focused[0].questions.other ?
                           <>
                           <div className="question">
                               <p>
