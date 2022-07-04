@@ -5,7 +5,7 @@ import more from '../../images/icons/arrow_down.png';
 const Gratitude = ({ data, handleClick }) => {
     return (
         <div className="gratitude"
-            onClick={ () => handleClick( (data.date.seconds).toString() + (data.date.nanoseconds / 1000000).toString() ) }
+            onClick={ () => handleClick( data.id ) }
         >
             <div className="image">
                 <img src={test} alt="" />
@@ -13,9 +13,9 @@ const Gratitude = ({ data, handleClick }) => {
 
             <div className="text">
                 <h2>{ data.title }</h2>
-                <p>
+                {/* <p>
                     { data.description }
-                </p>
+                </p> */}
             </div>
 
             {/* <div className="more"> */}
