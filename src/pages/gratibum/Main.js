@@ -37,11 +37,11 @@ const Main = () => {
   }
 
   const ress = getGratibumsFromFirebase( localstor.email );
-  ress
-      .then( ful => {
-          localStorage.setItem("gratibums", JSON.stringify(ful));       
-      })
-      .catch( er => console.log(er) );
+  // ress
+  //     .then( ful => {
+  //         localStorage.setItem("gratibums", JSON.stringify(ful));       
+  //     })
+  //     .catch( er => console.log(er) );
 
   const gratibums = JSON.parse(localStorage.getItem("gratibums"));
 
@@ -60,6 +60,13 @@ const Main = () => {
       
       history.push(`/gratibum/${id}`);
   }
+
+  
+  useEffect(() => {
+    ress.then(ful => {
+      localStorage.setItem("gratibums", JSON.stringify(ful));       
+    }).catch( er => console.log(er) );
+  }, []);
 
   return (
     <div className={ window.innerWidth < 1000 ? 'gratibum gratibum-small' : 'gratibum gratibum-large'}>

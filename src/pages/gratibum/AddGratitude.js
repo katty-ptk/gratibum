@@ -20,7 +20,8 @@ const CreateGratitude = () => {
 
     const [ img, setImg ] = useState("");
     const [ title, setTitle ] = useState("");
-    const [ description, setDescription ] = useState("");
+    // const [ description, setDescription ] = useState("");
+    let description;
     const [ descriptionWhat, setDescriptionWhat ] = useState("");
     const [ descriptionWhy, setDescriptionWhy ] = useState("");
     const [ descriptionElse, setDescriptionElse ] = useState("");
@@ -49,7 +50,8 @@ const CreateGratitude = () => {
     }
 
     const submit = async () => {
-        await setDescription( descriptionWhat + ' ' + descriptionWhy + ' ' + descriptionElse );
+        // await setDescription( descriptionWhat + ' ' + descriptionWhy + ' ' + descriptionElse );
+        description = descriptionWhat + ' ' + descriptionWhy + ' ' + descriptionElse; 
         await setImg( logo );
 
         if ( description != "" )
@@ -106,7 +108,7 @@ const CreateGratitude = () => {
 
             await setDoc(doc( firebaseDb, `/test/accounts/${email}`, "gratibums"), newGratitude, { merge: true });
             
-            history.push('/gratibum');
+            await history.push('/gratibum');
     }
 
     return (

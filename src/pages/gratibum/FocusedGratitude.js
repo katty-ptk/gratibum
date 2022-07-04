@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useTranslation } from "react-i18next";
@@ -11,12 +13,16 @@ import trash from '../../images/icons/trash.png';
 import edit from '../../images/icons/edit.png';
 
 import test from '../../images/tests/test.png';
+import test2 from '../../images/tests/test2.png';
+import logo from '../../images/logo.png';
 
 const FocusedGratitude = () => {
     const { id } = useParams();
     const history = useHistory();
     const { t } = useTranslation();
     const db = getFirestore();
+
+    const [ deleteOpen, setDeleteOpen ] = useState( false );
 
     const gratibums = JSON.parse(localStorage.getItem("gratibums"));
     const email = JSON.parse(localStorage.getItem("currentUser")).email;
@@ -50,7 +56,7 @@ const FocusedGratitude = () => {
         <div className={ window.innerWidth < 1000 ? 'focused-gratitude focused-gratitude-small' : 'focused-gratitude focused-gratitude-large'}>
             
             <div className="image">
-              <img src={ test } alt="gratitude image" className="gratitude-image" />
+              <img src={ test2 } alt="gratitude image" className="gratitude-image" />
             </div>
 
             <div className="text">
@@ -63,10 +69,30 @@ const FocusedGratitude = () => {
                   onClick={ editGratitude }
                  />
                 <img src={trash} 
-                  onClick={ deleteGratitude }
+                  onClick={ () => setDeleteOpen( true ) }
                 />
               </div>
 
+{ deleteOpen &&
+               <div className="delete">
+                  <h2>
+                    Are you sure you want to delete this gratitude?
+                  </h2>
+
+                  <div>
+                    <p
+                      onClick={ deleteGratitude }
+                    >
+                      Delete
+                    </p>
+                    <p
+                      onClick={ () => setDeleteOpen( false ) }
+                    >
+                      Cancel
+                    </p>                  
+                  </div>
+               </div>
+}
               <h1>{ focused[0].title }</h1>
 
               {/* if the user did not answer every question, it will only show what they wrote */}
