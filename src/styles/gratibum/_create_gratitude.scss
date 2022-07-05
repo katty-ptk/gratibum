@@ -11,7 +11,7 @@
             position: relative;
             width: 313px;
             height: 210px;
-            border: 2px dashed #50434F;
+            border: 3px dashed #50434F;
             border-radius: 15px;
             margin-bottom: 25px;
             cursor: pointer;
@@ -23,15 +23,23 @@
                 cursor: pointer;
             }
 
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 15px;
+                object-fit: cover;
+            }
+
             p { 
                 position: absolute;
                 left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
+                transform: translateX(-50%);
+                bottom: 10px;
 
                 font-weight: bold;
                 text-decoration: underline;
-                font-size: 1.2em;
+                font-size: 1.1em;
             }
         }
 

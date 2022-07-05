@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { Link } from "react-router-dom";
 
@@ -24,7 +24,8 @@ const EditGratitude = () => {
     const [qWhy, setQWhy] = useState(""); 
     const [qOther, setQOther] = useState(""); 
     const [description, setDescription] = useState(""); 
-    const [img, setImg] = useState(""); 
+    const [img, setImg] = useState(logo);
+    const [ preview, setPreview] = useState(logo);
 
     
     const handleTitleChange = ( e ) => {
@@ -43,8 +44,32 @@ const EditGratitude = () => {
         setQOther( e.target.value)
     }
 
-    const handleImgChange = ( e ) => {
-        console.log('image changed');
+    let fileInput;
+    useEffect( async () => {
+        if (img) {
+            const reader = new FileReader();
+            reader.onload = async () => {
+                await setPreview(reader.result);
+            };
+            reader.readAsDataURL(img);
+            console.log( preview );
+          } else {
+            await setPreview(logo);
+          }
+      }, [img]);
+
+    const handleImageChange = async ( e ) => { 
+        e.preventDefault();
+
+        fileInput = document.getElementById('image').files[0];
+
+        if (fileInput) {
+            await setImg(fileInput);
+          } else {
+            await setImg(logo);
+          }  
+
+        console.log( fileInput );
     }
 
     // console.log( new Date() )
@@ -63,14 +88,13 @@ const EditGratitude = () => {
                     why: qWhy != "" ? qWhy : (gratitudeData.questions ? gratitudeData.questions.why : ""),
                     other: qOther != "" ? qOther : (gratitudeData.questions ? gratitudeData.questions.other : "")
                 },
-                imageUrl: img,
+                imageUrl: preview,
                 ownerID: email,
                 id: id
             }
         }
 
-        await console.log(updated);
-        // const washingtonRef = doc(db, "cities", "DC");
+        // await console.log(updated);
         const docRef = doc(firebaseDb, `test/accounts/${email}`, "gratibums");
         await updateDoc(
             docRef,
@@ -95,11 +119,15 @@ const EditGratitude = () => {
 
             <section className="query">
                 <div className="gratitude-image">
+                    <img src={preview} alt="" />
+                { preview == logo &&
                     <p>
                         { t('add_image') }
                     </p>
+                }
                     <input type="file" accept="image/*"
-                        onChange={handleImgChange}
+                        id="image"
+                        onChange={handleImageChange}
                     />
                 </div>
 

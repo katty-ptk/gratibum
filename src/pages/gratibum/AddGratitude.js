@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import Back from '../../components/Back'
 
 import logo from '../../images/logo.png';
+import test from '../../images/tests/test.png';
 
 import { auth, firebaseDb } from '../../services/firebase'
 import { collection, getDocs, getDoc, setDoc, doc, query, addDoc } from 'firebase/firestore/lite';
@@ -18,7 +19,8 @@ const CreateGratitude = () => {
     const {t} = useTranslation();
     const history = useHistory();
 
-    const [ img, setImg ] = useState("");
+    const [ img, setImg ] = useState(logo);
+    const [ preview, setPreview ] = useState(logo);
     const [ title, setTitle ] = useState("");
     // const [ description, setDescription ] = useState("");
     let description;
@@ -48,6 +50,35 @@ const CreateGratitude = () => {
         let newDesc = event.target.value;
         setDescriptionElse(newDesc);
     }
+
+    let fileInput;
+    useEffect( async () => {
+        if (img) {
+            const reader = new FileReader();
+            reader.onload = async () => {
+                await setPreview(reader.result);
+            };
+            reader.readAsDataURL(img);
+            console.log( preview );
+          } else {
+            await setPreview(logo);
+          }
+      }, [img]);
+
+    const imageChanged = async ( e ) => { 
+        e.preventDefault();
+
+        fileInput = document.getElementById('gratitude-image').files[0];
+
+        if (fileInput) {
+            await setImg(fileInput);
+          } else {
+            await setImg(logo);
+          }  
+
+        console.log( fileInput );
+    }
+
 
     const submit = async () => {
         // await setDescription( descriptionWhat + ' ' + descriptionWhy + ' ' + descriptionElse );
@@ -100,7 +131,7 @@ const CreateGratitude = () => {
                         why: descriptionWhy,
                         other: descriptionElse
                     },
-                    imageUrl: img,
+                    imageUrl: preview,
                     ownerID: email,
                     id: id
                 }
@@ -128,10 +159,15 @@ const CreateGratitude = () => {
 
             <section className="query">
                 <div className="gratitude-image">
-                    <p>
-                        { t('add_image') }
-                    </p>
-                    <input type="file" accept="image/*" />
+                    <img src={ preview } alt="" />
+                    { preview == logo &&   <p>
+                            { t('add_image') }
+                        </p>
+                    }
+                    <input type="file" accept="image/*" 
+                        id="gratitude-image"
+                        onChange={ imageChanged }
+                    />
                 </div>
 
                 <form>

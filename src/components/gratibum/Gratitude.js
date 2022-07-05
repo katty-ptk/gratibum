@@ -9,7 +9,7 @@ const Gratitude = ({ data, handleClick }) => {
             onClick={ () => handleClick( data.id ) }
         >
             <div className="image">
-                <img src={ test2 } alt="" />
+                <img src={ data.imageUrl != "" ? data.imageUrl : logo } alt="" />
             </div>
 
             <div className="text">

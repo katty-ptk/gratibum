@@ -56,7 +56,7 @@ const FocusedGratitude = () => {
         <div className={ window.innerWidth < 1000 ? 'focused-gratitude focused-gratitude-small' : 'focused-gratitude focused-gratitude-large'}>
             
             <div className="image">
-              <img src={ test2 } alt="gratitude image" className="gratitude-image" />
+              <img src={ focused[0].imageUrl != "" ? focused[0].imageUrl : logo } alt="gratitude image" className="gratitude-image" />
             </div>
 
             <div className="text">
