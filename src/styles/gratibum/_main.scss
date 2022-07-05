@@ -32,23 +32,13 @@ body {
         // margin-top: 25%;
         overflow-y: auto;
 
-        
         .gratitude {
-            // width: 80%;
             height: 300px;
             position: relative;
-            // top: 10px;
-            // transform: translate(0, 60%);
-            
-            // border: 1px solid #030303;
-            // border-radius: 20px;
+
 
             .image {
-                height: 60%;
-                // width: 100%;
-                
-                
-                img { 
+                img {
                     height: 100%;
                     width: 100%;
                     display: block;
@@ -58,21 +48,13 @@ body {
                     border-top-right-radius: 20px;
                     border: 1px solid #CEA281;
                     object-fit: cover;
-                    // width: 50%;
                 }
             }
 
             .text {
                 background-color: #CEA281;
-                height: 40%;
-                bottom: 0;
-
                 text-align: center;
-                padding-top: 20px;
-
-                border-bottom-left-radius: 20px;
                 border-bottom-right-radius: 20px;
-
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -83,6 +65,51 @@ body {
                     margin-bottom: 15px;
                     // margin-top: ;
                 }
+            }
+            .more {
+                width: 30px;
+                position: absolute;
+                right: 5px;
+                bottom: 0px;
+                cursor: pointer;
+            }
+        }
+
+        .flex-row {
+            display: flex;
+            justify-content: center;
+
+            .image, .text {
+                width: 50%;
+            }
+
+            .image {
+
+                img {
+                    border-bottom-left-radius: 20px;
+                    border-top-right-radius: 0;
+                }
+            }
+
+
+            .text {
+                border-top-right-radius: 20px;
+            }
+        }
+        
+        .flex-column {
+
+            .image {
+                height: 70%;
+            }
+
+            .text {
+                height: 30%;
+                bottom: 0;
+
+                padding-top: 20px;
+
+                border-bottom-left-radius: 20px;
 
                 p {
                     font-weight: bold;
@@ -91,16 +118,6 @@ body {
                 }
             }
 
-            .more {
-                
-                // img {
-                    width: 35px;
-                    position: absolute;
-                    right: 5px;
-                    bottom: 0px;
-                    cursor: pointer;
-                // }
-            }
 
         }
 
@@ -164,7 +181,7 @@ body {
         height: calc(100vh - 80px);
 
         .gratitude {
-            width: 80%;
+            width: 90%;
             height: 300px;
             margin-bottom: 40px;
 
@@ -214,7 +231,7 @@ body {
         height: 100%;
 
         .gratitude {
-            width: 315px;
+            width: 330px;
             height: 300px;
             margin-top: 10px;
             margin-bottom: 30px;

@@ -22,6 +22,7 @@ const Main = () => {
   const localstor = JSON.parse(localStorage.getItem("currentUser"));
 
   const [ gratitudes, setGratitudes ] = useState([]);
+  // const [ portrait, setPortrait ] = useState(false);
 
   const name = localstor.name;
   
@@ -36,32 +37,42 @@ const Main = () => {
       return querySnapshot.docs.at(1).data();
   }
 
-  const ress = getGratibumsFromFirebase( localstor.email );
-  // ress
-  //     .then( ful => {
-  //         localStorage.setItem("gratibums", JSON.stringify(ful));       
-  //     })
-  //     .catch( er => console.log(er) );
-
+  
   const gratibums = JSON.parse(localStorage.getItem("gratibums"));
-
+  
   for (var key in gratibums) {
     if (gratibums.hasOwnProperty(key)) {
       gratitudes.push( gratibums[key] );
-      console.log( new Date(gratibums[key].date).getTime() );
+      // console.log( new Date(gratibums[key].date).getTime() );
     }
   }
 
 
   let focused;
   const viewGratitude = async ( id ) => {
-
+    
       focused = gratitudes.filter( gratitude => gratitude.date.seconds === parseInt(id) );
       
       history.push(`/gratibum/${id}`);
   }
 
-  
+  // check original image width / height to style div
+  // const [mode, setMode] = useState("landscape");
+  let mode = "portrait";
+  const checkImageMode = ( item, title, imageSrc ) => {
+    const im = new Image();
+    im.src = imageSrc;
+    if (im.width < im.height)
+      mode = "portrait";
+    else
+      mode = "landscape";
+
+    return mode;
+    // await setMode(item.mode);
+  }  
+
+
+  const ress = getGratibumsFromFirebase( localstor.email );
   useEffect(() => {
     ress.then(ful => {
       localStorage.setItem("gratibums", JSON.stringify(ful));       
@@ -98,6 +109,7 @@ const Main = () => {
               <Gratitude key={item.date.seconds}
                   data={item} 
                   handleClick={viewGratitude}
+                  mode={ checkImageMode( item, item.title, item.imageUrl) }
               />
             )
           })
