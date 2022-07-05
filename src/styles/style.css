@@ -879,9 +879,6 @@ body {
   height: 300px;
   position: relative;
 }
-.gratibum .entries .gratitude .image {
-  height: 60%;
-}
 .gratibum .entries .gratitude .image img {
   height: 100%;
   width: 100%;
@@ -896,11 +893,7 @@ body {
 }
 .gratibum .entries .gratitude .text {
   background-color: #CEA281;
-  height: 40%;
-  bottom: 0;
   text-align: center;
-  padding-top: 20px;
-  border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   display: flex;
   justify-content: center;
@@ -911,17 +904,40 @@ body {
   color: #50434F;
   margin-bottom: 15px;
 }
-.gratibum .entries .gratitude .text p {
-  font-weight: bold;
-  margin-left: 5px;
-  margin-right: 5px;
-}
 .gratibum .entries .gratitude .more {
-  width: 35px;
+  width: 30px;
   position: absolute;
   right: 5px;
   bottom: 0px;
   cursor: pointer;
+}
+.gratibum .entries .flex-row {
+  display: flex;
+  justify-content: center;
+}
+.gratibum .entries .flex-row .image, .gratibum .entries .flex-row .text {
+  width: 50%;
+}
+.gratibum .entries .flex-row .image img {
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 0;
+}
+.gratibum .entries .flex-row .text {
+  border-top-right-radius: 20px;
+}
+.gratibum .entries .flex-column .image {
+  height: 70%;
+}
+.gratibum .entries .flex-column .text {
+  height: 30%;
+  bottom: 0;
+  padding-top: 20px;
+  border-bottom-left-radius: 20px;
+}
+.gratibum .entries .flex-column .text p {
+  font-weight: bold;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .gratibum .entries .focused-gratitude {
   display: block;
@@ -969,7 +985,7 @@ body {
   height: calc(100vh - 80px);
 }
 .gratibum-small .entries .gratitude {
-  width: 80%;
+  width: 90%;
   height: 300px;
   margin-bottom: 40px;
 }
@@ -1008,7 +1024,7 @@ body {
   height: 100%;
 }
 .gratibum-large .entries .gratitude {
-  width: 315px;
+  width: 330px;
   height: 300px;
   margin-top: 10px;
   margin-bottom: 30px;

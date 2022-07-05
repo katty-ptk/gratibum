@@ -25,7 +25,7 @@ const EditGratitude = () => {
     const [qOther, setQOther] = useState(""); 
     const [description, setDescription] = useState(""); 
     const [img, setImg] = useState(logo);
-    const [ preview, setPreview] = useState(logo);
+    const [ preview, setPreview] = useState( gratitudeData.imageUrl != "" ? gratitudeData.imageUrl : logo);
 
     
     const handleTitleChange = ( e ) => {
@@ -69,12 +69,12 @@ const EditGratitude = () => {
             await setImg(logo);
           }  
 
-        console.log( fileInput );
+        // console.log( fileInput );
     }
 
     // console.log( new Date() )
 
-    console.log( gratitudeData.date )
+    // console.log( gratitudeData.date )
     const submit = async () => {
         await setDescription( qWhat + " " + qWhy + " " + qOther );
         // DE VB CU COSMIN!
