@@ -41,6 +41,15 @@
         }
     }
 
+    .image-square {
+        .gratitude-image {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            z-index: 10000;
+        }
+    }
+
     .image-landscape {
         .gratitude-image {
             position: absolute;

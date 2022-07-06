@@ -132,6 +132,7 @@
 
     .sign-up-section {
         position: absolute;
+        // overflow: auto;
         
         .profile-pic {
             width: 230px;
@@ -297,16 +298,29 @@
                 }
             }
 
-        }
+            .no-account {
+                text-align: center;
+                font-size: 16px;
+                margin-top: 20px;
+    
+                div {
+                    margin-bottom: 15px;
+    
+                    p {
+                        margin-bottom: 5px;
+                    }
+                }
 
-        .no-account {
-            text-align: center;
-            font-size: 12px;
-
-            a {
-                color: $purple;
+                a {
+                    color: $purple;
+                    // font-weight: 500;
+                }
             }
+
+
+
         }
+
     }
 }
 
@@ -332,26 +346,25 @@
     .login-section {
         position: absolute;
         width: 55%;
-        height: 200px;
+        height: 100vh;
 
-        top: 50%;
-        transform: translateY(-50%);
+        // top: 50%;
+        // transform: translateY(-50%);
 
         right: 0;
+        top: 0;
+
         // border: 1px solid black;
 
-        justify-content: space-around;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
 
         form {
-            // width: 315px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+            width: 215px;
+            margin-bottom: 20px;
 
-        .no-account {
-            margin-top: 200px;
         }
     }
 

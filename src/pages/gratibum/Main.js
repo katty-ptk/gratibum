@@ -61,7 +61,7 @@ const Main = () => {
   const checkImageMode = ( imageSrc ) => {
     const im = new Image();
     im.src = imageSrc;
-    if (im.width < im.height)
+    if (im.width < im.height || im.width == im.height)
       mode = "portrait";
     else
       mode = "landscape";
