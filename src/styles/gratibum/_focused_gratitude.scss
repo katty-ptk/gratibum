@@ -5,10 +5,48 @@
     overflow: hidden;
 
     .image {
-
-        .gratitude-image {
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        position: relative;
+        
+        span {
+            position: absolute;
             width: 100%;
             height: 100%;
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover;
+            filter: blur(8px);  
+            opacity: 0.5;
+        }
+
+        img {
+            border-radius: 25px;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;        
+            object-fit: cover;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    
+    .image-portrait {
+        .gratitude-image {
+            position: absolute;
+            width: 50%;
+            height: 90%;
+            z-index: 10000;
+        }
+    }
+
+    .image-landscape {
+        .gratitude-image {
+            position: absolute;
+            height: 50%;
+            width: 90%;
+            z-index: 10000;
         }
     }
 
@@ -106,10 +144,16 @@
 
                 &:last-child {
                     font-weight: bolder;
+
+                    &::before {
+                        content: "a ";
+                        visibility: hidden;
+                    }
                 }
             }
 
             #single-desc {
+                text-align: center;
                 &::before{
                     content: "";
                 }
@@ -126,15 +170,20 @@
         width: 100%;
         position: absolute;
 
+    }
 
+    .image-portrait {
         .gratitude-image {
-            width: 100%;
-            height: 100%;
-            
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
+            height: 95%;
         }
     }
+
+    .image-landscape {
+        .gratitude-image {
+            height: 80%;
+        }
+    }
+
 
     .text {
         position: absolute;
@@ -176,15 +225,12 @@
         width: 55%;
         position: relative;
 
-        .gratitude-image {
+         span {
             width: 100%;
-            height: 100%;
-            
-            border-bottom-right-radius: 30px;
-            border-top-right-radius: 30px;
-
-            object-fit: cover;
-            
+         }
+        
+        .gratitude-image {
+            object-fit: cover;            
         }
     }
 

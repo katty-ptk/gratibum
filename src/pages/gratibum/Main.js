@@ -57,9 +57,8 @@ const Main = () => {
   }
 
   // check original image width / height to style div
-  // const [mode, setMode] = useState("landscape");
-  let mode = "portrait";
-  const checkImageMode = ( item, title, imageSrc ) => {
+  let mode;
+  const checkImageMode = ( imageSrc ) => {
     const im = new Image();
     im.src = imageSrc;
     if (im.width < im.height)
@@ -109,7 +108,7 @@ const Main = () => {
               <Gratitude key={item.date.seconds}
                   data={item} 
                   handleClick={viewGratitude}
-                  mode={ checkImageMode( item, item.title, item.imageUrl) }
+                  mode={ checkImageMode( item.imageUrl) }
               />
             )
           })
@@ -125,4 +124,4 @@ const Main = () => {
   );
 }
 
-export default Main
+export default Main;
