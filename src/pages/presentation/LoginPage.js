@@ -141,22 +141,22 @@ const LoginPage = () => {
                                 onChange = {passwordTextChanged} 
                             />
                         </div>
+                        <div className="no-account">
+                            <div>
+                                <p>
+                                    { t('no_account') }
+                                </p>
+                                {/* <br></br> */}
+                                <Link to='/sign-up'>
+                                    { t('sign_up') }
+                                </Link>
+                            </div>
+                            <Link to='/forgot_password'>
+                                { t('forgot_password') }
+                            </Link>
+                        </div>
                 </form>
 
-                <div className="no-account">
-                    <p>
-                        { t('no_account') }
-                    </p>
-                    <br></br>
-                    <Link to='/sign-up'>
-                        { t('sign_up') }
-                    </Link>
-                </div>
-                <div className="no-account">
-                    <Link to='/forgot_password'>
-                        { t('forgot_password') }
-                    </Link>
-                </div>
             </section>
 
             { ( loggedIn && !error ) && 

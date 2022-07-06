@@ -5,7 +5,7 @@ import more from '../../images/icons/arrow_down.png';
 
 const Gratitude = ({ data, handleClick, mode }) => {
     return (
-        <div className={ mode == "portrait" ?  "gratitude flex-row" : "gratitude flex-column" }
+        <div className={ mode == "portrait" || mode == "square" ?  "gratitude flex-row" : "gratitude flex-column" }
             onClick={ () => handleClick( data.id ) }
         >
             <div className="image">

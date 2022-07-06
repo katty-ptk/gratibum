@@ -6,7 +6,7 @@ body {
 .gratibum { 
     .app-header{
         // position: ;
-
+        
         .user-img {
             position: absolute;
             right: 10px;
@@ -21,21 +21,21 @@ body {
             }
         }
     }
-
+    
     .entries {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
         // align-items: center;
-
+        
         // margin-top: 25%;
         overflow-y: auto;
-
+        
         .gratitude {
-            height: 300px;
             position: relative;
-
+            height: 300px;
+            cursor: pointer;
 
             .image {
                 img {
@@ -71,7 +71,6 @@ body {
                 position: absolute;
                 right: 5px;
                 bottom: 0px;
-                cursor: pointer;
             }
         }
 

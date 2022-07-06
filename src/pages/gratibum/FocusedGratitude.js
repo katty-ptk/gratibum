@@ -42,6 +42,8 @@ const FocusedGratitude = () => {
       im.src = imageSrc;
       if (im.width < im.height)
         mode = "portrait";
+      else if ( im.width == im.height )
+        mode = "square";  
       else
         mode = "landscape";
   
@@ -67,7 +69,7 @@ const FocusedGratitude = () => {
     return (
         <div className={ window.innerWidth < 1000 ? 'focused-gratitude focused-gratitude-small' : 'focused-gratitude focused-gratitude-large'}>
             
-            <div className={ checkImageMode(focused[0].imageUrl) == "portrait" ? "image image-portrait" : "image image-landscape" }>
+            <div className={ checkImageMode(focused[0].imageUrl) == "portrait" ? "image image-portrait" : checkImageMode(focused[0].imageUrl) == "square" ? "image image-square" : "image image-landscape" }>
               <span
                 style={{ backgroundImage: `url(${focused[0].imageUrl})`}}
               ></span>
