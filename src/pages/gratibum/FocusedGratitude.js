@@ -36,6 +36,18 @@ const FocusedGratitude = () => {
 
     let focused = gratitudes.filter( gratitude => gratitude.id == id );
 
+    let mode;
+    const checkImageMode = ( imageSrc ) => {
+      const im = new Image();
+      im.src = imageSrc;
+      if (im.width < im.height)
+        mode = "portrait";
+      else
+        mode = "landscape";
+  
+      return mode;
+    }  
+
     const editGratitude = () => {
       localStorage.setItem('gratitudeData', JSON.stringify(focused[0]));
       history.push(`/gratibum/edit/${id}`);
@@ -55,7 +67,10 @@ const FocusedGratitude = () => {
     return (
         <div className={ window.innerWidth < 1000 ? 'focused-gratitude focused-gratitude-small' : 'focused-gratitude focused-gratitude-large'}>
             
-            <div className="image">
+            <div className={ checkImageMode(focused[0].imageUrl) == "portrait" ? "image image-portrait" : "image image-landscape" }>
+              <span
+                style={{ backgroundImage: `url(${focused[0].imageUrl})`}}
+              ></span>
               <img src={ focused[0].imageUrl != "" ? focused[0].imageUrl : logo } alt="gratitude image" className="gratitude-image" />
             </div>
 
