@@ -1395,13 +1395,37 @@ body {
   opacity: 0;
   cursor: pointer;
 }
-.create-gratitude .query .gratitude-image img {
+.create-gratitude .query .gratitude-image span {
   position: absolute;
   width: 100%;
   height: 100%;
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  filter: blur(3px);
+  opacity: 0.3;
+}
+.create-gratitude .query .gratitude-image img {
+  position: absolute;
+  height: 97%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 15px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.create-gratitude .query .gratitude-image .portrait {
+  width: 50%;
+}
+.create-gratitude .query .gratitude-image .landscape {
+  width: 90%;
+}
+.create-gratitude .query .gratitude-image .square {
+  width: 80%;
+  height: 80%;
 }
 .create-gratitude .query .gratitude-image p {
   position: absolute;
