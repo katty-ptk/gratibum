@@ -20,9 +20,15 @@ const EditGratitude = () => {
     // console.log(id);
 
     const [title, setTitle ] = useState("");
-    const [qWhat, setQWhat] = useState(""); 
-    const [qWhy, setQWhy] = useState(""); 
-    const [qOther, setQOther] = useState(""); 
+    const [qWhat, setQWhat] = useState( 
+        gratitudeData.questions.what ? gratitudeData.questions.what : null
+     ); 
+    const [qWhy, setQWhy] = useState(
+        gratitudeData.questions.why ? gratitudeData.questions.why : null
+    ); 
+    const [qOther, setQOther] = useState(
+        gratitudeData.questions.other ? gratitudeData.questions.other : null
+    ); 
     const [description, setDescription] = useState(""); 
     const [img, setImg] = useState(logo);
     const [ preview, setPreview] = useState( gratitudeData.imageUrl != "" ? gratitudeData.imageUrl : logo);
@@ -76,23 +82,40 @@ const EditGratitude = () => {
 
     // console.log( gratitudeData.date )
     const submit = async () => {
-        await setDescription( qWhat + " " + qWhy + " " + qOther );
+        /*
+        var myObj = Object.create(null, {
+        prop1: {
+            writable: true,
+            configurable: true,
+            value: 10
+        }, prop2: {
+            get: function() {
+            return this.prop1 + 5;
+            }
+        }
+        */
+
+        if ( qWhat != null ) await setDescription( qWhat );
+        if ( qWhy != null ) await setDescription( description + " " + qWhy );
+        if ( qOther != null ) await setDescription( description + " " + qOther );
         // DE VB CU COSMIN!
         const updated = {
             [id]:{
                 date: !gratitudeData.date.seconds ? gratitudeData.date : new Date(),  // date changing to now if gratitude from app is being edited
                 title: title != "" ? title : gratitudeData.title,
-                description: qWhat + " " + qWhy + " " + qOther,
                 questions: {
-                    what: qWhat != "" ? qWhat : (gratitudeData.questions ? gratitudeData.questions.what : ""),
-                    why: qWhy != "" ? qWhy : (gratitudeData.questions ? gratitudeData.questions.why : ""),
-                    other: qOther != "" ? qOther : (gratitudeData.questions ? gratitudeData.questions.other : "")
+                    what: qWhat != null ? qWhat : (gratitudeData.questions ? gratitudeData.questions.what : ""),
+                    why: qWhy != null ? qWhy : (gratitudeData.questions ? gratitudeData.questions.why : ""),
+                    other: qOther != null ? qOther : (gratitudeData.questions ? gratitudeData.questions.other : "")
                 },
+                // description: questions.what,
                 imageUrl: preview,
                 ownerID: email,
                 id: id
             }
         }
+
+        updated[id].description = updated[id].questions.what + " " + updated[id].questions.why + " " + updated[id].questions.other;
 
         // await console.log(updated);
         const docRef = doc(firebaseDb, `test/accounts/${email}`, "gratibums");
