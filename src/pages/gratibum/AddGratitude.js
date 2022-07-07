@@ -59,7 +59,7 @@ const CreateGratitude = () => {
                 await setPreview(reader.result);
             };
             reader.readAsDataURL(img);
-            console.log( preview );
+            // console.log( preview );
           } else {
             await setPreview(logo);
           }
@@ -100,6 +100,20 @@ const CreateGratitude = () => {
         querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
         return querySnapshot;
     }
+
+    let mode;
+    const checkImageMode = ( imageSrc ) => {
+      const im = new Image();
+      im.src = imageSrc;
+      if (im.width < im.height)
+        mode = "portrait";
+      else if ( im.width == im.height )
+        mode = "square";  
+      else
+        mode = "landscape";
+  
+      return mode;
+    }  
 
 
     const saveToFirebase = async () => {
@@ -159,7 +173,12 @@ const CreateGratitude = () => {
 
             <section className="query">
                 <div className="gratitude-image">
-                    <img src={ preview } alt="" />
+                    <span
+                        style={{ backgroundImage: `url(${preview})`}}
+                    ></span>
+                    <img src={ preview } alt="" 
+                        className={ checkImageMode(preview)  }
+                    />
                     { preview == logo &&   <p>
                             { t('add_image') }
                         </p>
