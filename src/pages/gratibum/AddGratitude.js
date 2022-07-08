@@ -102,7 +102,7 @@ const CreateGratitude = () => {
     }
 
     let mode;
-    const checkImageMode = ( imageSrc ) => {
+    const checkImageMode = async ( imageSrc ) => {
       const im = new Image();
       im.src = imageSrc;
       if (im.width < im.height)
