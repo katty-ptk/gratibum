@@ -142,6 +142,10 @@ const EditGratitude = () => {
 
             <section className="query">
                 <div className="gratitude-image">
+                    <span
+                        style={{ backgroundImage: `url(${preview})`}}
+                    ></span>
+
                     <img src={preview} alt="" />
                 { preview == logo &&
                     <p>
