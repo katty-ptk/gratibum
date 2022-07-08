@@ -14,38 +14,62 @@ import { collection, getDoc, getDocs, setDoc, doc, addDoc } from 'firebase/fires
 
 // images
 import logo from '../../images/logo.png';
+
 const Main = () => {
 
   const { t } = useTranslation();
   const history = useHistory();
 
-  const localstor = JSON.parse(localStorage.getItem("currentUser"));
+  const localstor = JSON.parse(localStorage.getItem("currentUser"));  // logged in user
 
   const [ gratitudes, setGratitudes ] = useState([]);
-  // const [ portrait, setPortrait ] = useState(false);
+  const [ loading, setLoading ] = useState( false );
 
   const name = localstor.name;
   
   let img = logo;  
 
+  // if user has profile photo, set image to that
   if ( localstor.photoUrl != "" )
     img = localstor.photoUrl;
   
+  // returns gratibum doc from firestore
   let querySnapshot;
   const getGratibumsFromFirebase = async ( userEmail ) => {
       querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
       return querySnapshot.docs.at(1).data();
   }
 
+  const ress = getGratibumsFromFirebase( localstor.email );
+  useEffect(() => {
+    ress.then(ful => {
+      localStorage.setItem("gratibums", JSON.stringify(ful));       
+      console.log( ful );
+      // const gratibums = JSON.parse(localStorage.getItem("gratibums"));
+      const gratibums = ful;
+
+      // console.log( gratibums );
+
+      for (var key in gratibums) {
+        if (gratibums.hasOwnProperty(key)) {
+          gratitudes.push( gratibums[key] );
+        }
+      }
+    
+      setLoading( true );
+
+    }).catch( er => console.log(er) );
+  }, []);
+
   
-  const gratibums = JSON.parse(localStorage.getItem("gratibums"));
+  // const gratibums = JSON.parse(localStorage.getItem("gratibums"));
   
-  for (var key in gratibums) {
-    if (gratibums.hasOwnProperty(key)) {
-      gratitudes.push( gratibums[key] );
-      // console.log( new Date(gratibums[key].date).getTime() );
-    }
-  }
+  // for (var key in gratibums) {
+  //   if (gratibums.hasOwnProperty(key)) {
+  //     gratitudes.push( gratibums[key] );
+  //     // console.log( new Date(gratibums[key].date).getTime() );
+  //   }
+  // }
 
 
   let focused;
@@ -67,16 +91,9 @@ const Main = () => {
       mode = "landscape";
 
     return mode;
-    // await setMode(item.mode);
   }  
 
 
-  const ress = getGratibumsFromFirebase( localstor.email );
-  useEffect(() => {
-    ress.then(ful => {
-      localStorage.setItem("gratibums", JSON.stringify(ful));       
-    }).catch( er => console.log(er) );
-  }, []);
 
   return (
     <div className={ window.innerWidth < 1000 ? 'gratibum gratibum-small' : 'gratibum gratibum-large'}>
@@ -100,18 +117,23 @@ const Main = () => {
           </h3>
         </div> */}
 
-        {
+        { loading ?
           gratitudes.map( ( item, index ) => {
             {/* console.log( gratitudes[index] ); */}
 
             return (
-              <Gratitude key={item.date.seconds}
+              <Gratitude key={item.id}
                   data={item} 
                   handleClick={viewGratitude}
                   mode={ checkImageMode( item.imageUrl) }
               />
             )
-          })
+          }) : ( 
+            <div className="loading">
+              <img src={logo} alt="" />
+              <p>Loading ...</p>
+            </div>
+          )
         }
 
       </section>
