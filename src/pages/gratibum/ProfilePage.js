@@ -104,19 +104,13 @@ const ProfilePage = () => {
         history.push('/sign-in');
     }
 
-    let querySnapshot;
-    const getGratibumsFromFirebase = async ( userEmail ) => {
-        querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
-        return querySnapshot.docs.at(1).data();
-    }
-  
-    const ress = getGratibumsFromFirebase( localstor.email );
-    const [ gratitudes, setGratitudes ] = useState({});
-    ress
-        .then( ful => {
-            setGratitudes( ful );    
-        })
-        .catch( er => console.log(er) );
+
+    // count gratitudes to display their number
+    const [ gratitudesNr, setGratitudesNr ] = useState(0);
+    useEffect( async () => {
+        await setGratitudesNr( Object.keys(JSON.parse(localStorage.getItem('gratibums'))).length );
+        // console.log( ' use effect profile ');
+    }, []);
   
     return (
         <div className={ window.innerWidth < 1000 ? 'profile-page profile-page-small sign-in-page sign-in-page-small' : 'profile-page profile-page-large sign-in-page sign-in-page-large'}>
@@ -145,7 +139,7 @@ const ProfilePage = () => {
                     </div>
 
                     <div className="gratitudes-nr">
-                        <h3>{ Object.keys(gratitudes).length + " " + t('gratitudes') }</h3>
+                        <h3>{ gratitudesNr + " " + t('gratitudes') }</h3>
                     </div>
 
                     <Logout />
