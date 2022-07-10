@@ -1057,6 +1057,12 @@ body {
   width: 70%;
   height: 100%;
 }
+.gratibum-large .entries .test-greeting {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .gratibum-large .entries .gratitude {
   width: 330px;
   height: 300px;
@@ -1064,8 +1070,12 @@ body {
   margin-bottom: 30px;
 }
 
-.profile-page .profile-page-header h2 {
-  font-style: italic;
+.profile-page .profile-page-header .links img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  right: 20px;
 }
 .profile-page .profile-img {
   display: grid;
@@ -1074,10 +1084,10 @@ body {
   grid-row: 1;
   grid-column: 1;
 }
-.profile-page img, .profile-page input {
+.profile-page img, .profile-page input[type=file] {
   width: 150px;
   height: 150px;
-  border: 2px dashed black;
+  border: 1px dashed black;
   border-radius: 100%;
   margin-bottom: 30px;
   cursor: pointer;
@@ -1785,6 +1795,117 @@ body {
 }
 .focused-gratitude-large .text p {
   font-size: 1.2rem;
+}
+
+.edit-profile-small section {
+  margin-top: 50px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.edit-profile-small section .info div {
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+.edit-profile-small section .info div label {
+  display: block;
+  font-weight: 400;
+  font-size: 1em;
+  color: #746363;
+  margin-bottom: 10px;
+}
+.edit-profile-small section .info div input {
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border: none;
+  background: transparent;
+  border-bottom: 3px solid #5A2356;
+  font-weight: bold;
+}
+.edit-profile-small section .info div input::-moz-placeholder {
+  font-weight: normal;
+}
+.edit-profile-small section .info div input:-ms-input-placeholder {
+  font-weight: normal;
+}
+.edit-profile-small section .info div input::placeholder {
+  font-weight: normal;
+}
+.edit-profile-small section .save button {
+  width: 150px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  background: #E4D3D3;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 15px;
+  color: #5A2356;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-profile-large section {
+  position: absolute;
+  width: 55%;
+  right: 0;
+  margin-top: 150px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.edit-profile-large section .info div {
+  margin-left: 100px;
+  margin-bottom: 30px;
+}
+.edit-profile-large section .info div label {
+  display: block;
+  font-weight: 400;
+  font-size: 1em;
+  color: #746363;
+  margin-bottom: 10px;
+}
+.edit-profile-large section .info div input {
+  width: 50%;
+  height: 30px;
+  outline: none;
+  border: none;
+  background: transparent;
+  border-bottom: 3px solid #5A2356;
+  font-weight: bold;
+}
+.edit-profile-large section .info div input::-moz-placeholder {
+  font-weight: normal;
+}
+.edit-profile-large section .info div input:-ms-input-placeholder {
+  font-weight: normal;
+}
+.edit-profile-large section .info div input::placeholder {
+  font-weight: normal;
+}
+.edit-profile-large section .save button {
+  width: 150px;
+  height: 40px;
+  margin-left: 100px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  background: #E4D3D3;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 15px;
+  color: #5A2356;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 * {

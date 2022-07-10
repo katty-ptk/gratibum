@@ -111,12 +111,14 @@ const Main = () => {
       </div>
 
       <section className="entries">
-        {/* <div className="test-greeting">
+
+{     gratitudes.length == 0 && loading &&
+        <div className="test-greeting">
           <h3>
             { t('empty_gratibum') }
           </h3>
-        </div> */}
-
+        </div>
+}
         { loading ?
           gratitudes.map( ( item, index ) => {
             {/* console.log( gratitudes[index] ); */}

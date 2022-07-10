@@ -12,6 +12,8 @@ import AboutGratibum from './pages/gratibum/AboutGratibum';
 import AddGratitude from './pages/gratibum/AddGratitude';
 import FocusedGratitude from './pages/gratibum/FocusedGratitude';
 import EditGratitude from './pages/gratibum/EditGratitude';
+import EditProfile from './pages/gratibum/EditProfile';
+// import EditProfil
 
 function App() {
   return (
@@ -54,6 +56,10 @@ function App() {
           <Route
             exact path='/create-gratitude'
             component={ AddGratitude }
+          ></Route>
+          <Route
+            exact path='/gratibum/editProfile'
+            component={ EditProfile }
           ></Route>
           <Route
             exact path='/gratibum/:id'

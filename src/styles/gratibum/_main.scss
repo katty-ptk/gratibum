@@ -252,6 +252,13 @@ body {
         width: 70%;
         height: 100%;
 
+        .test-greeting {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .gratitude {
             width: 330px;
             height: 300px;

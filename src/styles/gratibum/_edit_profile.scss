@@ -1,0 +1,135 @@
+.edit-profile-small {
+
+    section {
+        margin-top: 50px;
+        padding-right: 30px;
+        display: flex;
+        flex-direction: column;
+        // align-items:flex-start;
+        // justify-content: center;
+
+        .info {
+            div {
+                margin-left: 30px;
+                margin-bottom: 30px;
+
+                label {
+                    display: block;
+                    font-weight: 400;
+                    font-size: 1em;
+                    color: #746363;
+                    margin-bottom: 10px;
+                }
+
+                input {
+                    // width: 277px;
+                    width: 100%;
+                    height: 30px;
+                    outline: none;
+                    border: none;
+                    background: transparent;
+                    border-bottom: 3px solid #5A2356;
+                    font-weight: bold;
+
+                    &::placeholder {
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+
+        .save {
+            button {
+                width: 150px;
+                height: 40px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            
+                font-family: 'Roboto', sans-serif;
+                font-weight: bold;
+                font-size: 1.2em;
+                text-align: center;
+                background: #E4D3D3;
+                color: #fff;
+                border-radius: 10px;
+                margin-top: 15px;
+                color: #5A2356;
+                outline: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+.edit-profile-large {
+
+    section {
+        position: absolute;
+        width: 55%;
+        right: 0;
+        margin-top: 150px;
+        padding-right: 30px;
+        display: flex;
+        flex-direction: column;
+        // align-items:flex-start;
+        // justify-content: center;
+
+        .info {
+            div {
+                margin-left: 100px;
+                margin-bottom: 30px;
+
+                label {
+                    display: block;
+                    font-weight: 400;
+                    font-size: 1em;
+                    color: #746363;
+                    margin-bottom: 10px;
+                }
+
+                input {
+                    // width: 277px;
+                    width: 50%;
+                    height: 30px;
+                    outline: none;
+                    border: none;
+                    background: transparent;
+                    border-bottom: 3px solid #5A2356;
+                    font-weight: bold;
+
+                    &::placeholder {
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+
+        .save {
+            button {
+                width: 150px;
+                height: 40px;
+                margin-left: 100px;
+                // position: absolute;
+                // left: ;
+                // left: 50%;
+                // transform: translateX(-50%);
+            
+                font-family: 'Roboto', sans-serif;
+                font-weight: bold;
+                font-size: 1.2em;
+                text-align: center;
+                background: #E4D3D3;
+                color: #fff;
+                border-radius: 10px;
+                margin-top: 15px;
+                color: #5A2356;
+                outline: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
