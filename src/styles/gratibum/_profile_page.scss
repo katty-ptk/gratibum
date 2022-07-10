@@ -1,7 +1,14 @@
 .profile-page {
     .profile-page-header { 
-        h2 { 
-            font-style: italic;
+        .links {
+            img {
+                width: 30px;
+                height: 30px;
+
+                position: absolute;
+                top: 30px;
+                right: 20px;
+            }
         }
     }
 
@@ -14,10 +21,10 @@
         }
     }
 
-    img, input {
+    img, input[type="file"] {
         width: 150px;
         height: 150px;
-        border: 2px dashed black;
+        border: 1px dashed black;
         border-radius: 100%;
         margin-bottom: 30px;
         cursor: pointer;
