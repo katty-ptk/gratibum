@@ -1,5 +1,19 @@
 .edit-profile-small {
 
+    .profile-img {
+        img {
+            border: 3px dashed gray;
+            object-fit: cover;
+        }
+
+        input[type="file"]{
+            opacity: 0;
+            width: 150px;
+            height: 150px;
+    
+        }
+    }
+
     section {
         margin-top: 50px;
         padding-right: 30px;
@@ -65,6 +79,19 @@
 
 
 .edit-profile-large {
+    .profile-img {
+        img {
+            border: 3px dashed gray;
+            object-fit: cover;
+        }
+
+        input[type="file"]{
+            opacity: 0;
+            width: 150px;
+            height: 150px;
+    
+        }
+    }
 
     section {
         position: absolute;

@@ -72,12 +72,7 @@ const LoginPage = () => {
                             // localStorage.setItem( "currentUser", user.email );
                             history.push("/gratibum");  // redirects to app
                         })
-                // } else {
-                //     setError( true );
-                //     setErrorMsg( "Please verify your email first!" );
-                //     setLoggedIn( false );    
-                // }
-
+                
             })
             .catch( error => {
                 console.log(error.message);

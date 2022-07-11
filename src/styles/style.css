@@ -629,11 +629,9 @@
   .presentation .sign-in {
     top: calc(40% + 250px);
   }
-
   .languages-div .languages {
     margin-left: 3px;
   }
-
   .sign-up-page .sign-up-section form label {
     font-size: 14px;
     margin-bottom: 10px;
@@ -644,7 +642,6 @@
   .sign-up-page .already-account {
     top: 85%;
   }
-
   .login-page .login-section {
     top: 35%;
   }
@@ -672,14 +669,12 @@
   .about .abouts div p {
     font-size: 14px;
   }
-
   .feedback h1 {
     font-size: 1rem;
   }
   .feedback .cards .card:not(:first-child) {
     display: none;
   }
-
   .join-us h1 {
     font-size: 1rem;
     width: 100%;
@@ -690,7 +685,6 @@
   .join-us h3 {
     margin-bottom: 10px;
   }
-
   .sign-up-page .sign-up-section {
     top: 23%;
   }
@@ -704,7 +698,6 @@
   .sign-up-page .already-account {
     top: 82%;
   }
-
   .login-page .login-section {
     top: 35%;
   }
@@ -716,7 +709,6 @@
   body {
     overflow-x: hidden;
   }
-
   .description-card {
     flex-direction: row;
     background: none;
@@ -746,7 +738,6 @@
     margin-left: 100px;
     font-size: 14px;
   }
-
   .about .abouts {
     width: 50%;
     left: 50%;
@@ -755,7 +746,6 @@
   .about .abouts div {
     width: 455px;
   }
-
   .feedback .cards {
     top: 50%;
     transform: translate(-50%, -50%);
@@ -777,7 +767,6 @@
   .feedback .cards .card div p {
     font-size: 12px;
   }
-
   .join-us-large {
     display: flex;
     justify-content: center;
@@ -809,7 +798,6 @@
   .about .abouts div {
     width: 300px;
   }
-
   .feedback .cards .card span {
     display: none;
   }
@@ -1087,13 +1075,8 @@ body {
 .profile-page img, .profile-page input[type=file] {
   width: 150px;
   height: 150px;
-  border: 1px dashed black;
   border-radius: 100%;
   margin-bottom: 30px;
-  cursor: pointer;
-}
-.profile-page input[type=file] {
-  opacity: 0;
 }
 .profile-page .select-language-profile {
   position: absolute;
@@ -1439,10 +1422,8 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-position: center;
-  /* Center the image */
-  background-repeat: no-repeat;
-  /* Do not repeat the image */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
   filter: blur(3px);
   opacity: 0.3;
@@ -1606,10 +1587,8 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-position: center;
-  /* Center the image */
-  background-repeat: no-repeat;
-  /* Do not repeat the image */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
   filter: blur(8px);
   opacity: 0.5;
@@ -1797,6 +1776,16 @@ body {
   font-size: 1.2rem;
 }
 
+.edit-profile-small .profile-img img {
+  border: 3px dashed gray;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.edit-profile-small .profile-img input[type=file] {
+  opacity: 0;
+  width: 150px;
+  height: 150px;
+}
 .edit-profile-small section {
   margin-top: 50px;
   padding-right: 30px;
@@ -1852,6 +1841,16 @@ body {
   cursor: pointer;
 }
 
+.edit-profile-large .profile-img img {
+  border: 3px dashed gray;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.edit-profile-large .profile-img input[type=file] {
+  opacity: 0;
+  width: 150px;
+  height: 150px;
+}
 .edit-profile-large section {
   position: absolute;
   width: 55%;

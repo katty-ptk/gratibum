@@ -61,17 +61,6 @@ const Main = () => {
     }).catch( er => console.log(er) );
   }, []);
 
-  
-  // const gratibums = JSON.parse(localStorage.getItem("gratibums"));
-  
-  // for (var key in gratibums) {
-  //   if (gratibums.hasOwnProperty(key)) {
-  //     gratitudes.push( gratibums[key] );
-  //     // console.log( new Date(gratibums[key].date).getTime() );
-  //   }
-  // }
-
-
   let focused;
   const viewGratitude = async ( id ) => {
     
@@ -105,7 +94,7 @@ const Main = () => {
 
           <Link to="/profile">
             <div className="user-img">
-              <img src={logo} alt="" />
+              <img src={img} alt="" />
             </div>
           </Link>
       </div>

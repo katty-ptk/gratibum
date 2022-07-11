@@ -24,16 +24,11 @@
     img, input[type="file"] {
         width: 150px;
         height: 150px;
-        border: 1px dashed black;
+        // border: 1px dashed black;
         border-radius: 100%;
         margin-bottom: 30px;
-        cursor: pointer;
     }
     
-    input[type="file"] {
-        opacity: 0;
-    }
-
     .select-language-profile {
         position: absolute;
         top: 60%;

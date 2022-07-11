@@ -61,20 +61,15 @@ const SignInPage = () => {
                 const ress = getUserFromFirebase( result.user.email );
 
                 ress
-                 .then ( ful => {
+                 .then ( ful => {   // if user exists, just log them in
                      const user = result.user;
                      localStorage.setItem("user", JSON.stringify(user));
-     
-                     setName( user.displayName );
-                     setEmail( user.email );
-                     setPhotoUrl( user.photoURL );
-     
                      setSignedIn(true);
                      setError(false);
      
                      history.push("/gratibum");  // redirects to app
                  } )
-                 .catch( er => {
+                 .catch( er => {    // otherwise, create account and log them in
                      saveUserToFirebase( result.user );
                      getUserFromFirebase( result.user.email );
 
@@ -120,21 +115,10 @@ const SignInPage = () => {
 
     const getUserFromFirebase = async ( userEmail ) => {
         querySnapshot = await getDocs( collection( firebaseDb, `/test/accounts/${userEmail}` ) );
-        // console.log( querySnapshot.docs.length );
-        // photo = querySnapshot.docs.at(0).data().photoUrl;
-
         localStorage.setItem( "gratibums", JSON.stringify(querySnapshot.docs.at(1).data()) ); // 
         localStorage.setItem( "currentUser", JSON.stringify(querySnapshot.docs.at(0).data()) );
 
         return querySnapshot;
-
-        // return new Promise( ( resolve, reject ) => {
-        //     if ( querySnapshot.docs.length > 0 ) {
-        //         resolve( "resolved! :)" );
-        //     } else {
-        //         reject( new Error("rejected! :(") );
-        //     }
-        // });
     }
 
     return (
