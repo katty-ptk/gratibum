@@ -14,6 +14,20 @@ import { collection, getDocs, getDoc, setDoc, doc, query, addDoc } from 'firebas
 import { getDatabase, ref, child, push, update, set } from "firebase/database";
 // import document
 
+import {  motion } from 'framer-motion';
+
+const addGratitudeVariants = {
+    initial: {
+        opacity: 0
+    },
+
+    animate: {
+        opacity: 1,
+        transition: { type: 'tween' }
+    }
+}
+
+
 const CreateGratitude = () => {
 
     const {t} = useTranslation();
@@ -157,7 +171,11 @@ const CreateGratitude = () => {
     }
 
     return (
-        <div className={ window.innerWidth < 1000 ? 'create-gratitude create-gratitude-small gratibum gratibum-small' : 'create-gratitude create-gratitude-large gratibum gratibum-large'}>
+        <motion.div className={ window.innerWidth < 1000 ? 'create-gratitude create-gratitude-small gratibum gratibum-small' : 'create-gratitude create-gratitude-large gratibum gratibum-large'}
+            variants={ addGratitudeVariants }
+            initial="initial"
+            animate="animate"
+        >
             <div className="app-header">          
                 <h2>
                     { t("new_gratitude") }
@@ -245,7 +263,7 @@ const CreateGratitude = () => {
                     </p>
                 </div>
             </section>
-        </div>
+        </motion.div>
     )
 }
 
