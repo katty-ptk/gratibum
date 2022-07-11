@@ -10,6 +10,20 @@ import Back from '../../components/Back';
 
 import logo from '../../images/logo.png';
 
+import {  motion, useReducedMotion } from 'framer-motion';
+
+const editProfileVariants = {
+    initial: {
+        y: '100vh'
+    },
+
+    animate: {
+        y: 0,
+        transition: { type: 'tween' }
+    }
+}
+
+
 function EditProfile() {
     const history = useHistory();
 
@@ -80,7 +94,11 @@ function EditProfile() {
     }
 
   return (
-    <div className={ window.innerWidth < 1000 ? 'edit-profile-small profile-page profile-page-small sign-in-page sign-in-page-small' : 'edit-profile-large profile-page profile-page-large sign-in-page sign-in-page-large'}>
+    <motion.div className={ window.innerWidth < 1000 ? 'edit-profile-small profile-page profile-page-small sign-in-page sign-in-page-small' : 'edit-profile-large profile-page profile-page-large sign-in-page sign-in-page-large'}
+            variants={ editProfileVariants }
+            initial="initial"
+            animate="animate"
+    >
 
         <div className="profile-page-header  sign-in-header">
             <Link to='/profile'>
@@ -128,7 +146,7 @@ function EditProfile() {
             </div>
         </section>
 
-    </div>
+    </motion.div>
   );
 }
 

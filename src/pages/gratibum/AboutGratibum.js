@@ -12,9 +12,27 @@ import kofi from '../../images/icons/social media/kofi.png';
 import logo from '../../images/logo.png';
 import { t } from 'i18next';
 
+import {  motion, useReducedMotion } from 'framer-motion';
+
+const aboutVariants = {
+    initial: {
+        opacity: 0
+    },
+
+    animate: {
+        opacity: 1,
+        transition: { type: 'tween' }
+    }
+}
+
+
 const AboutGratibum = () => {
   return (
-    <div className={ window.innerWidth < 1000 ? 'about-gratibum about-gratibum-small profile-page profile-page-small sign-in-page sign-in-page-small' : 'about-gratibum about-gratibum-large profile-page profile-page-large sign-in-page sign-in-page-large'}>
+    <motion.div className={ window.innerWidth < 1000 ? 'about-gratibum about-gratibum-small profile-page profile-page-small sign-in-page sign-in-page-small' : 'about-gratibum about-gratibum-large profile-page profile-page-large sign-in-page sign-in-page-large'}
+        variants={ aboutVariants }
+        initial="initial"
+        animate="animate"
+    >
         <div className="profile-page-header  sign-in-header">
             <Link to="/profile">
                 <Back />
@@ -94,7 +112,7 @@ const AboutGratibum = () => {
                 </Link>
             </section>
         </div>
-    </div>
+    </motion.div>
     )
 }
 

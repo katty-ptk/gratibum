@@ -82,8 +82,6 @@ const Main = () => {
     return mode;
   }  
 
-
-
   return (
     <div className={ window.innerWidth < 1000 ? 'gratibum gratibum-small' : 'gratibum gratibum-large'}>
       <div className="app-header">          

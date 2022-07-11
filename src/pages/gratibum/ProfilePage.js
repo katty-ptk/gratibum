@@ -16,6 +16,20 @@ import editProfile from '../../images/icons/edit_profile.png';
 import { useTranslation } from 'react-i18next'
 import SelectLanguage from '../../components/SelectLanguage';
 
+import {  motion, useReducedMotion } from 'framer-motion';
+
+const profileVariants = {
+    initial: {
+        x: '100vw'
+    },
+
+    animate: {
+        x: 0,
+        transition: { type: 'tween' }
+    }
+}
+
+
 const ProfilePage = () => {
     const {t} = useTranslation();
     const history = useHistory();
@@ -54,7 +68,11 @@ const ProfilePage = () => {
     }, []);
   
     return (
-        <div className={ window.innerWidth < 1000 ? 'profile-page profile-page-small sign-in-page sign-in-page-small' : 'profile-page profile-page-large sign-in-page sign-in-page-large'}>
+        <motion.div className={ window.innerWidth < 1000 ? 'profile-page profile-page-small sign-in-page sign-in-page-small' : 'profile-page profile-page-large sign-in-page sign-in-page-large'}
+            variants={ profileVariants }
+            initial="initial"
+            animate="animate"
+        >
             <div className="profile-page-header  sign-in-header">
                 <div className="links">
                     <Link to="/gratibum">
@@ -103,7 +121,7 @@ const ProfilePage = () => {
             <div className="select-language-profile">
                 <SelectLanguage />
             </div>
-        </div>
+        </motion.div>
     )
 }
 

@@ -16,6 +16,19 @@ import test from '../../images/tests/test.png';
 import test2 from '../../images/tests/test2.png';
 import logo from '../../images/logo.png';
 
+import {  motion, useReducedMotion } from 'framer-motion';
+
+const focusedGratitudeVariants = {
+    initial: {
+        opacity: 0
+    },
+
+    animate: {
+        opacity: 1,
+        transition: { type: 'tween' }
+    }
+}
+
 const FocusedGratitude = () => {
     const { id } = useParams();
     const history = useHistory();
@@ -67,7 +80,11 @@ const FocusedGratitude = () => {
     }
   
     return (
-        <div className={ window.innerWidth < 1000 ? 'focused-gratitude focused-gratitude-small' : 'focused-gratitude focused-gratitude-large'}>
+        <motion.div className={ window.innerWidth < 1000 ? 'focused-gratitude focused-gratitude-small' : 'focused-gratitude focused-gratitude-large'}
+            variants={ focusedGratitudeVariants }
+            initial="initial"
+            animate="animate"
+        >
             
             <div className={ checkImageMode(focused[0].imageUrl) == "portrait" ? "image image-portrait" : checkImageMode(focused[0].imageUrl) == "square" ? "image image-square" : "image image-landscape" }>
               <span
@@ -91,7 +108,11 @@ const FocusedGratitude = () => {
               </div>
 
 { deleteOpen &&
-               <div className="delete">
+               <motion.div className="delete"
+                  variants={ focusedGratitudeVariants }
+                  initial="initial"
+                  animate="animate"
+               >
                   <h2>
                     Are you sure you want to delete this gratitude?
                   </h2>
@@ -108,7 +129,7 @@ const FocusedGratitude = () => {
                       Cancel
                     </p>                  
                   </div>
-               </div>
+               </motion.div>
 }
               <h1>{ focused[0].title }</h1>
 
@@ -153,7 +174,7 @@ const FocusedGratitude = () => {
               }            
         </div>
 
-        </div>
+        </motion.div>
     );
 }
 

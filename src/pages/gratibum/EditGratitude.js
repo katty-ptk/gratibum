@@ -7,11 +7,27 @@ import { firebaseDb } from "../../services/firebase";
 
 import Back from "../../components/Back";
 import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import logo from '../../images/logo.png';
 
+import {  motion, useReducedMotion } from 'framer-motion';
+
+const editGratitudeVariants = {
+    initial: {
+        opacity: 0
+    },
+
+    animate: {
+        opacity: 1,
+        transition: { type: 'tween' }
+    }
+}
+
+
 const EditGratitude = () => {
     const { t } = useTranslation();
+    const history = useHistory();
     const { id } = useParams();
 
     const gratitudeData = JSON.parse(localStorage.getItem('gratitudeData'));
@@ -74,27 +90,9 @@ const EditGratitude = () => {
           } else {
             await setImg(logo);
           }  
-
-        // console.log( fileInput );
     }
 
-    // console.log( new Date() )
-
-    // console.log( gratitudeData.date )
     const submit = async () => {
-        /*
-        var myObj = Object.create(null, {
-        prop1: {
-            writable: true,
-            configurable: true,
-            value: 10
-        }, prop2: {
-            get: function() {
-            return this.prop1 + 5;
-            }
-        }
-        */
-
         if ( qWhat != null ) await setDescription( qWhat );
         if ( qWhy != null ) await setDescription( description + " " + qWhy );
         if ( qOther != null ) await setDescription( description + " " + qOther );
@@ -108,7 +106,6 @@ const EditGratitude = () => {
                     why: qWhy != null ? qWhy : (gratitudeData.questions ? gratitudeData.questions.why : ""),
                     other: qOther != null ? qOther : (gratitudeData.questions ? gratitudeData.questions.other : "")
                 },
-                // description: questions.what,
                 imageUrl: preview,
                 ownerID: email,
                 id: id
@@ -117,16 +114,21 @@ const EditGratitude = () => {
 
         updated[id].description = updated[id].questions.what + " " + updated[id].questions.why + " " + updated[id].questions.other;
 
-        // await console.log(updated);
         const docRef = doc(firebaseDb, `test/accounts/${email}`, "gratibums");
         await updateDoc(
             docRef,
             updated
         );
+
+        history.push('/gratibum');
     }
 
     return (
-        <div className={ window.innerWidth < 1000 ? 'create-gratitude create-gratitude-small gratibum gratibum-small' : 'create-gratitude create-gratitude-large gratibum gratibum-large'}>
+        <motion.div className={ window.innerWidth < 1000 ? 'create-gratitude create-gratitude-small gratibum gratibum-small' : 'create-gratitude create-gratitude-large gratibum gratibum-large'}
+            variants={ editGratitudeVariants }
+            initial="initial"
+            animate="animate"
+        >
             <div className="app-header">          
                 <h2>
                     Edit Gratitude
@@ -232,7 +234,7 @@ const EditGratitude = () => {
                     </p>
                 </div>
             </section>
-        </div>
+        </motion.div>
     );
 }
 
