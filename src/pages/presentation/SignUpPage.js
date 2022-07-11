@@ -111,7 +111,7 @@ const SignUpPage = () => {
             accountId: userCredentials.user.uid,
             email: userCredentials.user.email,
             name: firstName,
-            photoUrl: logo
+            photoUrl: ""
         };
         await setDoc(doc(
                         collection(firebaseDb, "test/accounts", userCredentials.user.email),
